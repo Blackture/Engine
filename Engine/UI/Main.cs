@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Engine.Core.Maths;
 using Engine.Rendering;
 
-namespace Engine.Display
+namespace Engine
 {
     public partial class Main : Form
     {

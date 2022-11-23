@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Engine.Display
+namespace Engine
 {
     internal static class Program
     {

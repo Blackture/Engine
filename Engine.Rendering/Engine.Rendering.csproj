@@ -51,7 +51,7 @@
     <Compile Include="RenderImage.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Engine\Engine\Engine.Core.csproj">
+    <ProjectReference Include="..\Engine.Core\Engine.Core.csproj">
       <Project>{e5e1f9ae-7cf6-4c3b-8ec2-efcec92a428e}</Project>
       <Name>Engine.Core</Name>
     </ProjectReference>

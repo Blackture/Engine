@@ -1,4 +1,4 @@
-﻿namespace Engine.Display
+﻿namespace Engine
 {
     partial class Main
     {
