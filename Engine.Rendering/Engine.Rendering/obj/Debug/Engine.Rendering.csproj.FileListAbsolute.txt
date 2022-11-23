@@ -1,0 +1,9 @@
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\Engine.Rendering\bin\Debug\Engine.Rendering.dll
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\Engine.Rendering\bin\Debug\Engine.Rendering.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\Engine.Rendering\obj\Debug\Engine.Rendering.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\Engine.Rendering\obj\Debug\Engine.Rendering.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\Engine.Rendering\obj\Debug\Engine.Rendering.dll
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\Engine.Rendering\obj\Debug\Engine.Rendering.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\Engine.Rendering\bin\Debug\Engine.dll
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\Engine.Rendering\bin\Debug\Engine.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\Engine.Rendering\obj\Debug\Engine.Rendering.csproj.CopyComplete

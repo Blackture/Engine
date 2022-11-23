@@ -1,0 +1,16 @@
+C:\Users\Admin\Desktop\Engine\Engine.Display\bin\Debug\Engine 0.1-a.1.exe.config
+C:\Users\Admin\Desktop\Engine\Engine.Display\bin\Debug\Engine 0.1-a.1.exe
+C:\Users\Admin\Desktop\Engine\Engine.Display\bin\Debug\Engine 0.1-a.1.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Display\bin\Debug\Engine.dll
+C:\Users\Admin\Desktop\Engine\Engine.Display\bin\Debug\Engine.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Display\obj\Debug\Engine.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Engine\Engine.Display\obj\Debug\Engine.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\Engine\Engine.Display\obj\Debug\Engine.Properties.Resources.resources
+C:\Users\Admin\Desktop\Engine\Engine.Display\obj\Debug\Engine.Display.Main.resources
+C:\Users\Admin\Desktop\Engine\Engine.Display\obj\Debug\Engine.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Engine\Engine.Display\obj\Debug\Engine.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Engine\Engine.Display\obj\Debug\Engine.csproj.CopyComplete
+C:\Users\Admin\Desktop\Engine\Engine.Display\obj\Debug\Engine 0.1-a.1.exe
+C:\Users\Admin\Desktop\Engine\Engine.Display\obj\Debug\Engine 0.1-a.1.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Display\bin\Debug\Engine.Rendering.dll
+C:\Users\Admin\Desktop\Engine\Engine.Display\bin\Debug\Engine.Rendering.pdb
