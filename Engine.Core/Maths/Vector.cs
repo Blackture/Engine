@@ -86,5 +86,31 @@ namespace Engine.Core.Maths
 
             return Mathf.Sqrt(x12 + x22 + x32);
         }
+
+        public static float AngleBetween(Vector a, Vector b)
+        {
+            if (a == Zero && b == Zero) return 0.0f;
+            return Mathf.Acos(a * b / (a.Length * b.Length)) * 180 / Mathf.pi;
+        }
+
+        public static bool OrthogonalityCheck(Vector a, Vector b)
+        {
+            bool res = false;
+            if (a != Zero && b != Zero)
+            {
+                if (a * b == 0) res = true;
+            }
+            return res;
+        }
+
+        public bool IsPerpendicularTo(Vector v)
+        {
+            bool res = false;
+            if (this != Zero && v != Zero)
+            {
+                if (this * v == 0) res = true;
+            }
+            return res;
+        }
     }
 }

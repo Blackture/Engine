@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Maths\LCS.cs" />
+    <Compile Include="Maths\Matrix.cs" />
     <Compile Include="Maths\Straight.cs" />
     <Compile Include="Maths\GCS.cs" />
     <Compile Include="Maths\Vector.cs" />
