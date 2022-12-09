@@ -4,3 +4,9 @@ C:\Users\Admin\Desktop\Engine\Engine\Engine\obj\Debug\Engine.Core.csproj.Assembl
 C:\Users\Admin\Desktop\Engine\Engine\Engine\obj\Debug\Engine.Core.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Engine\Engine\Engine\obj\Debug\Engine.dll
 C:\Users\Admin\Desktop\Engine\Engine\Engine\obj\Debug\Engine.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\Engine.dll
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\Engine.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Core\obj\Debug\Engine.Core.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Engine\Engine.Core\obj\Debug\Engine.Core.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Engine\Engine.Core\obj\Debug\Engine.dll
+C:\Users\Admin\Desktop\Engine\Engine.Core\obj\Debug\Engine.pdb
