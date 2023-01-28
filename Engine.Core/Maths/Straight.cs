@@ -9,9 +9,15 @@ namespace Engine.Core.Maths
 {
     public class Straight
     {
-        public static readonly Straight x1_Axis = new Straight(Vector.Zero, new Vector(1, 0, 0));
-        public static readonly Straight x2_Axis = new Straight(Vector.Zero, new Vector(0, 1, 0));
-        public static readonly Straight x3_Axis = new Straight(Vector.Zero, new Vector(0, 0, 1));
+        public enum LineSetupType
+        {
+            _2Points,
+            _1Point1Dir
+        }
+
+        public static readonly Straight x1_Axis = new Straight(Vector.Zero, new Vector(1, 0, 0), LineSetupType._1Point1Dir);
+        public static readonly Straight x2_Axis = new Straight(Vector.Zero, new Vector(0, 1, 0), LineSetupType._1Point1Dir);
+        public static readonly Straight x3_Axis = new Straight(Vector.Zero, new Vector(0, 0, 1), LineSetupType._1Point1Dir);
 
         private Vector a;
         private Vector b;
@@ -21,11 +27,21 @@ namespace Engine.Core.Maths
         public Vector OB { get { return b; } set { b = value; dir = Vector.Normalize(b - a); } }
         public Vector Dir { get => dir; }
 
-        public Straight(Vector OA, Vector OB)
+        public Straight(Vector OA, Vector OB, LineSetupType setupType)
         {
-            a = OA;
-            b = OB;
-            dir = Vector.Normalize(b - a);
+            switch (setupType)
+            {
+                case LineSetupType._2Points:
+                    a = OA;
+                    b = OB;
+                    dir = Vector.Normalize(b - a);
+                    break;
+                case LineSetupType._1Point1Dir:
+                    a = OA;
+                    dir = Vector.Normalize(OB);
+                    b = GetPointAt(1);
+                    break;
+            }
         }
 
         public Vector GetPointAt(float f)
@@ -47,5 +63,20 @@ namespace Engine.Core.Maths
             else return false;
         }
 
+        public float Distance(Vector x, out Vector l)
+        {
+            Vector ax = x - a;
+            float dp1 = ax * dir;
+            float dp2 = dir * dir;
+            float t = dp1 / dp2;
+            l = a + t * dir;
+            Vector lx = x - l;
+            return Mathf.Sqrt(Mathf.Pow(lx.X1, 2) + Mathf.Pow(lx.X2, 2) + Mathf.Pow(lx.X3, 2));
+        }
+
+        public static float PlumbBob(Vector a, Straight b, out Vector l)
+        {
+            return b.Distance(a, out l);
+        }
     }
 }

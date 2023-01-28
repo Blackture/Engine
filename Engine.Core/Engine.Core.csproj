@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maths\Gauss.cs" />
     <Compile Include="Maths\LCS.cs" />
     <Compile Include="Maths\Matrix.cs" />
+    <Compile Include="Maths\Plane.cs" />
     <Compile Include="Maths\Straight.cs" />
     <Compile Include="Maths\GCS.cs" />
     <Compile Include="Maths\Vector.cs" />

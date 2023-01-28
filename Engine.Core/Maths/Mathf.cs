@@ -18,7 +18,7 @@ namespace Engine.Core.Maths
 
         public static float Asin(float f)
         {
-            return (float)Math.Sin(f);
+            return (float)Math.Asin(f);
         }
 
         public static float Atan(float f)
@@ -189,6 +189,21 @@ namespace Engine.Core.Maths
                 res += innerFunction(i);
             }
             return res;
+        }
+
+        public static bool Approximately(float a, float b, float tolerance = 0.0001f)
+        {
+            return Math.Abs(a - b) < tolerance;
+        }
+
+        public static bool Approximately(float a, float b)
+        {
+            return Math.Abs(a - b) < float.Epsilon;
+        }
+
+        public static float Deg2Rad(float deg)
+        {
+            return deg * pi / 180;
         }
     }
 }
