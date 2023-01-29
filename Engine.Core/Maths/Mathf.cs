@@ -92,8 +92,8 @@ namespace Engine.Core.Maths
         }
 
         public static float Pow(float b, float p)
-        {
-            return (float)Math.Pow(b, p);
+        {      
+            return Convert.ToSingle(Math.Pow(b, p)); ;
         }
 
         public static float Round(float f)
@@ -128,7 +128,8 @@ namespace Engine.Core.Maths
 
         public static float Sqrt(float f)
         {
-            return (float)Math.Sqrt(f);
+            
+            return Convert.ToSingle(Math.Sqrt(f));
         }
 
         public static float NthSqrt(float f, int n)

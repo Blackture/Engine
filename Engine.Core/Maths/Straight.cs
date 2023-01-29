@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Engine.Core.Maths
 {
+    /// <summary>
+    /// This code defines a class called Straight that represents a straight line in 3D space. It has properties such as OA, OB, and Dir, which represent the endpoints of the line, and the direction of the line, respectively. The class also contains methods such as GetPointAt, Intersection, Distance, and Distance with 2 output parameters, which return the point on the line at a given position, determine if the line intersects with another line, find the distance between the line and a point in 3D space, and find the distance between the line and another line in 3D space along with the closest points on both lines to the point of intersection, respectively. The class also has some static fields, such as x1_Axis, x2_Axis, and x3_Axis, which represent the x, y, and z axes in 3D space, respectively.
+    /// </summary>
     public class Straight
     {
         public enum LineSetupType
@@ -74,9 +77,68 @@ namespace Engine.Core.Maths
             return Mathf.Sqrt(Mathf.Pow(lx.X1, 2) + Mathf.Pow(lx.X2, 2) + Mathf.Pow(lx.X3, 2));
         }
 
-        public static float PlumbBob(Vector a, Straight b, out Vector l)
+        public float Distance(Straight s)
+        {
+            float res = 0.0f;
+            if (s.Dir * Dir == 1)
+            {
+                if ((s.Dir.Normalized - Dir.Normalized).Length != 0)
+                {
+                    res = (s.OA - OA).Length;
+                }
+            }
+            else
+            {
+                if (!Intersection(this, s, out Vector I))
+                {
+                    Vector n = Vector.CrossProduct(Dir, s.Dir);
+                    res = Mathf.Abs((OA - s.OA) * n / n.Length);
+                }
+            }
+            return res;
+        }
+
+        public float Distance(Straight s, out Vector OG, out Vector OH)
+        {
+            float res = 0.0f;
+            if (s.Dir * Dir == 1)
+            {
+                if ((s.Dir.Normalized - Dir.Normalized).Length != 0)
+                {
+                    OG = OA;
+                    OH = s.OA;
+                    res = (s.OA - OA).Length;
+                }
+                else OG = OH = OA;
+            }
+            else
+            {
+                if (!Intersection(this, s, out Vector I))
+                {
+                    Vector normal = Dir.Normalized.CrossProduct(s.Dir.Normalized);
+                    float d1 = normal.DotProduct(OA - s.OA);
+                    float d2 = normal.DotProduct(OA + Dir - s.OA);
+                    Vector closestPointOnStraight1 = OA + Dir * d1 / (d1 - d2);
+                    d1 = normal.DotProduct(s.OA - OA);
+                    d2 = normal.DotProduct(s.OA + s.Dir - OA);
+                    Vector closestPointOnStraight2 = s.OA + s.Dir * d1 / (d1 - d2);
+                    res = (closestPointOnStraight1 - closestPointOnStraight2).Length;
+                    OG = closestPointOnStraight1;
+                    OH = closestPointOnStraight2;
+                }
+                else OG = OH = I;
+            }
+            return res;
+        }
+
+        public static float Distance(Vector a, Straight b, out Vector l)
         {
             return b.Distance(a, out l);
+        }
+
+        public static float Distance(Straight g, Straight h, out Vector OG, out Vector OH)
+        {
+            return g.Distance(h, out OG, out OH);
         }
     }
 }

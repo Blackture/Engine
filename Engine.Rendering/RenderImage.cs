@@ -4,81 +4,73 @@ using Engine.Core.Maths;
 using System.Security.Cryptography.X509Certificates;
 using System.Collections.Generic;
 using System;
-using static System.Windows.Forms.AxHost;
 
 namespace Engine.Rendering
 {
     public class RenderImage
     {
-        private Projection projection;
         private PictureBox pictureBox;
         private Bitmap bitmap;
         private Graphics renderGraphics;
+        private Projection projection;
 
         public RenderImage(Projection projection, ref PictureBox pictureBox)
         {
             this.projection = projection;
             this.pictureBox = pictureBox;
-            RenderingConstants.ScreenWidth = pictureBox.Width;
-            RenderingConstants.ScreenHeight = pictureBox.Height;
             bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             renderGraphics = Graphics.FromImage(bitmap);
         }
 
         public void Render()
         {
-            OrthographicRendering(3, Straight.x1_Axis, 500 * (5 + Mathf.Sin(135)));
-            OrthographicRendering(3, Straight.x2_Axis, 500);
-            OrthographicRendering(3, Straight.x3_Axis, 500);
-            renderGraphics.Save();
+            // Example 3D scene
+            Vector[] scene = new Vector[] {
+                new Vector(1, 1, 1),
+                new Vector(2, 2, 2),
+                new Vector(3, 3, 3)
+            };
+
+            foreach (Vector vector in scene)
+            {
+                Vector projectedVector = Project(vector, Vector.Zero, 90);
+                try
+                {
+                    int x = (int)projectedVector.X1;
+                    int y = (int)projectedVector.X2;
+                    renderGraphics.FillRectangle(Brushes.Red, x, y, 5, 5);
+                }
+                catch (OverflowException ex)
+                {
+                    // Handle the overflow exception here.
+                    // For example, you could log the error or display a message to the user.
+                }
+            }
+
             pictureBox.Image = bitmap;
         }
 
-        public int[] ConvertPoint(Point p)
+        private Vector Project(Vector vector, Vector cameraPosition, int fov)
         {
-            if (p.Y <= pictureBox.Height && p.X <= pictureBox.Width)
-            {
-                return new int[] { p.X, pictureBox.Height - p.Y };
-            }
-            else return null;
-        }
+            Vector translatedVector = vector - cameraPosition;
+            Vector projectedVector = new Vector(0, 0, 0);
 
-        public int[] ConvertPoint(int x, int y, int thickness)
-        {
-            if (x < RenderingConstants.ScreenWidth - thickness || x >= 0)
-            {
-                if (y < RenderingConstants.ScreenHeight - thickness || y >= 0)
-                {
-                    return new int[] { x, (int)Mathf.Round(pictureBox.Height - y - thickness / 2.0f, 0, MidpointRounding.AwayFromZero) };
-                }
-                else return null;
-            }
-            else return null;
-        }
-
-        public int[] Project(Vector v, int scale)
-        {
             switch (projection)
             {
+                case Projection.Perspective:
+                    float distance = fov / (float)translatedVector.X3;
+                    projectedVector.X1 = distance * translatedVector.X1;
+                    projectedVector.X2 = distance * translatedVector.X2;
+                    break;
                 case Projection.Orthographic:
-                    float _x = RenderingConstants.HalfScreenWidth / 1.5f + (v.X2 * RenderingConstants.Unit * scale / 2 - v.X1 * RenderingConstants.Unit * scale / 2 * Mathf.Sin(135));
-                    float _y = RenderingConstants.HalfScreenHeight / 1.5f + (v.X3 * RenderingConstants.Unit * scale / 2 - v.X1 * RenderingConstants.Unit * scale / 2 * Mathf.Sin(135));
-
-                    int x = (int)Mathf.Round(_x, 0, MidpointRounding.AwayFromZero);
-                    int y = (int)Mathf.Round(_y, 0, MidpointRounding.AwayFromZero);
-                    return ConvertPoint(x, y, RenderingConstants.Unit * scale);
+                    projectedVector.X1 = translatedVector.X1;
+                    projectedVector.X2 = translatedVector.X2;
+                    break;
+                default:
+                    throw new ArgumentException("Invalid projection type");
             }
 
-            return null;
-        }
-
-        public void OrthographicRendering(int scale, Straight s, float d)
-        {
-            for (float i = 0; i <= d * RenderingConstants.Unit * scale; i += RenderingConstants.Unit * scale / 2)
-            {
-                int[] p = Project(s.GetPointAt(i), scale / 2);
-                renderGraphics.FillEllipse(Brushes.Black, p[0], p[1], scale, scale);
-            }
+            return projectedVector;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -125,6 +126,15 @@ namespace Engine.Core.Maths
             return res;
         }
 
+
+        /// <summary>
+        /// Get plane ∩ plane and outputs its results
+        /// </summary>
+        /// <param name="plane"></param>
+        /// <param name="line"></param>
+        /// <param name="intersectionLine"></param>
+        /// <param name="intersectionPoint"></param>
+        /// <returns>True if plane ∩ plane ≠ ∅</returns>
         public static bool Intersection(Plane p1, Plane p2, out Straight s, out Plane p, out Vector v)
         {
             s = null;
@@ -162,7 +172,7 @@ namespace Engine.Core.Maths
         /// <param name="intersectionLine"></param>
         /// <param name="intersectionPoint"></param>
         /// <returns>True if plane ∩ line ≠ ∅</returns>
-        public bool Intersection(Plane plane, Straight line, out Straight intersectionLine, out Vector intersectionPoint)
+        public static bool Intersection(Plane plane, Straight line, out Straight intersectionLine, out Vector intersectionPoint)
         {
             intersectionLine = null;
             intersectionPoint = null;
@@ -201,6 +211,34 @@ namespace Engine.Core.Maths
             }
         }
 
+        public float Distance(Plane p)
+        {
+            Vector direction = N.CrossProduct(p.N);
+            float determinant = direction.LengthSquared;
+
+            if (Mathf.Approximately(determinant, 0))
+            {
+                // Planes are parallel
+                return float.PositiveInfinity;
+            }
+
+            Vector w = P - p.P;
+            float s = (w.DotProduct(N.CrossProduct(p.N))) / determinant;
+
+            return Mathf.Abs(s);
+        }
+
+        public float Distance(Straight s)
+        {
+            return Distance(s, out Vector _);
+        }
+
+        public float Distance(Straight s, out Vector l)
+        {
+            float t = -(s.OA * N) / (N * s.Dir);
+            l = s.OA + t * s.Dir;
+            return Mathf.Abs((N.X1 * l.X1 + N.X2 * l.X2 + N.X3 * l.X3 + B) / N.LengthSquared);
+        }
 
         private static Gaussian.GaussianResult SolveSystem(Plane p1, Plane p2)
         {

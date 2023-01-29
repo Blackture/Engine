@@ -11,8 +11,16 @@ namespace Engine.Core.Maths
     {
         public readonly Straight[] axis = new Straight[3] { Straight.x1_Axis, Straight.x2_Axis, Straight.x3_Axis };
 
-        public Vector GlobalPosition { get; }
-        public Vector Rotation { get; }
-        public Vector Scale { get; }
+        public Vector GlobalPosition { get => globalPosition; set => globalPosition = value; }
+        public Vector LocalPosition { get => localPosition; set => localPosition = value; }
+        public Vector Rotation { get => rotation; set => rotation = value; }
+        public Vector Scale { get => scale; set => scale = value;  }
+
+        private Vector globalPosition;
+        private Vector localPosition;
+        private Vector rotation;
+        private Vector scale;
+
+        public LCS() { }
     }
 }

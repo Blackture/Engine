@@ -17,5 +17,10 @@ namespace Engine.Core.Maths
         {
             
         }
+
+        public void Add(LCS system)
+        {
+            LocalSystems.Add(system);
+        }
     }
 }

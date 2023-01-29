@@ -21,15 +21,35 @@ namespace Engine.Core.Maths
         private float x2;
         private float x3;
         private float length;
+        private float lengthSquared;
+        private float[] normalized;
 
-        public float X1 { get => x1; set { x1 = value; length = GetLength(this); } }
-        public float X2 { get => x2; set { x2 = value; length = GetLength(this); } }
-        public float X3 { get => x3; set { x3 = value; length = GetLength(this); } }
+        public float X1 { get => x1; set { x1 = value; length = GetLength(); CalculateNormalization(); } }
+        public float X2 { get => x2; set { x2 = value; length = GetLength(); CalculateNormalization(); } }
+        public float X3 { get => x3; set { x3 = value; length = GetLength(); CalculateNormalization(); } }
         public float Length { get => length; }
+        public float LengthSquared { get => lengthSquared; }
+        public Vector Normalized { get => new Vector(normalized[0], normalized[1], normalized[2]); }
 
         public float this[int xindex]
         {
-            get { return (xindex == 0) ? X1 : (xindex == 1) ? X2 : (xindex == 2) ? X3 : 0; }
+            get 
+            {
+                float res = 0;
+                switch (xindex)
+                {
+                    case 0:
+                        res = X1;
+                        break;
+                    case 1:
+                        res = X2;
+                        break;
+                    case 2:
+                        res = X3;
+                        break;
+                }
+                return res;
+            }
             set
             {
                 switch (xindex) 
@@ -51,17 +71,15 @@ namespace Engine.Core.Maths
 
         public Vector(float x1, float x2, float x3)
         {
-            this.x1 = x1;
-            this.x2 = x2;
-            this.x3 = x3;
-            length = GetLength(this);
+            X1 = x1;
+            X2 = x2;
+            X3 = x3;
         }
         public Vector(Vector vector)
         {
-            x1 = vector.x1;
-            x2 = vector.x2;
-            x3 = vector.x3;
-            length = GetLength(this);
+            X1 = vector.X1;
+            X2 = vector.X2;
+            X3 = vector.X3;
         }
 
         public static Vector operator *(float f, Vector v)
@@ -89,24 +107,35 @@ namespace Engine.Core.Maths
             return new Vector(v1.X1 - v2.X1, v1.X2 - v2.X2, v1.X3 - v2.X3);
         }
 
+        public static Vector operator /(Vector v, float f)
+        {
+            return v * (1 / f);
+        }
+
+        public static Vector operator /(float f, Vector v)
+        {
+            return v * (1 / f);
+        }
+
         public static Vector CrossProduct(Vector u, Vector v)
         {
             return new Vector(u.X2 * v.X3 - u.X3 * v.X2, u.X3 * v.X1 - u.X1 * v.X3, u.X1 * v.X2 - u.X2 * v.X1);
         }
 
+        public static float DotProduct(Vector u, Vector v)
+        {
+            return u * v;
+        }
+
         public static Vector Normalize(Vector v)
         {
-            if (v.Length == 0) return new Vector(0, 0, 0);
-            return v * (1.0f / v.Length);
+            v.Normalize();
+            return v.Normalized;
         }
 
         public static float GetLength(Vector v)
         {
-            float x12 = Mathf.Pow(v.X1, 2);
-            float x22 = Mathf.Pow(v.X2, 2);
-            float x32 = Mathf.Pow(v.X3, 2);
-
-            return Mathf.Sqrt(x12 + x22 + x32);
+            return v.GetLength();
         }
 
         public static float AngleBetween(Vector a, Vector b)
@@ -123,6 +152,37 @@ namespace Engine.Core.Maths
                 if (a * b == 0) res = true;
             }
             return res;
+        }
+
+        public Vector Normalize()
+        {
+            CalculateNormalization();
+            return Normalized;
+        }
+
+        public float GetLength()
+        {
+            float l = 0.0f;
+            lengthSquared = 0.0f;
+            float x12 = (X1 > 0) ? X1 * X1 : 0;
+            float x22 = (X2 > 0) ? X2 * X2 : 0;
+            float x32 = (X3 > 0) ? X3 * X3 : 0;
+
+            if (x12 + x22 + x32 > 0) {
+                l = Mathf.Sqrt(x12 + x22 + x32);
+                lengthSquared = Mathf.Pow(l, 2);
+            }
+            return l;
+        }
+
+        public Vector CrossProduct(Vector v)
+        {
+            return CrossProduct(this, v);
+        }
+
+        public float DotProduct(Vector v)
+        {
+            return DotProduct(this, v);
         }
 
         public bool IsPerpendicularTo(Vector v)
@@ -157,6 +217,12 @@ namespace Engine.Core.Maths
         public bool IsZero()
         {
             return this == Zero;
+        }
+
+        private void CalculateNormalization()
+        {
+            if (Length == 0) normalized = new float[3] { 0, 0, 0 };
+            else normalized = new float[] { X1 / Length, X2 / Length, X3 / Length };
         }
     }
 }

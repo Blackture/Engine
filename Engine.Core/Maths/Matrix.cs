@@ -9,7 +9,6 @@ using System.CodeDom;
 
 namespace Engine.Core.Maths
 {
-    //does not work lol
     public class Matrix
     {
         public List<List<float>> Values { get; set; }
