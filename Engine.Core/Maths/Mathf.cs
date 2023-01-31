@@ -13,17 +13,17 @@ namespace Engine.Core.Maths
 
         public static float Acos(float f)
         {
-            return (float)Math.Acos(f);
+            return Convert.ToSingle(Math.Acos(f));
         }
 
         public static float Asin(float f)
         {
-            return (float)Math.Asin(f);
+            return Convert.ToSingle(Math.Asin(f));
         }
 
         public static float Atan(float f)
         {
-            return (float)Math.Atan(f);
+            return Convert.ToSingle(Math.Atan(f));
         }
 
         public static float Abs(float f)
@@ -33,52 +33,52 @@ namespace Engine.Core.Maths
 
         public static float Atan2(float x, float y)
         {
-            return (float)Math.Atan2(x, y);
+            return Convert.ToSingle(Math.Atan2(x, y));
         }
 
         public static float Ceiling(float f)
         {
-            return (float)Math.Ceiling(f);
+            return Convert.ToSingle(Math.Ceiling(f));
         }
 
         public static float Cos(float f)
         {
-            return (float)Math.Cos(f);
+            return Convert.ToSingle(Math.Cos(f));
         }
 
         public static float Cosh(float f)
         {
-            return (float)Math.Cosh(f);
+            return Convert.ToSingle(Math.Cosh(f));
         }
 
         public static float Exp(float f)
         {
-            return (float)Math.Exp(f);
+            return Convert.ToSingle(Math.Exp(f));
         }
 
         public static float Floor(float f)
         {
-            return (float)Math.Floor(f);
+            return Convert.ToSingle(Math.Floor(f));
         }
 
         public static float IEEERemainder(float x, float y)
         {
-            return (float)Math.IEEERemainder(x, y);
+            return Convert.ToSingle(Math.IEEERemainder(x, y));
         }
 
         public static float Log(float f)
         {
-            return (float)Math.Log(f);
+            return Convert.ToSingle(Math.Log(f));
         }
 
         public static float Log(float f, float newBase)
         {
-            return (float)Math.Log(f, newBase);
+            return Convert.ToSingle(Math.Log(f, newBase));
         }
 
         public static float Log10(float f)
         {
-            return (float)Math.Log10(f);
+            return Convert.ToSingle(Math.Log10(f));
         }
 
         public static float Max(float val1, float val2)
@@ -93,22 +93,22 @@ namespace Engine.Core.Maths
 
         public static float Pow(float b, float p)
         {      
-            return Convert.ToSingle(Math.Pow(b, p)); ;
+            return Convert.ToSingle(Math.Pow(b, p));
         }
 
         public static float Round(float f)
         {
-            return (float)Math.Round(f);
+            return Convert.ToSingle(Math.Round(f));
         }
 
         public static float Round(float f, int digits)
         {
-            return (float)Math.Round(f, digits);
+            return Convert.ToSingle(Math.Round(f, digits));
         }
 
         public static float Round(float f, int digits, MidpointRounding midpointRounding)
         {
-            return (float)Math.Round(f, digits, midpointRounding);
+            return Convert.ToSingle(Math.Round(f, digits, midpointRounding));
         }
 
         public static int Sign(float f)
@@ -118,12 +118,12 @@ namespace Engine.Core.Maths
 
         public static float Sin(float f)
         {
-            return (float)Math.Sin(f);
+            return Convert.ToSingle(Math.Sin(f));
         }
 
         public static float Sinh(float f)
         {
-            return (float)Math.Sinh(f);
+            return Convert.ToSingle(Math.Sinh(f));
         }
 
         public static float Sqrt(float f)
@@ -134,22 +134,22 @@ namespace Engine.Core.Maths
 
         public static float NthSqrt(float f, int n)
         {
-            return (float)Math.Pow((float)f, 1.0f / n);
+            return Convert.ToSingle(Math.Pow((float)f, 1.0f / n));
         }
 
         public static float Tan(float f)
         {
-            return (float)Math.Tan(f);
+            return Convert.ToSingle(Math.Tan(f));
         }
 
         public static float Tanh(float f)
         {
-            return (float)Math.Tanh(f);
+            return Convert.ToSingle(Math.Tanh(f));
         }
 
         public static float Truncate(float f)
         {
-            return (float)Math.Truncate(f);
+            return Convert.ToSingle(Math.Truncate(f));
         }
 
         public static float Pi(Func<float, float> innerFunction, int limit1, int limit2)
