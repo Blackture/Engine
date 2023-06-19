@@ -45,6 +45,7 @@
     <Compile Include="Component.cs" />
     <Compile Include="Components\Edge.cs" />
     <Compile Include="Components\Face.cs" />
+    <Compile Include="Layer.cs" />
     <Compile Include="Maths\Gauss.cs" />
     <Compile Include="Maths\LCS.cs" />
     <Compile Include="Maths\Matrix.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Maths\Straight.cs" />
     <Compile Include="Maths\GCS.cs" />
     <Compile Include="Maths\Vector.cs" />
+    <Compile Include="Maths\Vector3.cs" />
     <Compile Include="Maths\Mathf.cs" />
     <Compile Include="Components\Mesh.cs" />
     <Compile Include="Object3D.cs" />

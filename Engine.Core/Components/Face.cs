@@ -14,7 +14,7 @@ namespace Engine.Core.Components
         private Plane plane;
         private float[] limits;
 
-        public Vector NormalVector => plane.N.Normalized;
+        public Vector3 NormalVector => plane.N.Normalized;
 
         public Face(Vertex[] vertices, Edge[] edges, Object3D dependency) : base(dependency)
         {
@@ -28,7 +28,7 @@ namespace Engine.Core.Components
         {
             if (s >= limits[0] && s <= limits[1] && t >= limits[2] && t <= limits[3])
             {
-                Vector v = plane.GetPositionVectorAt(s, t);
+                Vector3 v = plane.GetPositionVectorAt(s, t);
                 return new Vertex(v, dependency);
             }
             else throw new ArgumentOutOfRangeException();
@@ -50,7 +50,7 @@ namespace Engine.Core.Components
                     this.vertices = vertices;
                     this.edges = edges;
                     plane = new Plane(vertices[0].LocalPosition, vertices[1].LocalPosition, vertices[2].LocalPosition, Plane.PlaneSetupType._3PositionVectors);
-                    Vector[] v = new Vector[vertices.Length];
+                    Vector3[] v = new Vector3[vertices.Length];
                     for (int i = 0; i < v.Length; i++)
                     {
                         v[i] = vertices[i].LocalPosition;
@@ -62,12 +62,12 @@ namespace Engine.Core.Components
             return res;
         }
 
-        private float[] GetSTLimits(Vector[] points)
+        private float[] GetSTLimits(Vector3[] points)
         {
             float[] limits = new float[4];
 
             // normal = normalized plane normal
-            Vector normal = plane.N.Normalized;
+            Vector3 normal = plane.N.Normalized;
 
             // calculate the limits for s and t
             limits[0] = float.MaxValue;

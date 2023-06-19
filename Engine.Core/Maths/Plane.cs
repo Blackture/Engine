@@ -19,57 +19,57 @@ namespace Engine.Core.Maths
         /// <summary>
         /// The normal vector of the plane
         /// </summary>
-        Vector n;
+        Vector3 n;
         /// <summary>
         /// A position vector on the plane
         /// </summary>
-        Vector p;
+        Vector3 p;
         /// <summary>
-        /// Span Vector 1
+        /// Span Vector3 1
         /// </summary>
-        Vector s1;
+        Vector3 s1;
         /// <summary>
-        /// Span Vector 2
+        /// Span Vector3 2
         /// </summary>
-        Vector s2;
+        Vector3 s2;
         /// <summary>
         /// The "b" value of the coordinate-form "n1x1+n2x2+n3a3-b"
         /// </summary>
         float b;
 
-        public Vector N { get { return n; } set { n = value; p = GetPoint_00X(); } }
-        public Vector P { get { return p; } }
+        public Vector3 N { get { return n; } set { n = value; p = GetPoint_00X(); } }
+        public Vector3 P { get { return p; } }
         public float B { get { return b; } }
 
-        public Plane(Vector n, float b)
+        public Plane(Vector3 n, float b)
         {
             this.n = n;
             this.b = b;
             p = GetPoint_00X();
         }
 
-        public Plane(Vector p1, Vector s1, Vector s2, PlaneSetupType setupType)
+        public Plane(Vector3 p1, Vector3 s1, Vector3 s2, PlaneSetupType setupType)
         {
             switch (setupType)
             {
                 case PlaneSetupType._3PositionVectors:
                     this.s1 = s1 - p1;
                     this.s2 = s2 - p1;
-                    n = Vector.CrossProduct(s1, s2);
+                    n = Vector3.CrossProduct(s1, s2);
                     p = p1;
                     b = p * n;
                     break;
                 case PlaneSetupType._1PositionVector2SpanVectors:
                     this.s1 = s1;
                     this.s2 = s2;
-                    n = Vector.CrossProduct(s1, s2);
+                    n = Vector3.CrossProduct(s1, s2);
                     p = p1;
                     b = p * n;
                     break;
             }
         }
 
-        public Plane(Vector p, Vector n)
+        public Plane(Vector3 p, Vector3 n)
         {
             this.n = n;
             this.p = p;
@@ -80,12 +80,12 @@ namespace Engine.Core.Maths
         /// Gets a point on the plane
         /// </summary>
         /// <returns>Returns the point for X1 = 0, X2 = 0 and X3 = b/n3</returns>
-        public Vector GetPoint_00X()
+        public Vector3 GetPoint_00X()
         {
-            return new Vector(0, 0, b / n.X3);
+            return new Vector3(0, 0, b / n.X3);
         }
 
-        public bool Contains(Vector v)
+        public bool Contains(Vector3 v)
         {
             return Mathf.Approximately(n.X1 * v.X1 + n.X2 * v.X2 + n.X3 * v.X3, b);
         }
@@ -100,10 +100,10 @@ namespace Engine.Core.Maths
             return res;
         }
 
-        public Vector GetPositionVectorAt(float s1, float s2)
+        public Vector3 GetPositionVectorAt(float s1, float s2)
         {
-            Vector n2 = n.GetNormalVector(1);
-            Vector n3 = n.GetNormalVector(2);
+            Vector3 n2 = n.GetNormalVector(1);
+            Vector3 n3 = n.GetNormalVector(2);
 
             return p + s1 * n2 + s2 * n3;
         }
@@ -135,12 +135,12 @@ namespace Engine.Core.Maths
         /// <param name="intersectionLine"></param>
         /// <param name="intersectionPoint"></param>
         /// <returns>True if plane ∩ plane ≠ ∅</returns>
-        public static bool Intersection(Plane p1, Plane p2, out Straight s, out Plane p, out Vector v)
+        public static bool Intersection(Plane p1, Plane p2, out Straight s, out Plane p, out Vector3 v)
         {
             s = null;
             p = null;
             v = null;
-            Vector direction = Vector.CrossProduct(p1.N, p2.N);
+            Vector3 direction = Vector3.CrossProduct(p1.N, p2.N);
             if (direction.IsZero())
                 return false;
             Gaussian.GaussianResult res = SolveSystem(p1, p2);
@@ -150,7 +150,7 @@ namespace Engine.Core.Maths
             {
                 if (res.results != null)
                 {
-                    v = new Vector(res.results[0], res.results[1], res.results[2]);
+                    v = new Vector3(res.results[0], res.results[1], res.results[2]);
                 }
                 if (res.straight != null)
                 {
@@ -172,7 +172,7 @@ namespace Engine.Core.Maths
         /// <param name="intersectionLine"></param>
         /// <param name="intersectionPoint"></param>
         /// <returns>True if plane ∩ line ≠ ∅</returns>
-        public static bool Intersection(Plane plane, Straight line, out Straight intersectionLine, out Vector intersectionPoint)
+        public static bool Intersection(Plane plane, Straight line, out Straight intersectionLine, out Vector3 intersectionPoint)
         {
             intersectionLine = null;
             intersectionPoint = null;
@@ -213,7 +213,7 @@ namespace Engine.Core.Maths
 
         public float Distance(Plane p)
         {
-            Vector direction = N.CrossProduct(p.N);
+            Vector3 direction = N.CrossProduct(p.N);
             float determinant = direction.LengthSquared;
 
             if (Mathf.Approximately(determinant, 0))
@@ -222,7 +222,7 @@ namespace Engine.Core.Maths
                 return float.PositiveInfinity;
             }
 
-            Vector w = P - p.P;
+            Vector3 w = P - p.P;
             float s = (w.DotProduct(N.CrossProduct(p.N))) / determinant;
 
             return Mathf.Abs(s);
@@ -230,10 +230,10 @@ namespace Engine.Core.Maths
 
         public float Distance(Straight s)
         {
-            return Distance(s, out Vector _);
+            return Distance(s, out Vector3 _);
         }
 
-        public float Distance(Straight s, out Vector l)
+        public float Distance(Straight s, out Vector3 l)
         {
             float t = -(s.OA * N) / (N * s.Dir);
             l = s.OA + t * s.Dir;

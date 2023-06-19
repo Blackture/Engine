@@ -18,41 +18,41 @@ namespace Engine.Core.Maths
             _1Point1Dir
         }
 
-        public static readonly Straight x1_Axis = new Straight(Vector.Zero, new Vector(1, 0, 0), LineSetupType._1Point1Dir);
-        public static readonly Straight x2_Axis = new Straight(Vector.Zero, new Vector(0, 1, 0), LineSetupType._1Point1Dir);
-        public static readonly Straight x3_Axis = new Straight(Vector.Zero, new Vector(0, 0, 1), LineSetupType._1Point1Dir);
+        public static readonly Straight x1_Axis = new Straight(Vector3.Zero, new Vector3(1, 0, 0), LineSetupType._1Point1Dir);
+        public static readonly Straight x2_Axis = new Straight(Vector3.Zero, new Vector3(0, 1, 0), LineSetupType._1Point1Dir);
+        public static readonly Straight x3_Axis = new Straight(Vector3.Zero, new Vector3(0, 0, 1), LineSetupType._1Point1Dir);
 
-        private Vector a;
-        private Vector b;
-        private Vector dir;
+        private Vector3 a;
+        private Vector3 b;
+        private Vector3 dir;
 
-        public Vector OA { get { return a; } set { a = value; dir = Vector.Normalize(b - a); } }
-        public Vector OB { get { return b; } set { b = value; dir = Vector.Normalize(b - a); } }
-        public Vector Dir { get => dir; }
+        public Vector3 OA { get { return a; } set { a = value; dir = Vector3.Normalize(b - a); } }
+        public Vector3 OB { get { return b; } set { b = value; dir = Vector3.Normalize(b - a); } }
+        public Vector3 Dir { get => dir; }
 
-        public Straight(Vector OA, Vector OB, LineSetupType setupType)
+        public Straight(Vector3 OA, Vector3 OB, LineSetupType setupType)
         {
             switch (setupType)
             {
                 case LineSetupType._2Points:
                     a = OA;
                     b = OB;
-                    dir = Vector.Normalize(b - a);
+                    dir = Vector3.Normalize(b - a);
                     break;
                 case LineSetupType._1Point1Dir:
                     a = OA;
-                    dir = Vector.Normalize(OB);
+                    dir = Vector3.Normalize(OB);
                     b = GetPointAt(1);
                     break;
             }
         }
 
-        public Vector GetPointAt(float f)
+        public Vector3 GetPointAt(float f)
         {
             return a + f * dir;
         }
 
-        public static bool Intersection(Straight a, Straight b, out Vector I)
+        public static bool Intersection(Straight a, Straight b, out Vector3 I)
         {
 
             I = null;
@@ -60,20 +60,20 @@ namespace Engine.Core.Maths
             float s = (a.a.X2 + r * a.b.X2 - b.a.X2) / (b.b.X2);
             if (a.a.X3 + r * a.b.X3 == b.a.X3 + s * a.b.X3)
             {
-                I = new Vector(a.a + r * a.b);
+                I = new Vector3(a.a + r * a.b);
                 return true;
             }
             else return false;
         }
 
-        public float Distance(Vector x, out Vector l)
+        public float Distance(Vector3 x, out Vector3 l)
         {
-            Vector ax = x - a;
+            Vector3 ax = x - a;
             float dp1 = ax * dir;
             float dp2 = dir * dir;
             float t = dp1 / dp2;
             l = a + t * dir;
-            Vector lx = x - l;
+            Vector3 lx = x - l;
             return Mathf.Sqrt(Mathf.Pow(lx.X1, 2) + Mathf.Pow(lx.X2, 2) + Mathf.Pow(lx.X3, 2));
         }
 
@@ -89,16 +89,16 @@ namespace Engine.Core.Maths
             }
             else
             {
-                if (!Intersection(this, s, out Vector I))
+                if (!Intersection(this, s, out Vector3 I))
                 {
-                    Vector n = Vector.CrossProduct(Dir, s.Dir);
+                    Vector3 n = Vector3.CrossProduct(Dir, s.Dir);
                     res = Mathf.Abs((OA - s.OA) * n / n.Length);
                 }
             }
             return res;
         }
 
-        public float Distance(Straight s, out Vector OG, out Vector OH)
+        public float Distance(Straight s, out Vector3 OG, out Vector3 OH)
         {
             float res = 0.0f;
             if (s.Dir * Dir == 1)
@@ -113,15 +113,15 @@ namespace Engine.Core.Maths
             }
             else
             {
-                if (!Intersection(this, s, out Vector I))
+                if (!Intersection(this, s, out Vector3 I))
                 {
-                    Vector normal = Dir.Normalized.CrossProduct(s.Dir.Normalized);
+                    Vector3 normal = Dir.Normalized.CrossProduct(s.Dir.Normalized);
                     float d1 = normal.DotProduct(OA - s.OA);
                     float d2 = normal.DotProduct(OA + Dir - s.OA);
-                    Vector closestPointOnStraight1 = OA + Dir * d1 / (d1 - d2);
+                    Vector3 closestPointOnStraight1 = OA + Dir * d1 / (d1 - d2);
                     d1 = normal.DotProduct(s.OA - OA);
                     d2 = normal.DotProduct(s.OA + s.Dir - OA);
-                    Vector closestPointOnStraight2 = s.OA + s.Dir * d1 / (d1 - d2);
+                    Vector3 closestPointOnStraight2 = s.OA + s.Dir * d1 / (d1 - d2);
                     res = (closestPointOnStraight1 - closestPointOnStraight2).Length;
                     OG = closestPointOnStraight1;
                     OH = closestPointOnStraight2;
@@ -131,12 +131,12 @@ namespace Engine.Core.Maths
             return res;
         }
 
-        public static float Distance(Vector a, Straight b, out Vector l)
+        public static float Distance(Vector3 a, Straight b, out Vector3 l)
         {
             return b.Distance(a, out l);
         }
 
-        public static float Distance(Straight g, Straight h, out Vector OG, out Vector OH)
+        public static float Distance(Straight g, Straight h, out Vector3 OG, out Vector3 OH)
         {
             return g.Distance(h, out OG, out OH);
         }

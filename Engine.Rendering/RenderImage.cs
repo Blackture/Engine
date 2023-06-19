@@ -25,15 +25,15 @@ namespace Engine.Rendering
         public void Render()
         {
             // Example 3D scene
-            Vector[] scene = new Vector[] {
-                new Vector(1, 1, 1),
-                new Vector(2, 2, 2),
-                new Vector(3, 3, 3)
+            Vector3[] scene = new Vector3[] {
+                new Vector3(1, 1, 1),
+                new Vector3(2, 2, 2),
+                new Vector3(3, 3, 3)
             };
 
-            foreach (Vector vector in scene)
+            foreach (Vector3 vector in scene)
             {
-                Vector projectedVector = Project(vector, Vector.Zero, 90);
+                Vector3 projectedVector = Project(vector, Vector3.Zero, 90);
                 try
                 {
                     int x = (int)projectedVector.X1;
@@ -50,10 +50,10 @@ namespace Engine.Rendering
             pictureBox.Image = bitmap;
         }
 
-        private Vector Project(Vector vector, Vector cameraPosition, int fov)
+        private Vector3 Project(Vector3 vector, Vector3 cameraPosition, int fov)
         {
-            Vector translatedVector = vector - cameraPosition;
-            Vector projectedVector = new Vector(0, 0, 0);
+            Vector3 translatedVector = vector - cameraPosition;
+            Vector3 projectedVector = new Vector3(0, 0, 0);
 
             switch (projection)
             {

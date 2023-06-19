@@ -17,9 +17,9 @@ namespace Engine.Core
 
         public Object3D() 
         {
-            GlobalPosition = new Vector(0, 0, 0);
-            Rotation = new Vector(0, 0, 0);
-            Scale = new Vector(1, 1, 1);
+            GlobalPosition = new Vector3(0, 0, 0);
+            Rotation = new Vector3(0, 0, 0);
+            Scale = new Vector3(1, 1, 1);
         }
 
         public void AddComponent<T>(T component) where T : Component

@@ -1,157 +1,52 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting.Lifetime;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Engine.Core.Maths
 {
+    /// <summary>
+    /// A vector with n dimensions
+    /// </summary>
     public class Vector
     {
-        public static readonly Vector Zero = new Vector(0, 0, 0);
-        public static readonly Vector One = new Vector(1, 1, 1);
+        private List<float> values = new List<float>();
 
-        private float x1;
-        private float x2;
-        private float x3;
+        private int dimension;
         private float length;
         private float lengthSquared;
         private float[] normalized;
+        private EventHandler onValueChanged;
 
-        public float X1 { get => x1; set { x1 = value; length = GetLength(); CalculateNormalization(); } }
-        public float X2 { get => x2; set { x2 = value; length = GetLength(); CalculateNormalization(); } }
-        public float X3 { get => x3; set { x3 = value; length = GetLength(); CalculateNormalization(); } }
-        public float Length { get => length; }
-        public float LengthSquared { get => lengthSquared; }
-        public Vector Normalized { get => new Vector(normalized[0], normalized[1], normalized[2]); }
-
-        public float this[int xindex]
+        public float this[int index]
         {
-            get 
-            {
-                float res = 0;
-                switch (xindex)
-                {
-                    case 0:
-                        res = X1;
-                        break;
-                    case 1:
-                        res = X2;
-                        break;
-                    case 2:
-                        res = X3;
-                        break;
-                }
-                return res;
-            }
-            set
-            {
-                switch (xindex) 
-                {
-                    case 0: 
-                        X1 = value;                        
-                        break;
-                    case 1:
-                        X2 = value;
-                        break;
-                    case 2: 
-                        X3 = value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            get => GetValue(index);
+            set => SetValue(value, index);
+        }
+        public float Length { get { return length; } }
+        public int Dimension { get { return dimension; } }
+        public float LengthSquared { get { return lengthSquared; } }
+        public Vector Normalized { get { return new Vector(normalized); } }
+
+        public Vector(List<float> values)
+        {
+            Instantiate(values.ToArray());
+        }
+        public Vector(params float[] values)
+        {
+            Instantiate(values);
         }
 
-        public Vector(float x1, float x2, float x3)
+        private void Instantiate(float[] values)
         {
-            X1 = x1;
-            X2 = x2;
-            X3 = x3;
-        }
-        public Vector(Vector vector)
-        {
-            X1 = vector.X1;
-            X2 = vector.X2;
-            X3 = vector.X3;
-        }
-
-        public static Vector operator *(float f, Vector v)
-        {
-            return new Vector(v.X1 * f, v.X2 * f, v.X3 * f);
-        }
-
-        public static Vector operator *(Vector v, float f)
-        { 
-            return new Vector(v.X1 * f, v.X2 * f, v.X3 * f);
-        }
-
-        public static float operator *(Vector v1, Vector v2)
-        {
-            return v1.x1 * v2.x1 + v1.x2 * v2.x2 + v1.x3 * v2.x3;
-        }
-
-        public static Vector operator +(Vector v1, Vector v2)
-        {
-            return new Vector(v1.X1 + v2.X1, v1.X2 + v2.X2, v1.X3 + v2.X3);
-        }
-
-        public static Vector operator -(Vector v1, Vector v2)
-        {
-            return new Vector(v1.X1 - v2.X1, v1.X2 - v2.X2, v1.X3 - v2.X3);
-        }
-
-        public static Vector operator /(Vector v, float f)
-        {
-            return v * (1 / f);
-        }
-
-        public static Vector operator /(float f, Vector v)
-        {
-            return v * (1 / f);
-        }
-
-        public static Vector CrossProduct(Vector u, Vector v)
-        {
-            return new Vector(u.X2 * v.X3 - u.X3 * v.X2, u.X3 * v.X1 - u.X1 * v.X3, u.X1 * v.X2 - u.X2 * v.X1);
-        }
-
-        public static float DotProduct(Vector u, Vector v)
-        {
-            return u * v;
-        }
-
-        public static Vector Normalize(Vector v)
-        {
-            v.Normalize();
-            return v.Normalized;
-        }
-
-        public static float GetLength(Vector v)
-        {
-            return v.GetLength();
-        }
-
-        public static float AngleBetween(Vector a, Vector b)
-        {
-            if (a == Zero && b == Zero) return 0.0f;
-            return Mathf.Acos(a * b / (a.Length * b.Length)) * 180 / Mathf.pi;
-        }
-
-        public static bool OrthogonalityCheck(Vector a, Vector b)
-        {
-            bool res = false;
-            if (a != Zero && b != Zero)
-            {
-                if (a * b == 0) res = true;
-            }
-            return res;
+            this.values.Clear();
+            this.values.AddRange(values);
+            dimension = this.values.Count;
+            length = GetLength();
+            CalculateNormalization();
+            onValueChanged += OnValueChanged;
         }
 
         public Vector Normalize()
@@ -160,69 +55,206 @@ namespace Engine.Core.Maths
             return Normalized;
         }
 
+        private void CalculateNormalization()
+        {
+            float[] f = new float[values.Count];
+            for (int i = 0; i < values.Count; i++)
+            {
+                f[i] = values[i] / Length;
+            }
+            normalized = f;
+        }
+        private void OnValueChanged(object sender, EventArgs e)
+        {
+            length = GetLength();
+            CalculateNormalization();
+        }
+
         public float GetLength()
         {
-            float l = 0.0f;
-            lengthSquared = 0.0f;
-            float x12 = (X1 > 0) ? X1 * X1 : 0;
-            float x22 = (X2 > 0) ? X2 * X2 : 0;
-            float x32 = (X3 > 0) ? X3 * X3 : 0;
-
-            if (x12 + x22 + x32 > 0) {
-                l = Mathf.Sqrt(x12 + x22 + x32);
-                lengthSquared = Mathf.Pow(l, 2);
-            }
-            return l;
-        }
-
-        public Vector CrossProduct(Vector v)
-        {
-            return CrossProduct(this, v);
-        }
-
-        public float DotProduct(Vector v)
-        {
-            return DotProduct(this, v);
-        }
-
-        public bool IsPerpendicularTo(Vector v)
-        {
-            bool res = false;
-            if (v != null && this != Zero && v != Zero)
+            float res = 0;
+            foreach (float f in values)
             {
-                if (Mathf.Approximately(this * v, 0)) res = true;
+                res += Mathf.Pow(f, 2);
+            }
+            res = Mathf.Sqrt(res);
+            lengthSquared = Mathf.Pow(res, 2);
+            return res;
+        }
+
+        /// <summary>
+        /// Checks if the vector contains the given index.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        private bool IsValidIndex(int index)
+        {
+            return (index >= 0 && index < values.Count);
+        }
+        public bool IsDimensionEqual(Vector a, Vector b) { return a.Dimension == b.Dimension; }
+
+
+        public void SetValue(float value, int index)
+        {
+            if (IsValidIndex(index))
+            {
+                values[index] = value;
+                onValueChanged.Invoke(this, null);
+            }
+        }
+        public float GetValue(int index)
+        {
+            if (IsValidIndex(index))
+            {
+                return values[index];
+            }
+            throw new Exception($"Invalid index: {index}.");
+        }
+        /// <summary>
+        /// Adds a dimension to the vector and adds the given value.
+        /// </summary>
+        /// <param name="value"></param>
+        public void AddValue(float value)
+        {
+            values.Add(value);
+            onValueChanged.Invoke(this, null);
+
+        }
+
+        public float DotProduct(Vector vector)
+        {
+            if (IsDimensionEqual(this, vector))
+            {
+                float res = 0;
+                for (int i = 0; i < dimension; i++)
+                {
+                    res += values[i] * vector[i];
+                }
+                return res;
+            }
+            else throw new ArgumentException("The vectors have different dimensions.");
+        }
+        public Vector ScalarProduct(float scalar)
+        {
+            Vector res = new Vector();
+            for (int i = 0; i < dimension; i++)
+            {
+                res.AddValue(scalar * values[i]);
+            }
+            return res;
+        }
+        public Vector CrossProduct(Vector b)
+        {
+            if (IsDimensionEqual(this, b))
+            {
+                Vector res;
+                switch (Dimension)
+                {
+                    case 1:
+                        res = new Vector(values[0] * b[0]);
+                        break;
+                    case 2:
+                        Vector3 _a = new Vector3(values[0], values[1], 0);
+                        Vector3 _b = new Vector3(b[0], b[1], 0);
+                        Vector3 c = Vector3.CrossProduct(_a, _b);
+                        res = new Vector(c.X3);
+                        break;
+                    case 3:
+                        Vector3 __a = new Vector3(values[0], values[1], values[2]);
+                        Vector3 __b = new Vector3(b[0], b[1], b[2]);
+                        Vector3 _c = Vector3.CrossProduct(__a, __b);
+                        res = new Vector(_c.X1, _c.X2, _c.X3);
+                        break;
+                    default: throw new ArgumentException("Cross Product's only defined for 1 to 3-dimensional vectors.");
+                }
+                return res;
+            }
+            else throw new ArgumentException("Vectors must have the same dimension.");
+        }
+        public Vector Addition(Vector vector)
+        {
+            if (IsDimensionEqual(this, vector))
+            {
+                Vector res = new Vector();
+                for (int i = 0; i < Dimension; i++)
+                {
+                    res.AddValue(values[i] + vector[i]);
+                }
+                return res;
+            }
+            else throw new ArgumentException("Vectors must have the same dimension.");
+        }
+        public Vector Substraction(Vector vector)
+        {
+            if (IsDimensionEqual(this, vector))
+            {
+                Vector res = new Vector();
+                for (int i = 0; i < Dimension; i++)
+                {
+                    res.AddValue(values[i] - vector[i]);
+                }
+                return res;
+            }
+            else throw new ArgumentException("Vectors must have the same dimension.");
+        }
+        public Vector Division(float scalar)
+        {
+            Vector res = new Vector();
+            for (int i = 0; i < Dimension; i++)
+            {
+                res.AddValue(values[i] / scalar);
             }
             return res;
         }
 
-        public Vector GetNormalVector(int zeroAt)
+        public static float Dot(Vector a, Vector b)
         {
-            Vector v;
-            switch (zeroAt)
-            {
-                case 1:
-                    v = new Vector(0, X2, X3);
-                    return Vector.CrossProduct(this, v);
-                case 2:
-                    v = new Vector(X1, 0, X3);
-                    return Vector.CrossProduct(this, v);
-                case 3:
-                    v = new Vector(X1, X2, 0);
-                    return Vector.CrossProduct(this, v);
-                default:
-                    return new Vector(0, 0, 0);
-            }
+            return a * b;
+        }
+        public static Vector Cross(Vector a, Vector b)
+        {
+            return a.CrossProduct(b);
+        }
+        public static Vector Scalar(Vector a, float f)
+        {
+            return a * f;
+        }
+        public static Vector Addition(Vector a, Vector b)
+        {
+            return a + b;
+        }
+        public static Vector Substraction(Vector a, Vector b)
+        {
+            return a - b;
+        }
+        public static Vector Division(Vector a, float f) 
+        { 
+            return a / f;
         }
 
-        public bool IsZero()
+        public static Vector operator +(Vector v1, Vector v2)
         {
-            return this == Zero;
+            return v1.Addition(v2);
         }
-
-        private void CalculateNormalization()
+        public static Vector operator -(Vector v1, Vector v2)
         {
-            if (Length == 0) normalized = new float[3] { 0, 0, 0 };
-            else normalized = new float[] { X1 / Length, X2 / Length, X3 / Length };
+            return v1.Substraction(v2);
+        }
+        public static float operator *(Vector v1, Vector v2)
+        {
+            return v1.DotProduct(v2);
+        }
+        public static Vector operator *(Vector v1, float f)
+        {
+            return v1.ScalarProduct(f);
+        }
+        public static Vector operator *(float f, Vector v1)
+        {
+            return v1.ScalarProduct(f);
+        }
+        public static Vector operator /(Vector v1, float f)
+        {
+            return v1.Division(f);
         }
     }
 }

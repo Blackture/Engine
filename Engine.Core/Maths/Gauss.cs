@@ -73,7 +73,7 @@ namespace Engine.Core.Maths
                             float b = matrix[i, 1];
                             float c = matrix[i, 2];
                             float d = augmentation[i, 0];
-                            result.plane = new Plane(new Vector(a,b,c), d);
+                            result.plane = new Plane(new Vector3(a,b,c), d);
                         }
                         else if (matrix.ColumnCount == 2)
                         {
@@ -83,10 +83,10 @@ namespace Engine.Core.Maths
                             float c = augmentation[i, 0];
 
                             // Compute supporting vector
-                            Vector supportVector = new Vector(-c / a, 0, 1);
+                            Vector3 supportVector = new Vector3(-c / a, 0, 1);
 
                             // Compute directional vector
-                            Vector directionVector = new Vector(a, b, 0);
+                            Vector3 directionVector = new Vector3(a, b, 0);
 
                             result.straight = new Straight(supportVector, directionVector, Straight.LineSetupType._1Point1Dir);
                         }
