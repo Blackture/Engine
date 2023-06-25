@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Engine.Core.Maths.Obsolete;
 
 namespace Engine.Core.Maths
 {
@@ -243,7 +244,7 @@ namespace Engine.Core.Maths
         private static Gaussian.GaussianResult SolveSystem(Plane p1, Plane p2)
         {
             // create a matrix with the coefficients of the system
-            Matrix m = new Matrix(3, 3);
+            Obsolete.Matrix m = new Obsolete.Matrix(3, 3);
             m[0, 0] = p1.N.X1;
             m[1, 0] = p1.N.X2;
             m[2, 0] = p1.N.X3;
@@ -252,7 +253,7 @@ namespace Engine.Core.Maths
             m[2, 1] = p2.N.X3;
 
             // create a augmentation with the constant terms of the system
-            Matrix augmentation = new Matrix(3,1);
+            Obsolete.Matrix augmentation = new Obsolete.Matrix(3,1);
             augmentation[0, 0] = p1.B;
             augmentation[1, 0] = p2.B;
             augmentation[2, 0] = 0;

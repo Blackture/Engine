@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Engine.Core.Maths
+namespace Engine.Core.Maths.Obsolete
 {
+    [Obsolete]
     public class Gaussian
     {
         public class GaussianResult
@@ -15,7 +16,7 @@ namespace Engine.Core.Maths
             public Plane plane;
         }
 
-        public static bool Elimination(Matrix matrix, Matrix augmentation, out GaussianResult result)
+        public static bool Elimination(Obsolete.Matrix matrix, Obsolete.Matrix augmentation, out GaussianResult result)
         {
             // Initialize the results list
             result = new GaussianResult();

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +12,7 @@ namespace Engine.Core.Maths
     /// <summary>
     /// A vector with n dimensions
     /// </summary>
-    public class Vector
+    public class Vector : IEnumerable<float>
     {
         private List<float> values = new List<float>();
 
@@ -39,13 +41,24 @@ namespace Engine.Core.Maths
             Instantiate(values);
         }
 
+        public Vector(Vector v)
+        {
+            for (int i = 0; i < v.Dimension; i++)
+            {
+                values.Add(v[i]);
+            }
+        }
+
         private void Instantiate(float[] values)
         {
             this.values.Clear();
             this.values.AddRange(values);
             dimension = this.values.Count;
-            length = GetLength();
-            CalculateNormalization();
+            if (dimension != 0)
+            {
+                length = GetLength();
+                CalculateNormalization();
+            }
             onValueChanged += OnValueChanged;
         }
 
@@ -255,6 +268,15 @@ namespace Engine.Core.Maths
         public static Vector operator /(Vector v1, float f)
         {
             return v1.Division(f);
+        }
+
+        public IEnumerator<float> GetEnumerator()
+        {
+            return new FloatEnumerator(values.ToArray());
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

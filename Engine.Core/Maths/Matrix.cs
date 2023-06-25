@@ -1,187 +1,369 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections;
-using System.Runtime.InteropServices;
-using System.CodeDom;
 
 namespace Engine.Core.Maths
 {
-    public class Matrix
+    public class Matrix : IMatrix
     {
-        public List<List<float>> Values { get; set; }
-        public int RowCount { get { return this.Values.Count; } }
-        public int ColumnCount { get { return this.Values[0].Count; } }
-
-        public float this[int row, int column]
+        public enum MatrixOperation
         {
-            get
-            {
-                return this.Values[row][column];
-            }
-            set
-            {
-                this.Values[row][column] = value;
-            }
+            Addition,
+            Substraction,
+            Multiplication,
+            ScalarMultiplication
         }
 
-        public Matrix(int rowCount, int columnCount)
+        private List<Vector> rows;
+        private List<Vector> cols;
+
+        private int rowCount;
+        private int columnCount;
+
+        public int RowCount { get { return rowCount; } }
+        public int ColumnCount { get { return columnCount; } }
+        public float this[int r, int c]
         {
-            this.Values = new List<List<float>>();
-            for (int i = 0; i < rowCount; i++)
+            get => GetValue(r, c);
+            set => SetValue(r, c, value);
+        }
+
+        public Matrix() { }
+        public Matrix(List<Vector> rows)
+        {
+            Instantiate(rows);
+        }
+
+        private void Instantiate(List<Vector> rows)
+        {
+            if (ValidateDimensions(rows, out int colCount))
             {
-                this.Values.Add(new List<float>());
-                for (int j = 0; j < columnCount; j++)
-                {
-                    this.Values[i].Add(0);
-                }
+                rowCount = rows.Count;
+                columnCount = colCount;
+                this.rows = rows;
+                cols = GetColumns();
             }
+            else throw new ArgumentException("The rows must have the same dimension.");
         }
-
-        public Matrix(List<List<float>> values)
+        private List<Vector> GetColumns()
         {
-            this.Values = values;
-        }
-
-        public static Matrix operator *(Matrix a, Matrix b)
-        {
-            if (a.ColumnCount != b.RowCount)
-                throw new ArgumentException("Number of columns of first matrix must match number of rows of second matrix");
-            List<List<float>> resultValues = new List<List<float>>();
-            for (int i = 0; i < a.RowCount; i++)
-            {
-                resultValues.Add(new List<float>());
-                for (int j = 0; j < b.ColumnCount; j++)
-                {
-                    float sum = 0;
-                    for (int k = 0; k < a.ColumnCount; k++)
-                    {
-                        sum += a.Values[i][k] * b.Values[k][j];
-                    }
-                    resultValues[i].Add(sum);
-                }
-            }
-            return new Matrix(resultValues);
-        }
-
-        public static Matrix operator *(float a, Matrix b)
-        {
-            var matrix = new Matrix(b.RowCount, b.ColumnCount);
-            for (int i = 0; i < b.RowCount; i++)
-            {
-                for (int k = 0; k < b.ColumnCount; k++)
-                {
-                    matrix[i, k] = a * b[i, k];
-                }
-            }
-            return matrix;
-        }
-
-        public static Matrix operator *(Matrix b, float a)
-        {
-            var matrix = new Matrix(b.RowCount, b.ColumnCount);
-            for (int i = 0; i < b.RowCount; i++)
-            {
-                for (int k = 0; k < b.ColumnCount; k++)
-                {
-                    matrix[i, k] = a * b[i, k];
-                }
-            }
-            return matrix;
-        }
-
-        public static Matrix operator +(Matrix a, Matrix b)
-        {
-            if (a.RowCount == b.RowCount && a.ColumnCount == b.ColumnCount)
-            {
-                List<List<float>> matrix = new List<List<float>>();
-                for (int i = 0; i < a.RowCount; i++)
-                {
-                    matrix.Add(new List<float>());
-                    for (int k = 0; k < a.ColumnCount; k++)
-                    {
-                        matrix[i].Add(0);
-                        matrix[i][k] = a[i, k] + b[i, k];
-                    }
-                }
-                return new Matrix(matrix);
-            }
-            else
-            {
-                throw new Exception("Cannot add matrices of different dimensions.");
-            }
-        }
-
-        public static Matrix operator -(Matrix a, Matrix b)
-        {
-            if (a.RowCount != b.RowCount || a.ColumnCount != b.ColumnCount)
-            {
-                throw new ArgumentException("Both matrices must have the same dimensions for subtraction.");
-            }
-
-            var result = new Matrix(a.RowCount, a.ColumnCount);
-
-            for (int i = 0; i < a.RowCount; i++)
-            {
-                for (int j = 0; j < a.ColumnCount; j++)
-                {
-                    result[i, j] = a[i, j] - b[i, j];
-                }
-            }
-
-            return result;
-        }
-
-        public static Matrix ConvertTo(List<List<float>> matrix)
-        {
-            return new Matrix(matrix);
-        }
-
-        public List<float> GetRow(int index)
-        {
-            if (index > RowCount - 1 || index < 0) return null;
-            return this.Values[index];
-        }
-
-        public List<float> GetColumn(int index)
-        {
-            if (index > ColumnCount - 1 || index < 0) return null;
-            List<float> result = new List<float>();
-            for (int i = 0; i <= RowCount - 1; i++)
-            {
-                result.Add(this.Values[i][index]);
-            }
-            return result;
-        }
-
-        public void ScaleRow(int index, float scale)
-        {
+            List<Vector> cols = new List<Vector>();
             for (int i = 0; i < ColumnCount; i++)
             {
-                Values[index][i] *= scale;
+                Vector c = new Vector();
+                for (int j = 0; j < RowCount; j++)
+                {
+                    c.AddValue(rows[j][i]);
+                }
+                cols.Add(c);
             }
+            return cols;
         }
 
+        private bool ValidateIndexes(int r, int c)
+        {
+            bool res = true;
+            if (r >= RowCount || r < 0) res = false;
+            if (c >= ColumnCount || c < 0) res = false;
+            return res;
+        }
+        /// <summary>
+        /// Checks if the inputted index is in range.
+        /// <list type="bullet">
+        ///     <item>
+        ///         <paramref name="index"/>: The row's index
+        ///     </item>
+        ///     <item>
+        ///         <paramref name="column"/>: Set to true if you want to check a column index instead.
+        ///     </item>
+        /// </list>
+        /// </summary>
+        /// <param name="index">Row index</param>
+        /// <param name="column"></param>
+        /// <returns>Returns wehter the index is in range or not.</returns>
+        private bool ValidateIndex(int index, bool column = false)
+        {
+            bool res = true;
+            switch (column)
+            {
+                case true:
+                    if (index >= ColumnCount || index < 0) res = false;
+                    break;
+                case false:
+                    if (index >= RowCount || index < 0) res = false;
+                    break;
+            }
+            return res;
+        }
+        /// <summary>
+        /// Checks if the row vectors have the same dimension.
+        /// </summary>
+        /// <param name="rows"></param>
+        /// <param name="dim">Output parameter of the dimension</param>
+        /// <returns>Returns a bool with the value indicating if the rows have the same dimension.</returns>
+        private bool ValidateDimensions(List<Vector> rows, out int dim)
+        {
+            bool res = true;
+            dim = rows[0].Dimension;
+            foreach (Vector v in rows)
+            {
+                if (dim != v.Dimension) res = false;
+            }
+            if (!res) dim = -1;
+            return res;
+        }
+
+        public float GetValue(int r, int c)
+        {
+            if (ValidateIndexes(r, c))
+            {
+                return rows[r][c];
+            }
+            else throw new ArgumentOutOfRangeException($"The index {r} or {c} was out of range.");
+        }
+        public void SetValue(int r, int c, float value)
+        {
+            if (ValidateIndexes(r, c))
+            {
+                rows[r][c] = value;
+            }
+            else throw new ArgumentOutOfRangeException($"{r} or {c} is out of range.");
+        }
+        public Vector GetRow(int r)
+        {
+            if (ValidateIndex(r))
+            {
+                Vector v = new Vector();
+                foreach (float f in rows[r])
+                {
+                    v.AddValue(f);
+                }
+                return v;
+            }
+            else throw new ArgumentOutOfRangeException($"Index {r} is out of range.");
+        }
+        public Vector GetColumn(int c)
+        {
+            if (ValidateIndex(c, true))
+            {
+                Vector v = new Vector();
+                foreach (float f in cols[c])
+                {
+                    v.AddValue(f);
+                }
+                return v;
+            }
+            else throw new ArgumentOutOfRangeException($"Index {c} is out of range.");
+        }
+        public void AddRow(Vector row)
+        {
+            if (row.Dimension == ColumnCount)
+            {
+                rows.Add(row);
+            }
+            else throw new ArgumentException($"Vector must have a dimension of {ColumnCount} but got {row.Dimension}.");
+        }
+        public void InsertRow(Vector row, int index)
+        {
+            if (row.Dimension == ColumnCount)
+            {
+                rows.Insert(index, row);
+            }
+            else throw new ArgumentException($"Vector must have a dimension of {ColumnCount} but got {row.Dimension}.");
+        }
+        public void RemoveRow(int index)
+        {
+            rows.RemoveAt(index);
+        }
         public void SwapRows(int from, int to)
         {
-            List<float> storage = Values[from];
-            Values.RemoveAt(from);
-            Values.Insert(to, storage);
+            Vector rowf = GetRow(from);
+            RemoveRow(from);
+            InsertRow(rowf, to);
         }
+        /// <summary>
+        /// Operates on the matrix (changes the target row) and outputs the row after the calculation as a vector.
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="source"></param>
+        /// <param name="operation"></param>
+        /// <param name="f"></param>
+        /// <returns></returns>
 
-        public void AddRow(List<float> row)
+        public Matrix ScalarMultiplication(float f)
         {
-            Values.Add(row);
-        }
-
-        public void AddRow(int targetRow, int sourceRow, float factor)
-        {
-            for (int i = 0; i < ColumnCount; i++)
+            List<Vector> rows = new List<Vector>();
+            for (int r = 0; r < RowCount; r++)
             {
-                Values[targetRow][i] += Values[sourceRow][i] * factor;
+                Vector row = new Vector();
+                for (int c = 0; c < ColumnCount; c++)
+                {
+                    row.AddValue(this[r, c] * f);
+                }
+                rows.Add(row);
             }
+            return new Matrix(rows);
+        }
+        public Matrix Multiplication(Matrix m)
+        {
+            if (RowCount == m.ColumnCount)
+            {
+                List<Vector> rows = new List<Vector>();
+                for (int r = 0; r < RowCount; r++)
+                {
+                    Vector row = new Vector();
+                    Vector vr = GetRow(r);
+                    for (int c = 0; c < m.ColumnCount; c++)
+                    {
+                        Vector vc = m.GetColumn(c);
+                        row.AddValue(vr * vc);
+                    }
+                    rows.Add(row);
+                }
+                return new Matrix(rows);
+            }
+            else throw new ArgumentException("Matrix m's column count must match this matrix' row count");
+        }
+        public Matrix Addition(Matrix m)
+        {
+            if (RowCount == m.RowCount && ColumnCount == m.ColumnCount)
+            {
+                List<Vector> rows = new List<Vector>();
+                for (int r = 0; r < RowCount; r++)
+                {
+                    Vector row = new Vector();
+                    for (int c = 0; c < ColumnCount; c++)
+                    {
+                        row.AddValue(this[r, c] + m[r, c]);
+                    }
+                    rows.Add(row);
+                }
+                return new Matrix(rows);
+            }
+            else throw new ArgumentException("Matrices must have the same size.");
+        }
+        public Matrix Substraction(Matrix m)
+        {
+            if (RowCount == m.RowCount && ColumnCount == m.ColumnCount)
+            {
+                List<Vector> rows = new List<Vector>();
+                for (int r = 0; r < RowCount; r++)
+                {
+                    Vector row = new Vector();
+                    for (int c = 0; c < ColumnCount; c++)
+                    {
+                        row.AddValue(this[r, c] - m[r, c]);
+                    }
+                    rows.Add(row);
+                }
+                return new Matrix(rows);
+            }
+            else throw new ArgumentException("Matrices must have the same size.");
+        }
+        /// <summary>
+        /// Calculates l+r. Doesn's change any row in the matrix
+        /// <paramref name="l"/> left side of the equation
+        /// <paramref name="r"/> right side of the equation
+        /// </summary>
+        /// <param name="l"></param>
+        /// <param name="r"></param>
+        /// <returns>Returns a row vector of the row l+r</returns>
+        public Vector RowAddition(int l, int r)
+        {
+            Vector a = GetRow(l);
+            Vector b = GetRow(r);
+            return a + b;
+        }
+        public Vector RowSubstraction(int l, int r)
+        {
+            Vector a = GetRow(l);
+            Vector b = GetRow(r);
+            return a - b;
+        }
+        public Matrix Operation(Matrix m, MatrixOperation operation, float f = 0)
+        {
+            Matrix result = new Matrix();
+            switch (operation)
+            {
+                case MatrixOperation.Addition:
+                    result = Addition(m);
+                    break;
+                case MatrixOperation.Substraction:
+                    result = Substraction(m);
+                    break;
+                case MatrixOperation.Multiplication:
+                    result = Multiplication(m);
+                    break;
+                case MatrixOperation.ScalarMultiplication:
+                    result = ScalarMultiplication(f);
+                    break;
+            }
+            return result;
+        }
+        public Vector RowOperation(int target, int source, MatrixOperation operation, float f = 0)
+        {
+            Vector a = new Vector();
+            switch (operation)
+            {
+                case MatrixOperation.Addition:
+                    a = RowAddition(target, source);
+                    break;
+                case MatrixOperation.Substraction:
+                    a = RowSubstraction(target, source);
+                    break;
+                case MatrixOperation.ScalarMultiplication:
+                    a = GetRow(target) * f;
+                    break;
+            }
+            rows[target] = a;
+            return a;
+        }
+
+        public static Matrix ScalarMultiplication(Matrix n, float f)
+        {
+            return n.ScalarMultiplication(f);
+        }
+        public static Matrix Multiplication(Matrix n, Matrix m)
+        {
+            return n.Multiplication(m);
+        }
+        public static Matrix Addition(Matrix n, Matrix m)
+        {
+            return n.Addition(m);
+        }
+        public static Matrix Substraction(Matrix n, Matrix m)
+        {
+            return n.Substraction(m);
+        }
+        public static Matrix Operation(Matrix n, Matrix m, MatrixOperation operation, float f = 0)
+        {
+            return n.Operation(m, operation, f);
+        }
+        public static Vector RowOperation(Matrix n, int target, int source, MatrixOperation operation, float f = 0)
+        {
+            return n.RowOperation(target, source, operation, f);
+        }
+
+        public static Matrix operator *(Matrix n, float f)
+        {
+            return n.ScalarMultiplication(f);
+        }
+        public static Matrix operator *(Matrix n, Matrix m)
+        {
+            return n.Multiplication(m);
+        }
+        public static Matrix operator +(Matrix n, Matrix m)
+        {
+            return n.Addition(m);
+        }
+        public static Matrix operator -(Matrix n, Matrix m)
+        {
+            return n.Substraction(m);
         }
     }
 }
