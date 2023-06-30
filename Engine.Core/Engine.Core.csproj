@@ -47,6 +47,8 @@
     <Compile Include="Components\Face.cs" />
     <Compile Include="Layer.cs" />
     <Compile Include="Maths\AugmentedMatrix.cs" />
+    <Compile Include="Maths\Gauss.cs" />
+    <Compile Include="Maths\Enums.cs" />
     <Compile Include="Maths\FloatEnumerator.cs" />
     <Compile Include="Maths\IMatrix.cs" />
     <Compile Include="Maths\Matrix3x3.cs" />

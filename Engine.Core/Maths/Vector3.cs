@@ -30,6 +30,7 @@ namespace Engine.Core.Maths
         public float Length { get => length; }
         public float LengthSquared { get => lengthSquared; }
         public Vector3 Normalized { get => new Vector3(normalized[0], normalized[1], normalized[2]); }
+        public int Dimension => 3;
 
         public float this[int xindex]
         {
@@ -86,27 +87,22 @@ namespace Engine.Core.Maths
         {
             return new Vector3(v.X1 * f, v.X2 * f, v.X3 * f);
         }
-
         public static Vector3 operator *(Vector3 v, float f)
         { 
             return new Vector3(v.X1 * f, v.X2 * f, v.X3 * f);
         }
-
         public static float operator *(Vector3 v1, Vector3 v2)
         {
             return v1.x1 * v2.x1 + v1.x2 * v2.x2 + v1.x3 * v2.x3;
         }
-
         public static Vector3 operator +(Vector3 v1, Vector3 v2)
         {
             return new Vector3(v1.X1 + v2.X1, v1.X2 + v2.X2, v1.X3 + v2.X3);
         }
-
         public static Vector3 operator -(Vector3 v1, Vector3 v2)
         {
             return new Vector3(v1.X1 - v2.X1, v1.X2 - v2.X2, v1.X3 - v2.X3);
         }
-
         public static Vector3 operator /(Vector3 v, float f)
         {
             return v * (1 / f);
@@ -116,7 +112,6 @@ namespace Engine.Core.Maths
         {
             return new Vector3(u.X2 * v.X3 - u.X3 * v.X2, u.X3 * v.X1 - u.X1 * v.X3, u.X1 * v.X2 - u.X2 * v.X1);
         }
-
         public static float DotProduct(Vector3 u, Vector3 v)
         {
             return u * v;
@@ -125,7 +120,7 @@ namespace Engine.Core.Maths
         public static Vector3 Normalize(Vector3 v)
         {
             v.Normalize();
-            return v.Normalized;
+            return v.Normalized as Vector3;
         }
 
         public static float GetLength(Vector3 v)
@@ -174,10 +169,25 @@ namespace Engine.Core.Maths
         {
             return CrossProduct(this, v);
         }
-
         public float DotProduct(Vector3 v)
         {
             return DotProduct(this, v);
+        }
+        public Vector3 ScalarProduct(float scalar)
+        {
+            return this * scalar;
+        }
+        public Vector3 Addition(Vector3 vector)
+        {
+            return this + vector;
+        }
+        public Vector3 Substraction(Vector3 v)
+        {
+            return this - v;
+        }
+        public Vector3 Division(float scalar)
+        {
+            return this / scalar;
         }
 
         public bool IsPerpendicularTo(Vector3 v)

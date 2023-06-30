@@ -144,22 +144,22 @@ namespace Engine.Core.Maths
             Vector3 direction = Vector3.CrossProduct(p1.N, p2.N);
             if (direction.IsZero())
                 return false;
-            Gaussian.GaussianResult res = SolveSystem(p1, p2);
-            if (res.straight == null && res.plane == null && res.results == null)
+            Gauss.EliminationResult res = SolveSystem(p1, p2);
+            if (res.Straight == null && res.Plane == null && res.Floats == null)
                 return false;
             else
             {
-                if (res.results != null)
+                if (res.Floats != null)
                 {
-                    v = new Vector3(res.results[0], res.results[1], res.results[2]);
+                    v = new Vector3(res.Floats[0], res.Floats[1], res.Floats[2]);
                 }
-                if (res.straight != null)
+                if (res.Straight != null)
                 {
-                    s = res.straight;
+                    s = res.Straight;
                 }
-                if (res.plane != null)
+                if (res.Plane != null)
                 {
-                    p = res.plane;
+                    p = res.Plane;
                 }
                 return true;
             }
@@ -241,10 +241,10 @@ namespace Engine.Core.Maths
             return Mathf.Abs((N.X1 * l.X1 + N.X2 * l.X2 + N.X3 * l.X3 + B) / N.LengthSquared);
         }
 
-        private static Gaussian.GaussianResult SolveSystem(Plane p1, Plane p2)
+        private static Gauss.EliminationResult SolveSystem(Plane p1, Plane p2)
         {
             // create a matrix with the coefficients of the system
-            Obsolete.Matrix m = new Obsolete.Matrix(3, 3);
+            Matrix3x3 m = new Matrix3x3();
             m[0, 0] = p1.N.X1;
             m[1, 0] = p1.N.X2;
             m[2, 0] = p1.N.X3;
@@ -253,14 +253,17 @@ namespace Engine.Core.Maths
             m[2, 1] = p2.N.X3;
 
             // create a augmentation with the constant terms of the system
-            Obsolete.Matrix augmentation = new Obsolete.Matrix(3,1);
+            Matrix augmentation = new Matrix(3,1);
             augmentation[0, 0] = p1.B;
             augmentation[1, 0] = p2.B;
             augmentation[2, 0] = 0;
 
+            //create augmented matrix
+            AugmentedMatrix a = new AugmentedMatrix(m, augmentation);
+
             // solve the system
-            Gaussian.Elimination(m, augmentation, out Gaussian.GaussianResult res);
-            return res;  
+            Gauss.GaussianElimination(a, out Gauss.EliminationResult res);
+            return res;
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Engine.Core.Maths.Obsolete
     [Obsolete]
     public class Gaussian
     {
+        [Obsolete]
         public class GaussianResult
         {
             public List<float> results;

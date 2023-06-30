@@ -9,7 +9,7 @@ using System.CodeDom;
 
 namespace Engine.Core.Maths.Obsolete
 {
-    [Obsolete]
+    [Obsolete("Deprecated")]
     public class Matrix
     {
         public List<List<float>> Values { get; set; }

@@ -11,14 +11,6 @@ namespace Engine.Core.Maths
 {
     public class Matrix : IMatrix
     {
-        public enum MatrixOperation
-        {
-            Addition,
-            Substraction,
-            Multiplication,
-            ScalarMultiplication
-        }
-
         private List<Vector> rows;
         private List<Vector> cols;
 
@@ -36,6 +28,20 @@ namespace Engine.Core.Maths
         public Matrix() { }
         public Matrix(List<Vector> rows)
         {
+            Instantiate(rows);
+        }
+        public Matrix(int r, int c)
+        {
+            List<Vector> rows = new List<Vector>();
+            for (int i = 0; i < r; i++)
+            {
+                Vector v = new Vector();
+                for (int j = 0; j < c; j++)
+                {
+                    v.AddValue(0);
+                }
+                rows.Add(v);
+            }
             Instantiate(rows);
         }
 
@@ -186,14 +192,6 @@ namespace Engine.Core.Maths
             RemoveRow(from);
             InsertRow(rowf, to);
         }
-        /// <summary>
-        /// Operates on the matrix (changes the target row) and outputs the row after the calculation as a vector.
-        /// </summary>
-        /// <param name="target"></param>
-        /// <param name="source"></param>
-        /// <param name="operation"></param>
-        /// <param name="f"></param>
-        /// <returns></returns>
 
         public Matrix ScalarMultiplication(float f)
         {
@@ -208,6 +206,11 @@ namespace Engine.Core.Maths
                 rows.Add(row);
             }
             return new Matrix(rows);
+        }
+        public Matrix ScalarDivision(float f)
+        {
+            float reciprocal = 1 / f;
+            return ScalarMultiplication(reciprocal);
         }
         public Matrix Multiplication(Matrix m)
         {
@@ -285,6 +288,34 @@ namespace Engine.Core.Maths
             Vector b = GetRow(r);
             return a - b;
         }
+        public void RowOperation(int target, int source, MatrixOperation operation, float f = 0)
+        {
+            Vector a = new Vector();
+            switch (operation)
+            {
+                case MatrixOperation.Addition:
+                    a = RowAddition(target, source);
+                    break;
+                case MatrixOperation.Substraction:
+                    a = RowSubstraction(target, source);
+                    break;
+                case MatrixOperation.ScalarMultiplication:
+                    a = GetRow(target) * f;
+                    break;
+                case MatrixOperation.ScalarDivision:
+                    a = GetRow(target) * (1.0f / f);
+                    break;
+            }
+            rows[target] = a;
+        }
+        /// <summary>
+        /// Operates on the matrix (changes the target row) and outputs the row after the calculation as a vector.
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="source"></param>
+        /// <param name="operation"></param>
+        /// <param name="f"></param>
+        /// <returns></returns>
         public Matrix Operation(Matrix m, MatrixOperation operation, float f = 0)
         {
             Matrix result = new Matrix();
@@ -302,31 +333,46 @@ namespace Engine.Core.Maths
                 case MatrixOperation.ScalarMultiplication:
                     result = ScalarMultiplication(f);
                     break;
+                case MatrixOperation.ScalarDivision:
+                    result = ScalarDivision(f);
+                    break;
             }
             return result;
         }
-        public Vector RowOperation(int target, int source, MatrixOperation operation, float f = 0)
+        public IMatrix Operation(IMatrix m, MatrixOperation operation, float f = 0)
         {
-            Vector a = new Vector();
-            switch (operation)
+            return Operation(m as Matrix, operation, f);
+        }
+        public bool GetDeterminant(out float determinant)
+        {
+            bool success = true;
+            determinant = 0;
+            if (RowCount == ColumnCount)
             {
-                case MatrixOperation.Addition:
-                    a = RowAddition(target, source);
-                    break;
-                case MatrixOperation.Substraction:
-                    a = RowSubstraction(target, source);
-                    break;
-                case MatrixOperation.ScalarMultiplication:
-                    a = GetRow(target) * f;
-                    break;
+                if (RowCount == 2)
+                {
+                    determinant = this[0, 0] * this[1, 1] - this[0, 1] * this[1, 0];
+                }
+                else if (RowCount == 3)
+                {
+                    determinant = this[0, 0] * this[1, 1] * this[2, 2] + this[0, 1] * this[1, 2] * this[2, 0] + this[0, 2] * this[1, 0] * this[2, 1] - this[2, 0] * this[1, 1] * this[0, 2] - this[2, 1] * this[1, 2] * this[0, 0] - this[2, 2] * this[1, 0] * this[0, 1];
+                }
+                else
+                {
+
+                }
             }
-            rows[target] = a;
-            return a;
+            else success = false;
+            return success;
         }
 
         public static Matrix ScalarMultiplication(Matrix n, float f)
         {
             return n.ScalarMultiplication(f);
+        }
+        public static Matrix ScalarDivision(Matrix n, float f)
+        {
+            return n.ScalarDivision(f);
         }
         public static Matrix Multiplication(Matrix n, Matrix m)
         {
@@ -340,15 +386,39 @@ namespace Engine.Core.Maths
         {
             return n.Substraction(m);
         }
+        public static void RowOperation(Matrix n, int target, int source, MatrixOperation operation, float f = 0)
+        {
+            n.RowOperation(target, source, operation, f);
+        }
         public static Matrix Operation(Matrix n, Matrix m, MatrixOperation operation, float f = 0)
         {
             return n.Operation(m, operation, f);
         }
-        public static Vector RowOperation(Matrix n, int target, int source, MatrixOperation operation, float f = 0)
+        /// <summary>
+        /// Creates a nxn identity and returns it.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static Matrix IdentityMatrix(int n)
         {
-            return n.RowOperation(target, source, operation, f);
+            List<Vector> rows= new List<Vector>();
+            for (int r = 0; r < n; r++)
+            {
+                Vector v = new Vector();
+                for (int c = 0; c < n; c++)
+                {
+                    v.AddValue(c == r ? 1 : 0);
+                }
+                rows.Add(v);
+            }
+            Matrix identityMatrix = new Matrix(rows);
+            return identityMatrix;
         }
 
+        public static Matrix operator *(float f, Matrix n)
+        {
+            return n.ScalarMultiplication(f);
+        }
         public static Matrix operator *(Matrix n, float f)
         {
             return n.ScalarMultiplication(f);
@@ -364,6 +434,10 @@ namespace Engine.Core.Maths
         public static Matrix operator -(Matrix n, Matrix m)
         {
             return n.Substraction(m);
+        }
+        public static Matrix operator /(Matrix n, float f)
+        {
+            return n.ScalarDivision(f);
         }
     }
 }

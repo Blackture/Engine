@@ -17,8 +17,12 @@ namespace Engine
         public Main()
         {
             InitializeComponent();
-            RenderImage renderImage = new RenderImage(Projection.Orthographic, ref viewPort);
-            renderImage.Render();
+            Matrix3x3 matrix1 = new Matrix3x3(1, 1, 1, 1, 1, 1, 1, 1, 1);
+            Matrix3x3 matrix2 = new Matrix3x3(2, 2, 2, 2, 2, 2, 2, 2, 2);
+            Matrix res = Matrix.IdentityMatrix(3);
+            MessageBox.Show($@"[{res[0,0],0}|{res[0,1],0}|{res[0, 2],0}]
+[{res[1, 0],0}|{res[1, 1],0}|{res[1, 2],0}]
+[{res[2, 0],0}|{res[2, 1],0}|{res[2, 2],0}]");
         }
     }
 }

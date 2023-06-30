@@ -65,7 +65,7 @@ namespace Engine.Core.Maths
         public Vector Normalize()
         {
             CalculateNormalization();
-            return Normalized;
+            return Normalized as Vector;
         }
 
         private void CalculateNormalization()
@@ -79,6 +79,7 @@ namespace Engine.Core.Maths
         }
         private void OnValueChanged(object sender, EventArgs e)
         {
+            dimension = values.Count;
             length = GetLength();
             CalculateNormalization();
         }
