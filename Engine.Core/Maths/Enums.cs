@@ -14,4 +14,23 @@ namespace Engine.Core.Maths
         ScalarMultiplication,
         ScalarDivision
     }
+
+    public enum Axis
+    {
+        X1, //to the front
+        X2, //to the right
+        X3 //to the top
+    }
+
+    public enum Convention
+    {
+        X1X2X3,
+        X3X2X1
+    }
+
+    public enum RotationType
+    {
+        RotationMatrix,
+        Quaternion
+    }
 }

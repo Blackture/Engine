@@ -430,7 +430,7 @@ namespace Engine.Core.Maths
                 }
                 subs = matrices;
             }
-            catch (Exception e)
+            catch
             {
                 res = false;
             }
@@ -584,7 +584,7 @@ namespace Engine.Core.Maths
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static MatrixMxN IdentityMatrix(int n)
+        public static MatrixMxN GetIdentityMatrix(int n)
         {
             List<Vector> rows = new List<Vector>();
             for (int r = 0; r < n; r++)

@@ -8,15 +8,35 @@ namespace Engine.Core.Maths
 {
     public abstract class Matrix : IMatrix
     {
+        /// <summary>
+        /// 2x2 Identity Matrix
+        /// </summary>
+        public static readonly Matrix I2x2;
+        /// <summary>
+        /// 3x3 Identity Matrix
+        /// </summary>
+        public static readonly Matrix I3x3;
+        /// <summary>
+        /// 4x4 Identity Matrix
+        /// </summary>
+        public static readonly Matrix I4x4;
+
         public abstract float this[int r, int c] { get; set; }
         public abstract int RowCount { get; }
         public abstract int ColumnCount { get; }
+
+        static Matrix()
+        {
+            I2x2 = GetIdentityMatrix(2, out MatrixMxN I2) ? I2 : null;
+            I3x3 = GetIdentityMatrix(3, out MatrixMxN I3) ? I3 : null;
+            I4x4 = GetIdentityMatrix(4, out MatrixMxN I4) ? I4 : null;
+        }
 
         public abstract IMatrix Operation(IMatrix m, MatrixOperation operation, float f = 0);
         public abstract void RowOperation(int target, int source, MatrixOperation operation, float f = 0);
         public abstract void SwapRows(int from, int to);
 
-        public static bool IdentityMatrix<T>(int n, out T identityMatrix) where T : Matrix, IMatrix, new()
+        public static bool GetIdentityMatrix<T>(int n, out T identityMatrix) where T : Matrix, IMatrix, new()
         {
             bool success = true;
             identityMatrix = new T();

@@ -9,7 +9,7 @@ namespace Engine.Core.Maths
 {
     public class Matrix3x3 : Matrix, IMatrix
     {
-        public static readonly Matrix3x3 IdentityMatrix = new Matrix3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        public new static readonly Matrix3x3 I3x3;
 
         private List<Vector3> rows = new List<Vector3>()
         {
@@ -26,7 +26,10 @@ namespace Engine.Core.Maths
             get => GetValue(r, c);
             set => SetValue(r, c, value);
         }
-
+        static Matrix3x3()
+        {
+            I3x3 = GetIdentityMatrix();
+        }
         public Matrix3x3()
         {
             Instantiate(new List<Vector3>() { Vector3.Zero, Vector3.Zero, Vector3.Zero });
