@@ -121,55 +121,6 @@ namespace Engine.Core.Maths
             else return false;
         }
 
-        [Obsolete("Not fully implemented!")]
-        public static bool GetInverse<T>(T matrix, out T inverseMatrix) where T : class, IMatrix
-        {
-            bool success = true;
-            inverseMatrix = null;
-            if (matrix.ColumnCount == matrix.RowCount)
-            {
-                if (matrix is Matrix3x3 m3)
-                {
-                    //Create augmented matrix
-                    AugmentedMatrix a = new AugmentedMatrix(m3, Matrix3x3.IdentityMatrix);
-                }
-                else if (matrix is Matrix m)
-                {
-                    //Create identity matrix for given size.
-                    int n = m.ColumnCount;
-                    if (n == 2)
-                    {
-                        m.GetDeterminant(out float d);
-                        float fac = 1 / d;
-                        Matrix reordered = new Matrix(2, 2);
-                        reordered[0, 0] = m[1, 1];
-                        reordered[0, 1] = -m[0, 1];
-                        reordered[1, 0] = -m[1, 0];
-                        reordered[1, 1] = m[0, 0];
-                        inverseMatrix = reordered.ScalarMultiplication(fac) as T;
-                    }
-                    else
-                    {
-                        if (m.GetDeterminant(out float d))
-                        {
-                            if (d == 0) success = false;
-                            else
-                            {
-                                if (m.GetAdjointMatrix(out Matrix adj))
-                                {
-                                    inverseMatrix = (1.0f / d) * adj as T;
-                                }
-                            }
-                        }
-                        else success = false;
-                    }
-                }
-                else success = false;
-            }
-            else success = false;
-            return success;
-        }
-
         public class EliminationResult
         {
             public List<float> Floats = null;

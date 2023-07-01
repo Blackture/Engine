@@ -19,17 +19,19 @@ namespace Engine
             InitializeComponent();
             Matrix3x3 matrix1 = new Matrix3x3(1, 1, 1, 1, 1, 1, 1, 1, 1);
             Matrix3x3 matrix2 = new Matrix3x3(2, 2, 2, 2, 2, 2, 2, 2, 2);
-            Matrix m = new Matrix(new List<Vector> { new Vector(2,-1,3), new Vector(0,5,2), new Vector(1,-1,-2) });
-            bool test = m.GetAdjointMatrix(out Matrix n);
+            MatrixMxN m = new MatrixMxN(new List<Vector> { new Vector(4,7), new Vector(2,6) });
+            bool test = MatrixMxN.GetInverse(m, out MatrixMxN n);
             MessageBox.Show(test.ToString());
-            Matrix res = n;
+            MatrixMxN res = n;
             //MessageBox.Show($@"[{res[0, 0],0}|{res[0, 1],0}|{res[0, 2],0}]
             //[{res[1, 0],0}|{res[1, 1],0}|{res[1, 2],0}]
             //[{res[2, 0],0}|{res[2, 1],0}|{res[2, 2],0}]");
-            MessageBox.Show($@"             [{res[0, 0],0}|{res[0, 1],0}|{res[0, 2],0}]
-            [{res[1, 0],0}|{res[1, 1],0}|{res[1, 2],0}]
-            [{res[2, 0],0}|{res[2, 1],0}|{res[2, 2],0}]");
-            MessageBox.Show($"{res[1,2]}");
+            //MessageBox.Show($@"             [{res[0, 0],0}|{res[0, 1],0}|{res[0, 2],0}]
+            //[{res[1, 0],0}|{res[1, 1],0}|{res[1, 2],0}]
+            //[{res[2, 0],0}|{res[2, 1],0}|{res[2, 2],0}]");
+            MessageBox.Show($@"             [{res[0, 0],0}|{res[0, 1],0}]
+            [{res[1, 0],0}|{res[1, 1],0}]");
+            //MessageBox.Show($"{res[1,2]}");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -215,6 +216,11 @@ namespace Engine.Core.Maths
                 res += f;
             }
             return res;
+        }
+
+        public static float Sinc(float f, bool Pi = false)
+        {
+            return Pi ? ((f != 0) ? Sin(pi * f) / (pi * f) : 1) : ((f != 0) ? Sin(f) / f : 1);
         }
     }
 }

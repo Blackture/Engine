@@ -51,10 +51,11 @@
     <Compile Include="Maths\Enums.cs" />
     <Compile Include="Maths\FloatEnumerator.cs" />
     <Compile Include="Maths\IMatrix.cs" />
+    <Compile Include="Maths\Matrix.cs" />
     <Compile Include="Maths\Matrix3x3.cs" />
     <Compile Include="Maths\Oboslete\Gauss.cs" />
     <Compile Include="Maths\LCS.cs" />
-    <Compile Include="Maths\Matrix.cs" />
+    <Compile Include="Maths\MatrixMxN.cs" />
     <Compile Include="Maths\Oboslete\Matrix.cs" />
     <Compile Include="Maths\Plane.cs" />
     <Compile Include="Maths\Straight.cs" />

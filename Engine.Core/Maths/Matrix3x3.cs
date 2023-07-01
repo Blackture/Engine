@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Engine.Core.Maths
 {
-    public class Matrix3x3 : IMatrix
+    public class Matrix3x3 : Matrix, IMatrix
     {
-        public static readonly Matrix3x3 IdentityMatrix = new Matrix3x3(1,0,0,0,1,0,0,0,1);
+        public static readonly Matrix3x3 IdentityMatrix = new Matrix3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 
         private List<Vector3> rows = new List<Vector3>()
         {
@@ -18,9 +19,9 @@ namespace Engine.Core.Maths
         };
         private List<Vector3> cols = new List<Vector3>();
 
-        public int RowCount => 3;
-        public int ColumnCount => 3;
-        public float this[int r, int c]
+        public override int RowCount => 3;
+        public override int ColumnCount => 3;
+        public override float this[int r, int c]
         {
             get => GetValue(r, c);
             set => SetValue(r, c, value);
@@ -28,7 +29,7 @@ namespace Engine.Core.Maths
 
         public Matrix3x3()
         {
-            Instantiate(new List<Vector3>() { Vector3.Zero, Vector3.Zero, Vector3.Zero});
+            Instantiate(new List<Vector3>() { Vector3.Zero, Vector3.Zero, Vector3.Zero });
         }
         public Matrix3x3(List<Vector3> rows)
         {
@@ -145,7 +146,7 @@ namespace Engine.Core.Maths
         {
             rows.RemoveAt(index);
         }
-        public void SwapRows(int from, int to)
+        public override void SwapRows(int from, int to)
         {
             Vector3 rowf = GetRow(from);
             RemoveRow(from);
@@ -227,7 +228,7 @@ namespace Engine.Core.Maths
             Vector3 a = rows[l] - rows[r];
             return new Vector3(a);
         }
-        public void RowOperation(int target, int source, MatrixOperation operation, float f = 0)
+        public override void RowOperation(int target, int source, MatrixOperation operation, float f = 0)
         {
             Vector3 a = Vector3.Zero;
             switch (operation)
@@ -278,13 +279,23 @@ namespace Engine.Core.Maths
             }
             return result;
         }
-        public IMatrix Operation(IMatrix m, MatrixOperation operation, float f = 0)
+        public override IMatrix Operation(IMatrix m, MatrixOperation operation, float f = 0)
         {
             return Operation(m as Matrix3x3, operation, f);
         }
         public float GetDeterminant()
         {
-            return this[0, 0] * this[1, 1] * this[2, 2] + this[0, 1] * this[1, 2] * this[2, 0] + this[0, 2] * this[1, 0] * this[2, 1] - this[2, 0] * this[1, 1] * this[0, 2] - this[2, 1] * this[1, 2] * this[0, 0] - this[2, 2] * this[1, 0] * this[0, 1];
+            float a = this[0, 0];
+            float b = this[0, 1];
+            float c = this[0, 2];
+            float p = this[1, 0];
+            float q = this[1, 1];
+            float r = this[1, 2];
+            float x = this[2, 0];
+            float y = this[2, 1];
+            float z = this[2, 2];
+
+            return a * q * z + b * r * x + c * p * y - a * r * y - b * p * z - c * q * x;
         }
 
         public static Matrix3x3 ScalarMultiplication(Matrix3x3 n, float f)
@@ -315,6 +326,21 @@ namespace Engine.Core.Maths
         {
             return n.Operation(m, operation, f);
         }
+        public static Matrix3x3 GetIdentityMatrix()
+        {
+            return new Matrix3x3(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        }
+        public static bool GetInverse(Matrix3x3 m, out Matrix3x3 inverseMatrix)
+        {
+            bool success = true;
+            inverseMatrix = null;
+            if (Matrix.GetInverse(m, out Matrix3x3 iM))
+            {
+                inverseMatrix = iM;
+            }
+            else success = false;
+            return success;
+        }
 
         public static Matrix3x3 operator *(float f, Matrix3x3 n)
         {
@@ -339,6 +365,16 @@ namespace Engine.Core.Maths
         public static Matrix3x3 operator /(Matrix3x3 n, float f)
         {
             return n.ScalarDivision(f);
+        }
+        public static implicit operator MatrixMxN(Matrix3x3 m)
+        {
+            List<Vector> rows = new List<Vector>()
+            {
+                new Vector(m[0,0], m[0,1], m[0,2]),
+                new Vector(m[1,0], m[1,1], m[1,2]),
+                new Vector(m[2,0], m[2,1], m[2,2])
+            };
+            return new MatrixMxN(rows);
         }
     }
 }

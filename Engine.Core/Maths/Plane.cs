@@ -253,7 +253,7 @@ namespace Engine.Core.Maths
             m[2, 1] = p2.N.X3;
 
             // create a augmentation with the constant terms of the system
-            Matrix augmentation = new Matrix(3,1);
+            MatrixMxN augmentation = new MatrixMxN(3,1);
             augmentation[0, 0] = p1.B;
             augmentation[1, 0] = p2.B;
             augmentation[2, 0] = 0;
