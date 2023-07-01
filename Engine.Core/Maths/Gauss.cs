@@ -150,8 +150,18 @@ namespace Engine.Core.Maths
                     }
                     else
                     {
-                        Matrix identityMatrix = Matrix.IdentityMatrix(n);
-                        AugmentedMatrix a = new AugmentedMatrix(m, identityMatrix);
+                        if (m.GetDeterminant(out float d))
+                        {
+                            if (d == 0) success = false;
+                            else
+                            {
+                                if (m.GetAdjointMatrix(out Matrix adj))
+                                {
+                                    inverseMatrix = (1.0f / d) * adj as T;
+                                }
+                            }
+                        }
+                        else success = false;
                     }
                 }
                 else success = false;

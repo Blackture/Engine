@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -171,6 +172,7 @@ namespace Engine.Core.Maths
             if (row.Dimension == ColumnCount)
             {
                 rows.Add(row);
+                Instantiate(rows);
             }
             else throw new ArgumentException($"Vector must have a dimension of {ColumnCount} but got {row.Dimension}.");
         }
@@ -179,12 +181,31 @@ namespace Engine.Core.Maths
             if (row.Dimension == ColumnCount)
             {
                 rows.Insert(index, row);
+                Instantiate(rows);
             }
             else throw new ArgumentException($"Vector must have a dimension of {ColumnCount} but got {row.Dimension}.");
         }
         public void RemoveRow(int index)
         {
             rows.RemoveAt(index);
+            Instantiate(rows);
+        }
+        public void RemoveColumn(int index)
+        {
+            if (ValidateIndex(index, true))
+            {
+                List<Vector> newRows = new List<Vector>();
+                foreach (Vector v in rows)
+                {
+                    Vector r = new Vector();
+                    for (int i = 0; i < ColumnCount; i++)
+                    {
+                        if (i != index) r.AddValue(v[i]);
+                    }
+                    newRows.Add(r);
+                }
+                Instantiate(newRows);
+            }
         }
         public void SwapRows(int from, int to)
         {
@@ -343,27 +364,191 @@ namespace Engine.Core.Maths
         {
             return Operation(m as Matrix, operation, f);
         }
+        public void Transpose()
+        {
+            if (RowCount == ColumnCount)
+            {
+                for (int i = 0; i < RowCount; i++)
+                {
+                    for (int j = i + 1; j < ColumnCount; j++)
+                    {
+                        float temp = this[i, j];
+                        this[i, j] = this[j, i];
+                        this[j, i] = temp;
+                    }
+                }
+            }
+            else
+            {
+                // Handle the case where the matrix is not square
+                throw new InvalidOperationException("Cannot transpose a non-square matrix.");
+            }
+        }
+        public bool GetSubMatrix(int r, int c, out Matrix subMatrix)
+        {
+            subMatrix = null;
+            bool res = true;
+            if (RowCount == ColumnCount && RowCount > 1)
+            {
+                if (ValidateIndexes(r, c))
+                {
+                    Vector[] _rows = new Vector[RowCount];
+                    rows.CopyTo(_rows);
+                    List<Vector> newRows = _rows.ToList();
+                    subMatrix = new Matrix(newRows);
+                    subMatrix.RemoveRow(r);
+                    subMatrix.RemoveColumn(c);
+                }
+                else res = false;
+            }
+            else res = false;
+            return res;
+        }
+        public bool Get2x2SubMatrices(Matrix m, out List<Matrix> subs)
+        {
+            bool res = true;
+            subs = null;
+            try
+            {
+                List<Matrix> matrices = new List<Matrix>();
+                int n = m.RowCount;
+                while (n > 2)
+                {
+                    matrices = new List<Matrix>();
+                    for (int r = 0; r < RowCount; r++)
+                    {
+                        for (int c = 0; c < ColumnCount; c++)
+                        {
+                            if (m.GetSubMatrix(r, c, out Matrix sub))
+                            {
+                                matrices.Add(sub);
+                            }
+                            else res = false;
+                        }
+                    }
+                    n = matrices[0].RowCount;
+                }
+                subs = matrices;
+            }
+            catch (Exception e)
+            {
+                res = false;
+            }
+            return res;
+        }
+        public bool GetMinorMatrix(out Matrix minor)
+        {
+            minor = new Matrix(RowCount, ColumnCount);
+            bool success = true;
+            for (int r = 0; r < RowCount; r++)
+            {
+                for (int c = 0; c < ColumnCount; c++)
+                {
+                    float det = 0;
+                    if (GetSubMatrix(r, c, out Matrix src))
+                    {
+                        if (Get2x2SubMatrices(src, out List<Matrix> subs))
+                        {
+                            if (subs.Count == 0)
+                            {
+                                if (src.GetDeterminant(out float _det))
+                                {
+                                    det += _det;
+                                }
+                                else success = false;
+                            }
+                            else
+                            {
+                                foreach (Matrix m in subs)
+                                {
+                                    if (m.GetDeterminant(out float _det))
+                                    {
+                                        det += _det;
+                                    }
+                                    else success = false;
+                                }
+                            }
+                        }
+                        else success = false;
+                    }
+                    else success = false;
+                    minor[r, c] = det;
+                }
+            }
+            return success;
+        }
+        public bool GetCofactorMatrix(out Matrix fac)
+        {
+            bool res = true;
+            fac = new Matrix(RowCount, ColumnCount);
+            if (GetMinorMatrix(out Matrix minor))
+            {
+                fac = new Matrix(RowCount, ColumnCount);
+                for (int i = 0; i < RowCount; i++)
+                {
+                    for (int j = 0; j < ColumnCount; j++)
+                    {
+                        fac[i, j] = minor[i, j] * Mathf.Pow(-1, (i + 1) + (j + 1));
+                    }
+                }
+            }
+            else res = false;
+            return res;
+        }
         public bool GetDeterminant(out float determinant)
         {
             bool success = true;
             determinant = 0;
+
             if (RowCount == ColumnCount)
             {
-                if (RowCount == 2)
+                if (RowCount == 1)
+                {
+                    determinant = rows[0][0];
+                }
+                else if (RowCount == 2)
                 {
                     determinant = this[0, 0] * this[1, 1] - this[0, 1] * this[1, 0];
                 }
                 else if (RowCount == 3)
                 {
-                    determinant = this[0, 0] * this[1, 1] * this[2, 2] + this[0, 1] * this[1, 2] * this[2, 0] + this[0, 2] * this[1, 0] * this[2, 1] - this[2, 0] * this[1, 1] * this[0, 2] - this[2, 1] * this[1, 2] * this[0, 0] - this[2, 2] * this[1, 0] * this[0, 1];
+                    float a = this[0, 0];
+                    float b = this[0, 1];
+                    float c = this[0, 2];
+                    float p = this[1, 0];
+                    float q = this[1, 1];
+                    float r = this[1, 2];
+                    float x = this[2, 0];
+                    float y = this[2, 1];
+                    float z = this[2, 2];
+
+                    determinant = a * q * z + b * r * x + c * p * y - a * r * y - b * p * z - c * q * x;
                 }
                 else
                 {
-
+                    for (int i = 0; i < RowCount; i++)
+                    {
+                        if (GetMinorMatrix(out Matrix minor))
+                        {
+                            determinant += Mathf.Pow(-1, i) * this[i, 0] * minor[i, 0];
+                        }
+                    }
                 }
             }
             else success = false;
             return success;
+        }
+        public bool GetAdjointMatrix(out Matrix adj)
+        {
+            adj = null;
+            bool res = true;
+            if (GetCofactorMatrix(out Matrix fac))
+            {
+                fac.Transpose();
+                adj = fac;
+            } 
+            else res = false;
+            return res;
         }
 
         public static Matrix ScalarMultiplication(Matrix n, float f)
@@ -401,7 +586,7 @@ namespace Engine.Core.Maths
         /// <returns></returns>
         public static Matrix IdentityMatrix(int n)
         {
-            List<Vector> rows= new List<Vector>();
+            List<Vector> rows = new List<Vector>();
             for (int r = 0; r < n; r++)
             {
                 Vector v = new Vector();

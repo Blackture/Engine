@@ -206,5 +206,15 @@ namespace Engine.Core.Maths
         {
             return deg * pi / 180;
         }
+
+        public static float Sum(params float[] floats)
+        {
+            float res = 0;
+            foreach (float f in floats)
+            {
+                res += f;
+            }
+            return res;
+        }
     }
 }
