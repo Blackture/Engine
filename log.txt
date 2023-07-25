@@ -1,0 +1,1 @@
+merge constants class into mathf class

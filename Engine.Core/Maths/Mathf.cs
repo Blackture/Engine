@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,8 +10,23 @@ namespace Engine.Core.Maths
 {
     public static class Mathf
     {
+        public static readonly float PiQuarter;
+        public static readonly float PiHalf;
+
+        public static readonly float SinePiQuarter;
+        public static readonly float CosinePiQuarter;
+
         public const float e = (float)Math.E;
         public const float pi = (float)Math.PI;
+
+        static Mathf()
+        {
+            PiHalf = Mathf.pi / 2.0f;
+            PiQuarter = Mathf.pi / 4.0f;
+
+            SinePiQuarter = Mathf.Sin(PiQuarter);
+            CosinePiQuarter = Mathf.Cos(PiQuarter);
+        }
 
         public static float Acos(float f)
         {
@@ -50,6 +66,20 @@ namespace Engine.Core.Maths
         public static float Cosh(float f)
         {
             return Convert.ToSingle(Math.Cosh(f));
+        }
+
+        public static float Cot(float f)
+        {
+            return Convert.ToSingle(Cos(f) / Sin(f));
+        }
+
+        public static float Sec(float f)
+        {
+            return Convert.ToSingle(1.0f / Cos(f));
+        }
+        public static float Csc(float f)
+        {
+            return Convert.ToSingle(1.0f / Sin(f));
         }
 
         public static float Exp(float f)
@@ -110,6 +140,11 @@ namespace Engine.Core.Maths
         public static float Round(float f, int digits, MidpointRounding midpointRounding)
         {
             return Convert.ToSingle(Math.Round(f, digits, midpointRounding));
+        }
+
+        public static int RoundToInt(float f)
+        {
+            return (int)Round(f, 0, MidpointRounding.AwayFromZero);
         }
 
         public static int Sign(float f)
@@ -206,6 +241,11 @@ namespace Engine.Core.Maths
         public static float Deg2Rad(float deg)
         {
             return deg * pi / 180;
+        }
+
+        public static float Rad2Deg(float rad)
+        {
+            return rad * 180 / pi;
         }
 
         public static float Sum(params float[] floats)

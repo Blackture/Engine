@@ -550,6 +550,32 @@ namespace Engine.Core.Maths
             else res = false;
             return res;
         }
+        public bool ToVector3(out Vector3 v)
+        {
+            bool res = true;
+            v = null;
+            if (ColumnCount == 1 && RowCount == 3)
+            {
+                v = new Vector3(this[0, 0], this[1, 0], this[2, 0]);
+            }
+            else res = false;
+            return res;
+        }
+        public bool ToVector(out Vector v)
+        {
+            bool res = true;
+            v = null;
+            if (ColumnCount == 1)
+            {
+                v = new Vector();
+                for (int i = 0; i < RowCount; i++)
+                {
+                    v.AddValue(this[i, 0]);
+                }
+            }
+            else res = false;
+            return res;
+        }
 
         public static MatrixMxN ScalarMultiplication(MatrixMxN n, float f)
         {
@@ -611,6 +637,8 @@ namespace Engine.Core.Maths
             return success;
         }
 
+        
+
         public static MatrixMxN operator *(float f, MatrixMxN n)
         {
             return n.ScalarMultiplication(f);
@@ -630,6 +658,10 @@ namespace Engine.Core.Maths
         public static MatrixMxN operator -(MatrixMxN n, MatrixMxN m)
         {
             return n.Substraction(m);
+        }
+        public static MatrixMxN operator -(MatrixMxN n)
+        {
+            return (-1) * n;
         }
         public static MatrixMxN operator /(MatrixMxN n, float f)
         {

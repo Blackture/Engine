@@ -17,14 +17,14 @@ namespace Engine.Core.Components
 
         public Vertex(Vector3 localPosition, Object3D dependency) : base(dependency)
         {
-            this.dependency = dependency;
+            this.Dependency = dependency;
             SetPosition(localPosition);
         }
 
         public void SetPosition(Vector3 localPosition)
         {
             this.localPosition = localPosition;
-            globalPosition = this.dependency.GlobalPosition + localPosition;
+            globalPosition = Dependency.Local.GlobalPosition + localPosition;
         }
     }
 }

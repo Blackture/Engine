@@ -29,7 +29,7 @@ namespace Engine.Core.Components
             if (s >= limits[0] && s <= limits[1] && t >= limits[2] && t <= limits[3])
             {
                 Vector3 v = plane.GetPositionVectorAt(s, t);
-                return new Vertex(v, dependency);
+                return new Vertex(v, Dependency);
             }
             else throw new ArgumentOutOfRangeException();
         }
@@ -66,7 +66,7 @@ namespace Engine.Core.Components
         {
             float[] limits = new float[4];
 
-            // normal = normalized plane normal
+            // normal = normalized _plane normal
             Vector3 normal = plane.N.Normalized;
 
             // calculate the limits for s and t

@@ -65,12 +65,12 @@ namespace Engine.Core.Maths.Obsolete
                         augmentation.AddRow(j, i, -factor);
                     }
 
-                    // Check for straight or plane
+                    // Check for straight or _plane
                     if (matrix[i, i] == 0 && augmentation[i, 0] == 0)
                     {
                         if (matrix.ColumnCount == 3)
                         {
-                            //Extract coeficients for the plane
+                            //Extract coeficients for the _plane
                             float a = matrix[i, 0];
                             float b = matrix[i, 1];
                             float c = matrix[i, 2];

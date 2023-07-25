@@ -42,14 +42,14 @@ namespace Engine.Core.Components
         }
         public void AddEdge(Vertex v1, Vertex v2)
         {
-            Edge e = new Edge(v1, v2, dependency);
+            Edge e = new Edge(v1, v2, Dependency);
             edges.Add(e);
         }
         public void AddEdge(Vertex[] vertices)
         {
             if (vertices.Length == 2)
             {
-                Edge e = new Edge(vertices[0], vertices[1], dependency); 
+                Edge e = new Edge(vertices[0], vertices[1], Dependency); 
                 edges.Add(e);
             }
             else throw new ArgumentException();
@@ -61,7 +61,7 @@ namespace Engine.Core.Components
         }
         public void AddFace(Vertex[] vertices, Edge[] edges)
         {
-            Face f = new Face(vertices, edges, dependency);
+            Face f = new Face(vertices, edges, Dependency);
             faces.Add(f);
         }
         public void AddFace(Vertex[] vertices)
@@ -69,9 +69,9 @@ namespace Engine.Core.Components
             List<Edge> edges = new List<Edge>();
             for(int i = 0; i < vertices.Length - 2; i += 2)
             {
-                edges.Add(new Edge(vertices[i], vertices[i + 1], dependency));
+                edges.Add(new Edge(vertices[i], vertices[i + 1], Dependency));
             } 
-            Face f = new Face(vertices, edges.ToArray(), dependency);
+            Face f = new Face(vertices, edges.ToArray(), Dependency);
             faces.Add(f);
         }
 

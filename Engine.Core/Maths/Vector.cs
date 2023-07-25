@@ -270,6 +270,30 @@ namespace Engine.Core.Maths
         {
             return v1.Division(f);
         }
+        /// <summary>
+        /// Turns the vector into single-row matrix, as long as <paramref name="isColumn"/> is false.
+        /// Otherwise it turns the vector into a single-column matrix
+        /// </summary>
+        /// <param name="v"></param>
+        public static MatrixMxN ToMatrix(Vector v, bool isColumn = false)
+        {
+            MatrixMxN m = null;
+            switch (isColumn)
+            {
+                case false:
+                    m = new MatrixMxN(new List<Vector>() { v });
+                    break;
+                case true:
+                    List<Vector> rows = new List<Vector>();
+                    foreach(float f in v)
+                    {
+                        rows.Add(new Vector(f));
+                    }
+                    m = new MatrixMxN(rows);
+                    break;
+            }
+            return m;
+        }
 
         public IEnumerator<float> GetEnumerator()
         {

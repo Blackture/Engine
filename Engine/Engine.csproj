@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Poimora Engine Logo Rounded Corner.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -93,6 +96,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UIElements\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Poimora Engine Logo Rounded Corner.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -25,8 +25,8 @@ namespace Engine.Core.Maths
         {
             PiQuarter = new MatrixMxN(new List<Vector>
             {
-                new Vector(Constants.PiQuarter, -Constants.PiQuarter),
-                new Vector(Constants.PiQuarter, Constants.PiQuarter)
+                new Vector(Mathf.CosinePiQuarter, -Mathf.SinePiQuarter),
+                new Vector(Mathf.SinePiQuarter, Mathf.CosinePiQuarter)
             });
         }
 

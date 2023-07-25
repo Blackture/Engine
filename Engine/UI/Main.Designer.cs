@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.viewPort = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.viewPort)).BeginInit();
             this.SuspendLayout();
@@ -46,8 +47,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.viewPort);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "Poimora Engine";
             ((System.ComponentModel.ISupportInitialize)(this.viewPort)).EndInit();
             this.ResumeLayout(false);
 

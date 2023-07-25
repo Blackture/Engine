@@ -93,7 +93,7 @@ namespace Engine.Core.Maths
         }
         public static float operator *(Vector3 v1, Vector3 v2)
         {
-            return v1.x1 * v2.x1 + v1.x2 * v2.x2 + v1.x3 * v2.x3;
+            return v1.X1 * v2.X1 + v1.X2 * v2.X2 + v1.X3 * v2.X3;
         }
         public static Vector3 operator +(Vector3 v1, Vector3 v2)
         {
@@ -107,7 +107,20 @@ namespace Engine.Core.Maths
         {
             return v * (1 / f);
         }
+        public static implicit operator Vector(Vector3 v)
+        {
+            return new Vector(v.X1, v.X2, v.X3);
+        }
 
+        /// <summary>
+        /// Turns the vector into single-row matrix, as long as <paramref name="isColumn"/> is false.
+        /// Otherwise it turns the vector into a single-column matrix
+        /// </summary>
+        /// <param name="v"></param>
+        public static MatrixMxN ToMatrix(Vector3 v, bool isColumn = false)
+        {
+            return v.ToMatrix(isColumn);
+        }
         public static Vector3 CrossProduct(Vector3 u, Vector3 v)
         {
             return new Vector3(u.X2 * v.X3 - u.X3 * v.X2, u.X3 * v.X1 - u.X1 * v.X3, u.X1 * v.X2 - u.X2 * v.X1);
@@ -116,24 +129,20 @@ namespace Engine.Core.Maths
         {
             return u * v;
         }
-
         public static Vector3 Normalize(Vector3 v)
         {
             v.Normalize();
             return v.Normalized as Vector3;
         }
-
         public static float GetLength(Vector3 v)
         {
             return v.GetLength();
         }
-
         public static float AngleBetween(Vector3 a, Vector3 b)
         {
             if (a == Zero && b == Zero) return 0.0f;
             return Mathf.Acos(a * b / (a.Length * b.Length)) * 180 / Mathf.pi;
         }
-
         public static bool OrthogonalityCheck(Vector3 a, Vector3 b)
         {
             bool res = false;
@@ -149,7 +158,6 @@ namespace Engine.Core.Maths
             CalculateNormalization();
             return Normalized;
         }
-
         public float GetLength()
         {
             float l = 0.0f;
@@ -164,7 +172,6 @@ namespace Engine.Core.Maths
             }
             return l;
         }
-
         public Vector3 CrossProduct(Vector3 v)
         {
             return CrossProduct(this, v);
@@ -189,7 +196,6 @@ namespace Engine.Core.Maths
         {
             return this / scalar;
         }
-
         public bool IsPerpendicularTo(Vector3 v)
         {
             bool res = false;
@@ -200,6 +206,11 @@ namespace Engine.Core.Maths
             return res;
         }
 
+        /// <summary>
+        /// <paramref name="zeroAt"/> ∈ [1;3]; everything else results in a null vector.
+        /// </summary>
+        /// <param name="zeroAt"></param>
+        /// <returns></returns>
         public Vector3 GetNormalVector(int zeroAt)
         {
             Vector3 v;
@@ -218,10 +229,39 @@ namespace Engine.Core.Maths
                     return new Vector3(0, 0, 0);
             }
         }
-
         public bool IsZero()
         {
             return this == Zero;
+        }
+        public MatrixMxN ToMatrix(bool isColumn = false)
+        {
+            MatrixMxN m = null;
+            switch (isColumn)
+            {
+                case false:
+                    m = new MatrixMxN(new List<Vector>() { this });
+                    break;
+                case true:
+                    List<Vector> rows = new List<Vector>()
+                    {
+                        new Vector(X1),
+                        new Vector(X2),
+                        new Vector(X3)
+                    };
+                    m = new MatrixMxN(rows);
+                    break;
+            }
+            return m;
+        }
+
+        public Vector3 Project(Vector3 to)
+        {
+            return ((this * to) / LengthSquared) * to;
+        }
+
+        public Vector3 Project(Plane to)
+        {
+            return this - Project(to.N);
         }
 
         private void CalculateNormalization()

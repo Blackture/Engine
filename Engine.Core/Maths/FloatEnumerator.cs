@@ -28,7 +28,7 @@ namespace Engine.Core.Maths
             }
         }
 
-        object IEnumerator.Current => throw new NotImplementedException();
+        object IEnumerator.Current => Current;
 
         public FloatEnumerator(float[] data)
         {

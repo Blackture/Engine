@@ -17,6 +17,8 @@ namespace Engine
         public Main()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
+
             Matrix3x3 matrix1 = new Matrix3x3(1, 1, 1, 1, 1, 1, 1, 1, 1);
             Matrix3x3 matrix2 = new Matrix3x3(2, 2, 2, 2, 2, 2, 2, 2, 2);
             MatrixMxN m = new MatrixMxN(new List<Vector> { new Vector(4,7), new Vector(2,6) });

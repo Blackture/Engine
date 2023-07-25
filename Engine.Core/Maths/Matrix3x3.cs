@@ -365,6 +365,10 @@ namespace Engine.Core.Maths
         {
             return n.Substraction(m);
         }
+        public static Matrix3x3 operator -(Matrix3x3 n)
+        {
+            return (-1) * n;
+        }
         public static Matrix3x3 operator /(Matrix3x3 n, float f)
         {
             return n.ScalarDivision(f);

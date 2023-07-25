@@ -47,11 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Color.cs" />
+    <Compile Include="Pixel.cs" />
     <Compile Include="RenderingConstants.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenderImage.cs" />
     <Compile Include="RenderPoint.cs" />
+    <Compile Include="RenderTexture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine.Core\Engine.Core.csproj">

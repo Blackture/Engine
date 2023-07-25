@@ -8,11 +8,12 @@ namespace Engine.Core
 {
     public class Component
     {
-        public Object3D dependency;
+        private Object3D dependency;
+        public Object3D Dependency { get => dependency; set => dependency = value ?? throw new ArgumentNullException(); }
 
         public Component(Object3D dependency)
         {
-            this.dependency = dependency;
+            Dependency = dependency;
         }
     }
 }

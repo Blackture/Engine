@@ -31,7 +31,7 @@ namespace Engine.Core.Components
         {
             if (0 <= t && t <= 1)
             {
-                return new Vertex(s.GetPointAt(t), dependency);
+                return new Vertex(s.GetPointAt(t), Dependency);
             }
             else throw new ArgumentOutOfRangeException("T is out of range.");
         }

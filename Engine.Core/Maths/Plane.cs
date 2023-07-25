@@ -17,30 +17,32 @@ namespace Engine.Core.Maths
             _1PositionVector2SpanVectors
         }
 
+        Vector3 n;
+        Vector3 p;
+        Vector3 s1;
+        Vector3 s2;
+        float b;
+
         /// <summary>
         /// The normal vector of the plane
         /// </summary>
-        Vector3 n;
+        public Vector3 N { get { return n; } set { n = value; p = GetPoint_00X(); } }
         /// <summary>
         /// A position vector on the plane
         /// </summary>
-        Vector3 p;
-        /// <summary>
-        /// Span Vector3 1
-        /// </summary>
-        Vector3 s1;
-        /// <summary>
-        /// Span Vector3 2
-        /// </summary>
-        Vector3 s2;
+        public Vector3 P { get { return p; } }
         /// <summary>
         /// The "b" value of the coordinate-form "n1x1+n2x2+n3a3-b"
         /// </summary>
-        float b;
-
-        public Vector3 N { get { return n; } set { n = value; p = GetPoint_00X(); } }
-        public Vector3 P { get { return p; } }
         public float B { get { return b; } }
+        /// <summary>
+        /// Span Vector3 1
+        /// </summary>
+        public Vector3 S1 { get { return s1; } }
+        /// <summary>
+        /// Span Vector3 2
+        /// </summary>
+        public Vector3 S2 { get { return s2; } }
 
         public Plane(Vector3 n, float b)
         {
@@ -73,6 +75,8 @@ namespace Engine.Core.Maths
         public Plane(Vector3 p, Vector3 n)
         {
             this.n = n;
+            s1 = n.GetNormalVector(1);
+            s2 = n.GetNormalVector(3);
             this.p = p;
             b = p * n;
         }

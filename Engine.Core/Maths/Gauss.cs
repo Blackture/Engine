@@ -60,12 +60,12 @@ namespace Engine.Core.Maths
                         matrix.RowOperation(j, i, MatrixOperation.Addition);
                     }
 
-                    // Check for straight or plane
+                    // Check for straight or _plane
                     if (matrix.Matrix[i, i] == 0 && matrix.Augmentation[i, 0] == 0)
                     {
                         if (matrix.Matrix.ColumnCount == 3)
                         {
-                            //Extract coeficients for the plane
+                            //Extract coeficients for the _plane
                             float a = matrix.Matrix[i, 0];
                             float b = matrix.Matrix[i, 1];
                             float c = matrix.Matrix[i, 2];
