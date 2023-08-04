@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Engine.Core.Maths;
 using Engine.Core.Components;
 using System.Collections;
+using Engine.Core.SceneManagement;
 
 namespace Engine.Core
 {
@@ -15,6 +16,8 @@ namespace Engine.Core
     {
         private LCS3 local;
         private Object3D parent;
+        private Tag internalTag;
+        private static readonly GCS3 globalCoordinateSystem;
 
         public string Name;
         public List<Component> Components = new List<Component>();
@@ -22,14 +25,21 @@ namespace Engine.Core
         /// local coordinate system of the object
         /// </summary>
         public LCS3 Local => local;
+        public List<Tag> customTags;
 
+        public Tag InternalTag { get { return internalTag; } }
         /// <summary>
-        /// The set-accessor resets the local transformations the new parent ones. To keep this Object3D's transformation, use the method instead.
+        /// The set-accessor resets the local transformations the new Parent ones. To keep this Object3D's transformation, use the method instead.
         /// </summary>
         public Object3D Parent
         {
             get { return parent; }
             set { SetParent(value); }
+        }
+
+        static Object3D()
+        {
+            SceneManager.Instance.ActiveScene.GetGlobalCoordinateSystem(out globalCoordinateSystem);
         }
 
         public Object3D(bool global = false)
@@ -87,6 +97,11 @@ namespace Engine.Core
 
         public void SetParent(Object3D parent, bool keepGlobalTransformation = false)
         {
+            if (this.parent == null && parent != null)
+            {
+                globalCoordinateSystem.RemoveFromBase(this);
+            }
+
             if (keepGlobalTransformation)
             {
                 Vector3 p = Local.GlobalPosition;
@@ -100,11 +115,13 @@ namespace Engine.Core
                 this.parent = parent;
                 Init(false);
             }
+            globalCoordinateSystem.ReregisterAllLCS ();
         }
 
         public T AddComponent<T>(T component) where T : Component
         {
             component.Dependency = this;
+            if (typeof(T) == typeof(Camera)) internalTag = 0;
             Components.Add(component);
             return component;
         }

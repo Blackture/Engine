@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Engine.Core.Maths;
 using Engine.Core.Physics.Optics;
 using Engine.Core.SceneManagement;
+using Engine.Core.Rendering;
 
 namespace Engine.Core.Components
 {
@@ -57,7 +58,9 @@ namespace Engine.Core.Components
             {
                 Straight sray = lens.CreateRay(s, t, this, out float r);
                 Ray ray = new Ray(sray, r);
-                Particle p = ray.Emit(1000);
+                ray.Emit(1000);
+                Particle p = ray.Particle;
+                
             }
 
 

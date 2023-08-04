@@ -30,3 +30,11 @@ C:\Users\Admin\Desktop\Engine\Engine\obj\Debug\Engine.csproj.CoreCompileInputs.c
 C:\Users\Admin\Desktop\Engine\Engine\obj\Debug\Engine.csproj.CopyComplete
 C:\Users\Admin\Desktop\Engine\Engine\obj\Debug\Engine 0.1-a.1.exe
 C:\Users\Admin\Desktop\Engine\Engine\obj\Debug\Engine 0.1-a.1.pdb
+C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Security.Permissions.dll
+C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Security.Permissions.xml
+C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Security.Principal.Windows.xml

@@ -12,7 +12,7 @@ namespace Engine.Core.SceneManagement
         private GCS3 globalCoordinateSystem;
         public GCS3 GlobalCoordinateSystem { get { return globalCoordinateSystem; } }
 
-        public Scene3D(int sceneId) : base(sceneId) 
+        public Scene3D(int sceneId) : base(sceneId, SceneType.Scene3D) 
         {
             globalCoordinateSystem = new GCS3();
         }

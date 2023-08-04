@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using Engine.Core.Maths;
@@ -36,6 +37,15 @@ namespace Engine.Core.Components
         public Vector3 LocalPosition { get => localPosition; set => localPosition = value; }
         public RotationVector3 LocalRotation { get => localRotation; set => localRotation = value; }
         public Vector3 LocalScale { get => localScale; set => localScale = value; }
+        /// <summary>
+        /// Is true if the LCS has at least one child Lcs
+        /// </summary>
+        public bool HasChild { get => hasChild; }
+        /// <summary>
+        /// The higher the value the more parents it has, starting from 0: no parents
+        /// </summary>
+        public LCS3 Parent { get => Dependency.Parent?.Local; }
+        public int ChildCount { get => children.Count; }
 
         private Vector3 globalPosition;
         private RotationVector3 globalRotation;
@@ -43,6 +53,7 @@ namespace Engine.Core.Components
         private Vector3 localPosition;
         private RotationVector3 localRotation;
         private Vector3 localScale;
+        private bool hasChild;
 
         protected List<LCS3> children;
         private int enumPos = -1;
@@ -56,10 +67,7 @@ namespace Engine.Core.Components
                 dependency.Parent.Local.children = dependency.Parent.Local.GetChilds();
             }
             children = GetChilds();
-        }
-
-        public void CalculateGlobals()
-        {
+            hasChild = children.Count > 0;
         }
 
         public List<LCS3> GetChilds()
@@ -98,6 +106,12 @@ namespace Engine.Core.Components
                 return localToGlobal;
             }
             else throw new InvalidOperationException("Could not apply rotation.");
+        }
+
+        [Obsolete("Not Implemented")]
+        public Vector3 ToLocalPositionVector(Vector3 globalPosition)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerator<LCS3> GetEnumerator()

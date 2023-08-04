@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using Engine.Core.Maths;
 using Engine.Core.Components;
-using Engine.Core;
+using Engine.Core.Rendering;
 
 namespace Engine.Rendering
 {

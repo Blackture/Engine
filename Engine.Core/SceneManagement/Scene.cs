@@ -11,18 +11,35 @@ namespace Engine.Core.SceneManagement
     {
         public string Name;
         private int sceneId;
-        public int SceneId { get { return sceneId; } }
+        private SceneType type;
 
-        public Scene(int sceneId)
+        private Scene3D reference3D;
+
+        public int SceneId { get { return sceneId; } }
+        public SceneType Type { get { return type; } }
+
+        public Scene(int sceneId, SceneType type)
         {
             this.sceneId = sceneId;
+            this.type = type;
         }
 
         /// <summary>
         /// Gets the scene's global coordinate system.
-        /// TODO: GCS2 in case it's 2D, and the not implemented GCS2 class is implemented.
+        /// TODO: Overload method for GCS2
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <returns>Returns wether there is GCS3 or not</returns>
+        public bool GetGlobalCoordinateSystem(out GCS3 gcs)
+        {
+            gcs = null;
+            bool res = false;
+            if (reference3D != null && Type != SceneType.Scene2D)
+            {
+                res = true;
+                gcs = reference3D.GlobalCoordinateSystem;
+            } 
+            return res;
+        }
     }
 }

@@ -16,3 +16,13 @@ C:\Users\Admin\Desktop\Engine\Engine.Rendering\obj\Debug\Engine.Rendering.csproj
 C:\Users\Admin\Desktop\Engine\Engine.Rendering\obj\Debug\Engine.Rendering.csproj.CopyComplete
 C:\Users\Admin\Desktop\Engine\Engine.Rendering\obj\Debug\Engine.Rendering.dll
 C:\Users\Admin\Desktop\Engine\Engine.Rendering\obj\Debug\Engine.Rendering.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\System.Security.Permissions.dll
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\System.Security.Permissions.xml
+C:\Users\Admin\Desktop\Engine\Engine.Rendering\bin\Debug\System.Security.Principal.Windows.xml

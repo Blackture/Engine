@@ -10,3 +10,14 @@ C:\Users\Admin\Desktop\Engine\Engine.Core\obj\Debug\Engine.Core.csproj.AssemblyR
 C:\Users\Admin\Desktop\Engine\Engine.Core\obj\Debug\Engine.Core.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Engine\Engine.Core\obj\Debug\Engine.dll
 C:\Users\Admin\Desktop\Engine\Engine.Core\obj\Debug\Engine.pdb
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\System.Security.Permissions.dll
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\System.Security.Permissions.xml
+C:\Users\Admin\Desktop\Engine\Engine.Core\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Admin\Desktop\Engine\Engine.Core\obj\Debug\Engine.Core.csproj.CopyComplete
