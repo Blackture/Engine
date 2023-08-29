@@ -13,11 +13,11 @@ namespace Engine.Core.Components
         public Vertex3D A;
         public Vertex3D B;
 
-        private Straight s;
+        private Straight3D s;
 
         public Edge3D(Vertex3D A, Vertex3D B, Object3D dependency) : base(dependency)
         {
-            s = new Straight(A.LocalPosition, B.LocalPosition, Straight.LineSetupType._2Points);
+            s = new Straight3D(A.LocalPosition, B.LocalPosition, Straight3D.LineSetupType._2Points);
         }
 
         /// <summary>

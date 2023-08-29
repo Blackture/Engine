@@ -13,7 +13,7 @@ namespace Engine.Core.Maths.Obsolete
         public class GaussianResult
         {
             public List<float> results;
-            public Straight straight;
+            public Straight3D straight;
             public Plane plane;
         }
 
@@ -90,7 +90,7 @@ namespace Engine.Core.Maths.Obsolete
                             // Compute directional vector
                             Vector3 directionVector = new Vector3(a, b, 0);
 
-                            result.straight = new Straight(supportVector, directionVector, Straight.LineSetupType._1Point1Dir);
+                            result.straight = new Straight3D(supportVector, directionVector, Straight3D.LineSetupType._1Point1Dir);
                         }
                     }
                 }

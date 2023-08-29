@@ -95,7 +95,7 @@ namespace Engine.Core.Maths
             return Mathf.Approximately(n.X1 * v.X1 + n.X2 * v.X2 + n.X3 * v.X3, b);
         }
 
-        public bool Contains(Straight s)
+        public bool Contains(Straight3D s)
         {
             bool res = false;
             if (Contains(s.OA))
@@ -113,7 +113,7 @@ namespace Engine.Core.Maths
             return p + s1 * n2 + s2 * n3;
         }
 
-        public bool Intersects(Plane plane, Straight line)
+        public bool Intersects(Plane plane, Straight3D line)
         {
             bool res = false;
             if (Mathf.Approximately(line.Dir * plane.n, 0))
@@ -140,7 +140,7 @@ namespace Engine.Core.Maths
         /// <param name="intersectionLine"></param>
         /// <param name="intersectionPoint"></param>
         /// <returns>True if plane ∩ plane ≠ ∅</returns>
-        public static bool Intersection(Plane p1, Plane p2, out Straight s, out Plane p, out Vector3 v)
+        public static bool Intersection(Plane p1, Plane p2, out Straight3D s, out Plane p, out Vector3 v)
         {
             s = null;
             p = null;
@@ -177,7 +177,7 @@ namespace Engine.Core.Maths
         /// <param name="intersectionLine"></param>
         /// <param name="intersectionPoint"></param>
         /// <returns>True if plane ∩ line ≠ ∅</returns>
-        public static bool Intersection(Plane plane, Straight line, out Straight intersectionLine, out Vector3 intersectionPoint)
+        public static bool Intersection(Plane plane, Straight3D line, out Straight3D intersectionLine, out Vector3 intersectionPoint)
         {
             intersectionLine = null;
             intersectionPoint = null;
@@ -201,7 +201,7 @@ namespace Engine.Core.Maths
                     intersectionPoint = line.OA + d * line.Dir;
                     if (plane.Contains(intersectionPoint))
                     {
-                        intersectionLine = new Straight(intersectionPoint, line.Dir, Straight.LineSetupType._1Point1Dir);
+                        intersectionLine = new Straight3D(intersectionPoint, line.Dir, Straight3D.LineSetupType._1Point1Dir);
                         return true;
                     }
                     else
@@ -233,12 +233,12 @@ namespace Engine.Core.Maths
             return Mathf.Abs(s);
         }
 
-        public float Distance(Straight s)
+        public float Distance(Straight3D s)
         {
             return Distance(s, out Vector3 _);
         }
 
-        public float Distance(Straight s, out Vector3 l)
+        public float Distance(Straight3D s, out Vector3 l)
         {
             float t = -(s.OA * N) / (N * s.Dir);
             l = s.OA + t * s.Dir;

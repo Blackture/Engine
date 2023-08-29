@@ -85,7 +85,7 @@ namespace Engine.Core.Maths
                             // Compute directional vector
                             Vector3 directionVector = new Vector3(a, b, 0);
 
-                            result.Straight = new Straight(supportVector, directionVector, Straight.LineSetupType._1Point1Dir);
+                            result.Straight = new Straight3D(supportVector, directionVector, Straight3D.LineSetupType._1Point1Dir);
                         }
                     }
                 }
@@ -124,7 +124,7 @@ namespace Engine.Core.Maths
         public class EliminationResult
         {
             public List<float> Floats = null;
-            public Straight Straight = null;
+            public Straight3D Straight = null;
             public Plane Plane = null;
         }
     }

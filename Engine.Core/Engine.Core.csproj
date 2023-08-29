@@ -71,6 +71,8 @@
     <Compile Include="LCS3Element.cs" />
     <Compile Include="IParticleHandler.cs" />
     <Compile Include="LCS3ElementGroup.cs" />
+    <Compile Include="Maths\HomogeneousObject3D.cs" />
+    <Compile Include="Maths\Limits.cs" />
     <Compile Include="Physics\CollisionDetection\BoundingBox3D.cs" />
     <Compile Include="Physics\CollisionDetection\BoundingVolume3D.cs" />
     <Compile Include="Physics\CollisionDetection\Cell.cs" />
@@ -83,8 +85,8 @@
     <Compile Include="Components\Edge3D.cs" />
     <Compile Include="Components\Face3D.cs" />
     <Compile Include="Layer.cs" />
-    <Compile Include="Maths\AffineTransformationMatrix.cs" />
-    <Compile Include="Maths\AffineTransformationMatrix4x4.cs" />
+    <Compile Include="Maths\AffineMatrix3x3.cs" />
+    <Compile Include="Maths\AffineMatrix4x4.cs" />
     <Compile Include="Maths\AugmentedMatrix.cs" />
     <Compile Include="Components\Camera.cs" />
     <Compile Include="Maths\DilationMatrix2x2.cs" />
@@ -105,9 +107,9 @@
     <Compile Include="Maths\RotationMatrix2x2.cs" />
     <Compile Include="Maths\RotationMatrix3x3.cs" />
     <Compile Include="Maths\RotationVector3.cs" />
-    <Compile Include="Maths\ShearMatrix2D.cs" />
-    <Compile Include="Maths\ShearMatrix3D.cs" />
-    <Compile Include="Maths\Straight.cs" />
+    <Compile Include="Maths\SheerMatrix2D.cs" />
+    <Compile Include="Maths\SheerMatrix3D.cs" />
+    <Compile Include="Maths\Straight3D.cs" />
     <Compile Include="Maths\GCS3.cs" />
     <Compile Include="Maths\Vector.cs" />
     <Compile Include="Maths\Vector2.cs" />

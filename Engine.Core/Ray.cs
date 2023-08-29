@@ -14,20 +14,20 @@ namespace Engine.Core
 {
     public class Ray : IParticleHandler, IRay
     {
-        private Straight ray;
+        private Straight3D ray;
         private float rayStart;
         private float samplingRate;
         private Particle particle;
 
         public Particle Particle { get { return particle; } }
 
-        public Ray(Straight ray, float rayStart)
+        public Ray(Straight3D ray, float rayStart)
         {
             this.ray = ray;
             this.rayStart = rayStart;
             samplingRate = 1f;
         }
-        public Ray(Straight ray, float rayStart, float samplingRate)
+        public Ray(Straight3D ray, float rayStart, float samplingRate)
         {
             this.ray = ray;
             this.rayStart = rayStart;

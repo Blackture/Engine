@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Core.Maths
 {
-    public class ShearMatrix3D
+    public class SheerMatrix3D
     {
         public MatrixMxN S4x4;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Engine.Core.Maths
         /// <param name="θ_zx"></param>
         /// <param name="θ_zy"></param>
         /// <param name="convention"></param>
-        public ShearMatrix3D(ShearConvention convention, params float[] θ)
+        public SheerMatrix3D(ShearConvention convention, params float[] θ)
         {
             if (θ.Length != 6) throw new ArgumentException("Incorrect number of angles. You need 6 angles.");
 
@@ -89,28 +89,13 @@ namespace Engine.Core.Maths
             });
         }
 
-        public static implicit operator MatrixMxN(ShearMatrix3D sm)
+        public static implicit operator MatrixMxN(SheerMatrix3D sm)
         {
             return sm.S4x4;
         }
+        public static implicit operator Matrix3x3(SheerMatrix3D sm) { return sm.S3x3; }
 
-        public MatrixMxN ToMatrix4x4()
-        {
-            MatrixMxN matrix = (MatrixMxN)Matrix.I4x4;
-
-            // Copy the values from the submatrix to the upper left portion of the matrix
-            for (int row = 0; row < 3; row++)
-            {
-                for (int col = 0; col < 3; col++)
-                {
-                    matrix[row, col] = S3x3[row, col];
-                }
-            }
-
-            return matrix;
-        }
-
-        public static Vector operator *(ShearMatrix3D s, Vector3 v)
+        public static Vector operator *(SheerMatrix3D s, Vector3 v)
         {
             MatrixMxN _v = v.ToMatrix(true);
             _v.AddRow(new Vector(1));
@@ -119,7 +104,7 @@ namespace Engine.Core.Maths
             return vres;
         }
 
-        public Vector3 Multiply(ShearMatrix3D s, Vector3 v)
+        public Vector3 Multiply(SheerMatrix3D s, Vector3 v)
         {
             Vector vres = s * v;
             return new Vector3(vres[0], vres[1], vres[2]);

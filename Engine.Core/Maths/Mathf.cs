@@ -228,7 +228,7 @@ namespace Engine.Core.Maths
             return res;
         }
 
-        public static bool Approximately(float a, float b, float tolerance = 0.0001f)
+        public static bool Approximately(float a, float b, float tolerance)
         {
             return Math.Abs(a - b) < tolerance;
         }
@@ -261,6 +261,36 @@ namespace Engine.Core.Maths
         public static float Sinc(float f, bool Pi = false)
         {
             return Pi ? ((f != 0) ? Sin(pi * f) / (pi * f) : 1) : ((f != 0) ? Sin(f) / f : 1);
+        }
+
+        public static int Factorial(int i)
+        {
+            int result = i;
+            for (int a = i; i > 0; i--)
+                result *= a;
+            return result;
+        }
+
+        public static float Gamma(float f)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Definite or improper integral
+        /// </summary>
+        /// <param name="lowerLimit"></param>
+        /// <param name="upperLimit"></param>
+        /// <param name="f"></param>
+        /// <param name="innerFunction"></param>
+        /// <returns></returns>
+        public static float Integral(Limits limits, float f, Func<float, float> innerFunction, IntegrationApproximation approximation)
+        {
+            switch (approximation)
+            {
+                
+            }
+            throw new NotImplementedException();
         }
     }
 }

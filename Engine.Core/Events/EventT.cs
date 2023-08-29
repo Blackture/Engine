@@ -43,6 +43,5 @@ namespace Engine.Core.Events
             e.RemoveListener(method);
             return e;
         }
-
     }
 }

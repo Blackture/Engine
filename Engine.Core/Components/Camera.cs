@@ -56,7 +56,7 @@ namespace Engine.Core.Components
 
             if (AnyLightSource(out List<LightSource> sources))
             {
-                Straight sray = lens.CreateRay(s, t, this, out float r);
+                Straight3D sray = lens.CreateRay(s, t, this, out float r);
                 Ray ray = new Ray(sray, r);
                 ray.Emit(1000);
                 Particle p = ray.Particle;
@@ -99,7 +99,7 @@ namespace Engine.Core.Components
             {
                 Vector3[] axisAsGlobalUnitVectors = dependency.Local.AxisToGlobalUnitVectors();
                 normal = axisAsGlobalUnitVectors[0];
-                Straight normalS = new Straight(dependency.Local.GlobalPosition, normal, Straight.LineSetupType._1Point1Dir);
+                Straight3D normalS = new Straight3D(dependency.Local.GlobalPosition, normal, Straight3D.LineSetupType._1Point1Dir);
                 Vector3 pos = normalS.GetPointAt(distance);
                 _plane = new Plane(pos, axisAsGlobalUnitVectors[0]);
                 globalHorizontal = axisAsGlobalUnitVectors[1];
@@ -123,12 +123,12 @@ namespace Engine.Core.Components
                                 {
                                     List<Vector3> points = new List<Vector3>();
 
-                                    Straight sC1 = new Straight(dependency.Local.GlobalPosition, dirC1, Straight.LineSetupType._1Point1Dir);
-                                    Straight sC2 = new Straight(dependency.Local.GlobalPosition, dirC2, Straight.LineSetupType._1Point1Dir);
-                                    Straight sC3 = new Straight(dependency.Local.GlobalPosition, dirC3, Straight.LineSetupType._1Point1Dir);
-                                    Straight sC4 = new Straight(dependency.Local.GlobalPosition, dirC4, Straight.LineSetupType._1Point1Dir);
+                                    Straight3D sC1 = new Straight3D(dependency.Local.GlobalPosition, dirC1, Straight3D.LineSetupType._1Point1Dir);
+                                    Straight3D sC2 = new Straight3D(dependency.Local.GlobalPosition, dirC2, Straight3D.LineSetupType._1Point1Dir);
+                                    Straight3D sC3 = new Straight3D(dependency.Local.GlobalPosition, dirC3, Straight3D.LineSetupType._1Point1Dir);
+                                    Straight3D sC4 = new Straight3D(dependency.Local.GlobalPosition, dirC4, Straight3D.LineSetupType._1Point1Dir);
 
-                                    if (Plane.Intersection(_plane, sC1, out Straight ilC1, out Vector3 C1))
+                                    if (Plane.Intersection(_plane, sC1, out Straight3D ilC1, out Vector3 C1))
                                     {
                                         if (C1 == null) res = false;
                                         else
@@ -138,7 +138,7 @@ namespace Engine.Core.Components
                                     }
                                     else res = false;
 
-                                    if (Plane.Intersection(_plane, sC2, out Straight ilC2, out Vector3 C2))
+                                    if (Plane.Intersection(_plane, sC2, out Straight3D ilC2, out Vector3 C2))
                                     {
                                         if (C2 == null) res = false;
                                         else
@@ -148,7 +148,7 @@ namespace Engine.Core.Components
                                     }
                                     else res = false;
 
-                                    if (Plane.Intersection(_plane, sC3, out Straight ilC3, out Vector3 C3))
+                                    if (Plane.Intersection(_plane, sC3, out Straight3D ilC3, out Vector3 C3))
                                     {
                                         if (C3 == null) res = false;
                                         else
@@ -159,7 +159,7 @@ namespace Engine.Core.Components
                                     else res = false;
 
 
-                                    if (Plane.Intersection(_plane, sC4, out Straight ilC4, out Vector3 C4))
+                                    if (Plane.Intersection(_plane, sC4, out Straight3D ilC4, out Vector3 C4))
                                     {
                                         if (C4 == null) res = false;
                                         else

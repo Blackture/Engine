@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Core.Maths
 {
-    public abstract class AffineTransformationMatrix
+    public abstract class AffineMatrix3x3
     {
         private Matrix matrix;
         private RotationType rotationType;

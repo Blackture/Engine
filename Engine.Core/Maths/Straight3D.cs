@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Engine.Core.Maths
 {
     /// <summary>
-    /// This code defines a class called Straight that represents a straight line in 3D space. It has properties such as OA, OB, and Dir, which represent the endpoints of the line, and the direction of the line, respectively. The class also contains methods such as GetPointAt, Intersection, Distance, and Distance with 2 output parameters, which return the point on the line at a given position, determine if the line intersects with another line, find the distance between the line and a point in 3D space, and find the distance between the line and another line in 3D space along with the closest points on both lines to the point of intersection, respectively. The class also has some static fields, such as x1_Axis, x2_Axis, and x3_Axis, which represent the x, y, and z axes in 3D space, respectively.
+    /// This code defines a class called Straight3D that represents a straight line in 3D space. It has properties such as OA, OB, and Dir, which represent the endpoints of the line, and the direction of the line, respectively. The class also contains methods such as GetPointAt, Intersection, Distance, and Distance with 2 output parameters, which return the point on the line at a given position, determine if the line intersects with another line, find the distance between the line and a point in 3D space, and find the distance between the line and another line in 3D space along with the closest points on both lines to the point of intersection, respectively. The class also has some static fields, such as x1_Axis, x2_Axis, and x3_Axis, which represent the x, y, and z axes in 3D space, respectively.
     /// </summary>
-    public class Straight
+    public class Straight3D
     {
         public enum LineSetupType
         {
@@ -18,9 +18,9 @@ namespace Engine.Core.Maths
             _1Point1Dir
         }
 
-        public static readonly Straight x1_Axis = new Straight(Vector3.Zero, new Vector3(1, 0, 0), LineSetupType._1Point1Dir);
-        public static readonly Straight x2_Axis = new Straight(Vector3.Zero, new Vector3(0, 1, 0), LineSetupType._1Point1Dir);
-        public static readonly Straight x3_Axis = new Straight(Vector3.Zero, new Vector3(0, 0, 1), LineSetupType._1Point1Dir);
+        public static readonly Straight3D x1_Axis = new Straight3D(Vector3.Zero, new Vector3(1, 0, 0), LineSetupType._1Point1Dir);
+        public static readonly Straight3D x2_Axis = new Straight3D(Vector3.Zero, new Vector3(0, 1, 0), LineSetupType._1Point1Dir);
+        public static readonly Straight3D x3_Axis = new Straight3D(Vector3.Zero, new Vector3(0, 0, 1), LineSetupType._1Point1Dir);
 
         private Vector3 a;
         private Vector3 b;
@@ -30,7 +30,7 @@ namespace Engine.Core.Maths
         public Vector3 OB { get { return b; } set { b = value; dir = Vector3.Normalize(b - a); } }
         public Vector3 Dir { get => dir; }
 
-        public Straight(Vector3 OA, Vector3 OB, LineSetupType setupType)
+        public Straight3D(Vector3 OA, Vector3 OB, LineSetupType setupType)
         {
             switch (setupType)
             {
@@ -52,7 +52,7 @@ namespace Engine.Core.Maths
             return a + f * dir;
         }
 
-        public static bool Intersection(Straight a, Straight b, out Vector3 I)
+        public static bool Intersection(Straight3D a, Straight3D b, out Vector3 I)
         {
 
             I = null;
@@ -77,7 +77,7 @@ namespace Engine.Core.Maths
             return Mathf.Sqrt(Mathf.Pow(lx.X1, 2) + Mathf.Pow(lx.X2, 2) + Mathf.Pow(lx.X3, 2));
         }
 
-        public float Distance(Straight s)
+        public float Distance(Straight3D s)
         {
             float res = 0.0f;
             if (s.Dir * Dir == 1)
@@ -98,7 +98,7 @@ namespace Engine.Core.Maths
             return res;
         }
 
-        public float Distance(Straight s, out Vector3 OG, out Vector3 OH)
+        public float Distance(Straight3D s, out Vector3 OG, out Vector3 OH)
         {
             float res = 0.0f;
             if (s.Dir * Dir == 1)
@@ -131,12 +131,12 @@ namespace Engine.Core.Maths
             return res;
         }
 
-        public static float Distance(Vector3 a, Straight b, out Vector3 l)
+        public static float Distance(Vector3 a, Straight3D b, out Vector3 l)
         {
             return b.Distance(a, out l);
         }
 
-        public static float Distance(Straight g, Straight h, out Vector3 OG, out Vector3 OH)
+        public static float Distance(Straight3D g, Straight3D h, out Vector3 OG, out Vector3 OH)
         {
             return g.Distance(h, out OG, out OH);
         }

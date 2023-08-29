@@ -39,21 +39,5 @@ namespace Engine.Core.Maths
             MatrixMxN vCol = normal.ToMatrix(true);
             M3x3 = Matrix3x3.I3x3 - 2 * (Matrix3x3)(vCol * vRow);
         }
-
-        public MatrixMxN ToMatrix4x4()
-        {
-            MatrixMxN matrix = (MatrixMxN)Matrix.I4x4;
-
-            // Copy the values from the submatrix to the upper left portion of the matrix
-            for (int row = 0; row < 3; row++)
-            {
-                for (int col = 0; col < 3; col++)
-                {
-                    matrix[row, col] = M3x3[row, col];
-                }
-            }
-
-            return matrix;
-        }
     }
 }

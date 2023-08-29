@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Core.Maths
 {
-    public class ShearMatrix2x2
+    public class SheerMatrix2x2
     {
         public readonly MatrixMxN S2x2;
 
@@ -17,7 +17,7 @@ namespace Engine.Core.Maths
         /// </summary>
         /// <param name="shearAngle"></param>
         /// <param name="bd2d"></param>
-        public ShearMatrix2x2(float X, float Y, ShearConvention convention)
+        public SheerMatrix2x2(float X, float Y, ShearConvention convention)
         {
             float sx = 0;
             float sy = 0;
@@ -47,7 +47,7 @@ namespace Engine.Core.Maths
             });
         }
          
-        public static implicit operator MatrixMxN(ShearMatrix2x2 sm)
+        public static implicit operator MatrixMxN(SheerMatrix2x2 sm)
         {
             return sm.S2x2;
         }

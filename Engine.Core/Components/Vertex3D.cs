@@ -21,6 +21,7 @@ namespace Engine.Core.Components
             SetPosition(localPosition);
         }
 
+        [Obsolete("Global Position is got wrongly.")]
         public void SetPosition(Vector3 localPosition)
         {
             this.localPosition = localPosition;

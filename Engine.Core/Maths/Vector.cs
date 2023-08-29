@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Engine.Core.Events;
+using System;
 using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Engine.Core.Maths
         private float length;
         private float lengthSquared;
         private float[] normalized;
-        private EventHandler onValueChanged;
+        private Event onValueChanged;
 
         public float this[int index]
         {
@@ -59,7 +60,7 @@ namespace Engine.Core.Maths
                 length = GetLength();
                 CalculateNormalization();
             }
-            onValueChanged += OnValueChanged;
+            onValueChanged.AddListener(OnValueChanged);
         }
 
         public Vector Normalize()
@@ -77,7 +78,7 @@ namespace Engine.Core.Maths
             }
             normalized = f;
         }
-        private void OnValueChanged(object sender, EventArgs e)
+        private void OnValueChanged()
         {
             dimension = values.Count;
             length = GetLength();
@@ -101,11 +102,15 @@ namespace Engine.Core.Maths
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        private bool IsValidIndex(int index)
+        public bool IsValidIndex(int index)
         {
             return (index >= 0 && index < values.Count);
         }
         public bool IsDimensionEqual(Vector a, Vector b) { return a.Dimension == b.Dimension; }
+        public bool IsZeroVector()
+        {
+            return values.Sum() == 0;
+        }
 
 
         public void SetValue(float value, int index)
@@ -113,7 +118,7 @@ namespace Engine.Core.Maths
             if (IsValidIndex(index))
             {
                 values[index] = value;
-                onValueChanged.Invoke(this, null);
+                onValueChanged.Invoke();
             }
         }
         public float GetValue(int index)
@@ -131,7 +136,7 @@ namespace Engine.Core.Maths
         public void AddValue(float value)
         {
             values.Add(value);
-            onValueChanged.Invoke(this, null);
+            onValueChanged.Invoke();
 
         }
 
@@ -294,6 +299,7 @@ namespace Engine.Core.Maths
             }
             return m;
         }
+        
 
         public IEnumerator<float> GetEnumerator()
         {

@@ -93,22 +93,6 @@ namespace Engine.Core.Maths
             MirrorX3 = new Matrix3x3(1, 0, 0, 0, 1, 0, 0, 0, -1);
         }
 
-        public MatrixMxN ToMatrix4x4()
-        {
-            MatrixMxN matrix = (MatrixMxN)Matrix.I4x4;
-
-            // Copy the values from the submatrix to the upper left portion of the matrix
-            for (int row = 0; row < 3; row++)
-            {
-                for (int col = 0; col < 3; col++)
-                {
-                    matrix[row, col] = R3x3[row, col];
-                }
-            }
-
-            return matrix;
-        }
-
         public static implicit operator Matrix3x3(RotationMatrix3x3 r)
         {
             return r.R3x3;

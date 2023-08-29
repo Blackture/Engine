@@ -176,6 +176,19 @@ namespace Engine.Core.Maths
             }
             else throw new ArgumentException($"Vector must have a dimension of {ColumnCount} but got {row.Dimension}.");
         }
+        public void AddColumn(Vector col)
+        {
+            if (col.Dimension == RowCount)
+            {
+                List<Vector> rows = this.rows;
+                for (int i = 0; i < RowCount; i++)
+                {
+                    rows[i].AddValue(col[i]);
+                }
+                Instantiate(rows);
+            }
+            else throw new ArgumentException($"Vector must have a dimension of {RowCount} but got {col.Dimension}.");
+        }
         public void InsertRow(Vector row, int index)
         {
             if (row.Dimension == ColumnCount)
@@ -546,7 +559,7 @@ namespace Engine.Core.Maths
             {
                 fac.Transpose();
                 adj = fac;
-            } 
+            }
             else res = false;
             return res;
         }
@@ -637,7 +650,7 @@ namespace Engine.Core.Maths
             return success;
         }
 
-        
+
 
         public static MatrixMxN operator *(float f, MatrixMxN n)
         {

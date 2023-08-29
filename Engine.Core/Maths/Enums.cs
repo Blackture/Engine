@@ -61,38 +61,30 @@ namespace Engine.Core.Maths
 
     public enum TransformationConvention
     {
-        TDRS,
-        TRDS,
-        TDSR,
-        TRSD,
-        TSRD,
-        TSDR,
-
-        DTRS,
-        RTDS,
-        DTSR,
-        RTSD,
-        STRD,
-        STDR,
-
-        DRTS,
-        RDTS,
-        DSTR,
-        RSTD,
-        SRTD,
-        SDTR,
-
-        DRST,
-        RDST,
-        DSRT,
-        RSDT,
-        SRDT,
-        SDRT
+        DRS,
+        RDS,
+        DSR,
+        RSD,
+        SRD,
+        SDR,
     }
 
     public enum RotationMeasure
     {
         RAD,
         DEG
+    }
+
+    public enum HomogeneneousType
+    {
+        Direction,
+        Position
+    }
+
+    public enum IntegrationApproximation
+    {
+        TrapezoidalRule,
+        SimpsonsRule,
+        MidpointRile
     }
 }

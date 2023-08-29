@@ -13,10 +13,10 @@ namespace Engine.Core.Physics.Optics
 
         private List<Photon> photons;
 
-        public LightRay(Straight ray, float rayStart) : base(ray, rayStart)
+        public LightRay(Straight3D ray, float rayStart) : base(ray, rayStart)
         {
         }
-        public LightRay(Straight ray, float rayStart, float samplingRate) : base(ray, rayStart, samplingRate)
+        public LightRay(Straight3D ray, float rayStart, float samplingRate) : base(ray, rayStart, samplingRate)
         {
         }
     }

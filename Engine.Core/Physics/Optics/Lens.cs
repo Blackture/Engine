@@ -43,24 +43,24 @@ namespace Engine.Core.Physics.Optics
         /// <param name="cam"></param>
         /// <param name="r"></param>
         /// <returns></returns>
-        public Straight CreateRay(float s, float t, Camera cam, out float r)
+        public Straight3D CreateRay(float s, float t, Camera cam, out float r)
         {
-            Straight res = null;
+            Straight3D res = null;
             r = 0;
             if (LensType.None == Type)
             {
                 Vector3 OB = cam.NearPlane.plane.GetPositionVectorAt(s, t);
                 r = 1f;
-                res = new Straight(cam.Dependency.Local.GlobalPosition, OB, Straight.LineSetupType._2Points);
+                res = new Straight3D(cam.Dependency.Local.GlobalPosition, OB, Straight3D.LineSetupType._2Points);
             }
             else
             { 
                 Vector3 OB = cam.ImagePlane.plane.GetPositionVectorAt(-s, -t);
-                Straight toLens = new Straight(cam.Dependency.Local.GlobalPosition, OB, Straight.LineSetupType._2Points);
+                Straight3D toLens = new Straight3D(cam.Dependency.Local.GlobalPosition, OB, Straight3D.LineSetupType._2Points);
                 Vector3 toLensDir = toLens.Dir;
                 Vector3 outDir = LensRefraction(toLensDir);
-                res = new Straight(cam.Dependency.Local.GlobalPosition, outDir, Straight.LineSetupType._1Point1Dir);
-                if (Plane.Intersection(cam.NearPlane.plane, res, out Straight st, out Vector3 point))
+                res = new Straight3D(cam.Dependency.Local.GlobalPosition, outDir, Straight3D.LineSetupType._1Point1Dir);
+                if (Plane.Intersection(cam.NearPlane.plane, res, out Straight3D st, out Vector3 point))
                 {
                     if (st != null) throw new Exception("Something went wrong.");
                     r = (point.X1 - cam.Dependency.Local.GlobalPosition.X1) / outDir.X1;

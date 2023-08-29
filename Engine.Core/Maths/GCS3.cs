@@ -15,7 +15,7 @@ namespace Engine.Core.Maths
     //Global Coordinate System
     public class GCS3
     {
-        public static readonly Straight[] Axes = new Straight[3] { Straight.x1_Axis, Straight.x2_Axis, Straight.x3_Axis };
+        public static readonly Straight3D[] Axes = new Straight3D[3] { Straight3D.x1_Axis, Straight3D.x2_Axis, Straight3D.x3_Axis };
 
         private List<LCS3> localSystems; //local systems that don't have a Parent
         private List<LightSource> lightSources;

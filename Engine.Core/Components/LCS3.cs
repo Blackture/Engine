@@ -12,7 +12,7 @@ namespace Engine.Core.Components
     //Local Coordinate System
     public class LCS3 : Component, IEnumerable<LCS3> ,IEnumerator<LCS3>, IDisposable
     {
-        public readonly Straight[] axis = new Straight[3] { Straight.x1_Axis, Straight.x2_Axis, Straight.x3_Axis };
+        public readonly Straight3D[] axis = new Straight3D[3] { Straight3D.x1_Axis, Straight3D.x2_Axis, Straight3D.x3_Axis };
 
         public LCS3 Current
         {
