@@ -38,3 +38,26 @@ C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Configuration.Configuratio
 C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Security.AccessControl.xml
 C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Security.Permissions.xml
 C:\Users\Admin\Desktop\Engine\Engine\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\Engine 0.1-a.1.exe.config
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\Engine 0.1-a.1.exe
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\Engine 0.1-a.1.pdb
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\Engine.dll
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\Engine.Rendering.dll
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\System.Security.AccessControl.dll
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\System.Security.Permissions.dll
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\Engine.Rendering.pdb
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\Engine.pdb
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\System.Security.AccessControl.xml
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\System.Security.Permissions.xml
+C:\Users\gamin\Desktop\Engine\Engine\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\gamin\Desktop\Engine\Engine\obj\Debug\Engine.csproj.AssemblyReference.cache
+C:\Users\gamin\Desktop\Engine\Engine\obj\Debug\Engine.Properties.Resources.resources
+C:\Users\gamin\Desktop\Engine\Engine\obj\Debug\Engine.Main.resources
+C:\Users\gamin\Desktop\Engine\Engine\obj\Debug\Engine.csproj.GenerateResource.cache
+C:\Users\gamin\Desktop\Engine\Engine\obj\Debug\Engine.csproj.CoreCompileInputs.cache
+C:\Users\gamin\Desktop\Engine\Engine\obj\Debug\Engine.csproj.CopyComplete
+C:\Users\gamin\Desktop\Engine\Engine\obj\Debug\Engine 0.1-a.1.exe
+C:\Users\gamin\Desktop\Engine\Engine\obj\Debug\Engine 0.1-a.1.pdb

@@ -140,5 +140,10 @@ namespace Engine.Core.Maths
         {
             return g.Distance(h, out OG, out OH);
         }
+
+        public override string ToString()
+        {
+            return $"{a.ToString() + " + t*" +  dir.ToString()}";
+        }
     }
 }

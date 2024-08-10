@@ -1,0 +1,773 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gamin\\Desktop\\Engine\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\events\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\events\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\gamin\\desktop\\engine\\engine.core\\maths\\vector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\vector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\mathf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\mathf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\vector3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\vector3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\gauss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\gauss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\plane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\plane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23FE27FD-9AD9-4AE2-90D3-CC673213595B}|Engine\\Engine.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine\\ui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23FE27FD-9AD9-4AE2-90D3-CC673213595B}|Engine\\Engine.csproj|solutionrelative:engine\\ui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\oboslete\\gauss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\oboslete\\gauss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\matrix3x3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\matrix3x3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23FE27FD-9AD9-4AE2-90D3-CC673213595B}|Engine\\Engine.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine\\ui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{23FE27FD-9AD9-4AE2-90D3-CC673213595B}|Engine\\Engine.csproj|solutionrelative:engine\\ui\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\straight3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\straight3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\components\\face3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\components\\face3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23FE27FD-9AD9-4AE2-90D3-CC673213595B}|Engine\\Engine.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23FE27FD-9AD9-4AE2-90D3-CC673213595B}|Engine\\Engine.csproj|solutionrelative:engine\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\scenemanagement\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\scenemanagement\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\scenemanagement\\scenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\scenemanagement\\scenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\rendering\\pixel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\rendering\\pixel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\physics\\optics\\photon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\physics\\optics\\photon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\component.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\component.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\physics\\optics\\lightray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\physics\\optics\\lightray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\physics\\collisiondetection\\spatialpartitioning.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\physics\\collisiondetection\\spatialpartitioning.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\gcs3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\gcs3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\homogeneousobject3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\homogeneousobject3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\matrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\matrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\affinematrix3x3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\affinematrix3x3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\components\\vertex3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\components\\vertex3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\components\\mesh3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\components\\mesh3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\components\\lcs3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\components\\lcs3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\components\\edge3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\components\\edge3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\components\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\components\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\vector2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\vector2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\rotationmatrix2x2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\rotationmatrix2x2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\quaternion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\quaternion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\events\\eventt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\events\\eventt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\events\\eventt2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\events\\eventt2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\iray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\iray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\particle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\particle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\physics\\collisiondetection\\particlecollision3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\physics\\collisiondetection\\particlecollision3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\physics\\collisiondetection\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\physics\\collisiondetection\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\physics\\collisiondetection\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\physics\\collisiondetection\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\physics\\collisiondetection\\boundingvolume3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\physics\\collisiondetection\\boundingvolume3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\physics\\collisiondetection\\boundingbox3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\physics\\collisiondetection\\boundingbox3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\rendering\\cameraray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\rendering\\cameraray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\maths\\floatenumerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\floatenumerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\lcs3element.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\lcs3element.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\gamin\\Desktop\\Engine\\engine.core\\lcs3elementgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\lcs3elementgroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Ray.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Ray.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Ray.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Ray.cs",
+              "RelativeToolTip": "Engine.Core\\Ray.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD0AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-19T12:18:38.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Plane.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Plane.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Plane.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Plane.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Plane.cs",
+              "ViewState": "AQIAAPgAAAAAAAAAAAAAwAQBAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T12:14:27.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Main.cs [Entwurf]",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine\\UI\\Main.cs",
+              "RelativeDocumentMoniker": "Engine\\UI\\Main.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine\\UI\\Main.cs [Entwurf]",
+              "RelativeToolTip": "Engine\\UI\\Main.cs [Entwurf]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2023-10-18T09:19:34.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine\\UI\\Main.cs",
+              "RelativeDocumentMoniker": "Engine\\UI\\Main.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine\\UI\\Main.cs",
+              "RelativeToolTip": "Engine\\UI\\Main.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwCkAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2023-10-18T09:19:22.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Face3D.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Face3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Components\\Face3D.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Face3D.cs",
+              "RelativeToolTip": "Engine.Core\\Components\\Face3D.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAswAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T12:15:08.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Straight3D.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Straight3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Straight3D.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Straight3D.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Straight3D.cs",
+              "ViewState": "AQIAAH8AAAAAAAAAAAAmwJEAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-18T11:44:50.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Vector3.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Vector3.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Vector3.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Vector3.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Vector3.cs",
+              "ViewState": "AQIAAP0AAAAAAAAAAAAmwBYBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-19T12:20:27.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Gauss.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Gauss.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Gauss.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Gauss.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Gauss.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAowGoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T15:58:18.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Matrix3x3.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Matrix3x3.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Matrix3x3.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Matrix3x3.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Matrix3x3.cs",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAQwCEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-25T09:50:14.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Mathf.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Mathf.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Mathf.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Mathf.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Mathf.cs",
+              "ViewState": "AQIAAGYBAAAAAAAAAAAYwHIBAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-19T12:17:58.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Gauss.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Oboslete\\Gauss.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Oboslete\\Gauss.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Oboslete\\Gauss.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Oboslete\\Gauss.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAYwBQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-07T18:50:16.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Vector.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Vector.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Vector.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Vector.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Vector.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAkwGcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-17T09:28:46.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Events\\Event.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Events\\Event.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Events\\Event.cs",
+              "RelativeToolTip": "Engine.Core\\Events\\Event.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-04T12:36:26.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "HomogeneousObject3D.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\HomogeneousObject3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\HomogeneousObject3D.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\HomogeneousObject3D.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\HomogeneousObject3D.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAswBUAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T12:15:38.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Mesh3D.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Mesh3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Components\\Mesh3D.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Mesh3D.cs",
+              "RelativeToolTip": "Engine.Core\\Components\\Mesh3D.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAYwBEAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T12:15:02.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "LCS3.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\LCS3.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Components\\LCS3.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\LCS3.cs",
+              "RelativeToolTip": "Engine.Core\\Components\\LCS3.cs",
+              "ViewState": "AQIAAJ0AAAAAAAAAAAAkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-18T11:41:51.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine\\Program.cs",
+              "RelativeDocumentMoniker": "Engine\\Program.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine\\Program.cs",
+              "RelativeToolTip": "Engine\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-07T17:40:43.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AffineMatrix3x3.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\AffineMatrix3x3.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\AffineMatrix3x3.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\AffineMatrix3x3.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\AffineMatrix3x3.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T15:56:44.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Matrix.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Matrix.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Matrix.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Matrix.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Matrix.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T15:58:04.206Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Component.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Component.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Component.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Component.cs",
+              "RelativeToolTip": "Engine.Core\\Component.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T15:58:59.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Pixel.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Rendering\\Pixel.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Rendering\\Pixel.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Rendering\\Pixel.cs",
+              "RelativeToolTip": "Engine.Core\\Rendering\\Pixel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T15:59:18.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SceneManager.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\SceneManagement\\SceneManager.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\SceneManagement\\SceneManager.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\SceneManagement\\SceneManager.cs",
+              "RelativeToolTip": "Engine.Core\\SceneManagement\\SceneManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T15:59:20.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Scene.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\SceneManagement\\Scene.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\SceneManagement\\Scene.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\SceneManagement\\Scene.cs",
+              "RelativeToolTip": "Engine.Core\\SceneManagement\\Scene.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAkwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T15:59:21.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SpatialPartitioning.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\SpatialPartitioning.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Physics\\CollisionDetection\\SpatialPartitioning.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\SpatialPartitioning.cs",
+              "RelativeToolTip": "Engine.Core\\Physics\\CollisionDetection\\SpatialPartitioning.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAkwCQAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-23T21:18:21.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Photon.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\Optics\\Photon.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Physics\\Optics\\Photon.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\Optics\\Photon.cs",
+              "RelativeToolTip": "Engine.Core\\Physics\\Optics\\Photon.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T12:16:01.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Edge3D.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Edge3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Components\\Edge3D.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Edge3D.cs",
+              "RelativeToolTip": "Engine.Core\\Components\\Edge3D.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T15:56:14.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "LightRay.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\Optics\\LightRay.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Physics\\Optics\\LightRay.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\Optics\\LightRay.cs",
+              "RelativeToolTip": "Engine.Core\\Physics\\Optics\\LightRay.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-23T21:19:21.904Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Camera.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Components\\Camera.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Camera.cs",
+              "RelativeToolTip": "Engine.Core\\Components\\Camera.cs",
+              "ViewState": "AQIAANQAAAAAAAAAAAA+wAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-29T15:56:01.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "BoundingBox3D.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\BoundingBox3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Physics\\CollisionDetection\\BoundingBox3D.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\BoundingBox3D.cs",
+              "RelativeToolTip": "Engine.Core\\Physics\\CollisionDetection\\BoundingBox3D.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-23T21:17:51.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "GCS3.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\GCS3.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\GCS3.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\GCS3.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\GCS3.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFcAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-18T11:42:02.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Cell.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\Cell.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Physics\\CollisionDetection\\Cell.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\Cell.cs",
+              "RelativeToolTip": "Engine.Core\\Physics\\CollisionDetection\\Cell.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-23T21:18:04.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Grid.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\Grid.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Physics\\CollisionDetection\\Grid.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\Grid.cs",
+              "RelativeToolTip": "Engine.Core\\Physics\\CollisionDetection\\Grid.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAuwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-23T21:18:05.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "RotationMatrix2x2.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\RotationMatrix2x2.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\RotationMatrix2x2.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\RotationMatrix2x2.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\RotationMatrix2x2.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-25T09:50:08.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Vertex3D.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Vertex3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Components\\Vertex3D.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Components\\Vertex3D.cs",
+              "RelativeToolTip": "Engine.Core\\Components\\Vertex3D.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAkwAwAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-04T12:38:01.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ParticleCollision3D.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\ParticleCollision3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Physics\\CollisionDetection\\ParticleCollision3D.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\ParticleCollision3D.cs",
+              "RelativeToolTip": "Engine.Core\\Physics\\CollisionDetection\\ParticleCollision3D.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-23T21:18:10.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "EventT.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Events\\EventT.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Events\\EventT.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Events\\EventT.cs",
+              "RelativeToolTip": "Engine.Core\\Events\\EventT.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-04T12:36:10.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Vector2.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Vector2.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Vector2.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Vector2.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Vector2.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-18T11:44:49.854Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Quaternion.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Quaternion.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Quaternion.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\Quaternion.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Quaternion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T12:14:17.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "EventT2.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Events\\EventT2.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Events\\EventT2.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Events\\EventT2.cs",
+              "RelativeToolTip": "Engine.Core\\Events\\EventT2.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-04T12:36:19.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "CameraRay.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Rendering\\CameraRay.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Rendering\\CameraRay.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Rendering\\CameraRay.cs",
+              "RelativeToolTip": "Engine.Core\\Rendering\\CameraRay.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-23T21:17:34.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IRay.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\IRay.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\IRay.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\IRay.cs",
+              "RelativeToolTip": "Engine.Core\\IRay.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-23T21:19:03.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Particle.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Particle.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Particle.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Particle.cs",
+              "RelativeToolTip": "Engine.Core\\Particle.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAcwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T12:16:19.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "FloatEnumerator.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\FloatEnumerator.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\FloatEnumerator.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Maths\\FloatEnumerator.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\FloatEnumerator.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-18T12:14:47.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "BoundingVolume3D.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\BoundingVolume3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Physics\\CollisionDetection\\BoundingVolume3D.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\Physics\\CollisionDetection\\BoundingVolume3D.cs",
+              "RelativeToolTip": "Engine.Core\\Physics\\CollisionDetection\\BoundingVolume3D.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-19T12:20:15.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "packages.config",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\packages.config",
+              "RelativeDocumentMoniker": "Engine.Core\\packages.config",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\packages.config",
+              "RelativeToolTip": "Engine.Core\\packages.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2023-10-18T12:16:13.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "LCS3Element.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\LCS3Element.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\LCS3Element.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\LCS3Element.cs",
+              "RelativeToolTip": "Engine.Core\\LCS3Element.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-19T12:16:59.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "LCS3ElementGroup.cs",
+              "DocumentMoniker": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\LCS3ElementGroup.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\LCS3ElementGroup.cs",
+              "ToolTip": "C:\\Users\\gamin\\Desktop\\Engine\\Engine.Core\\LCS3ElementGroup.cs",
+              "RelativeToolTip": "Engine.Core\\LCS3ElementGroup.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-19T12:16:54.125Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

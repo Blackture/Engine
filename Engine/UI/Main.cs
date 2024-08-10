@@ -23,7 +23,7 @@ namespace Engine
             Matrix3x3 matrix2 = new Matrix3x3(2, 2, 2, 2, 2, 2, 2, 2, 2);
             MatrixMxN m = new MatrixMxN(new List<Vector> { new Vector(4,7), new Vector(2,6) });
             bool test = MatrixMxN.GetInverse(m, out MatrixMxN n);
-            MessageBox.Show(test.ToString());
+            //MessageBox.Show(test.ToString());
             MatrixMxN res = n;
             //MessageBox.Show($@"[{res[0, 0],0}|{res[0, 1],0}|{res[0, 2],0}]
             //[{res[1, 0],0}|{res[1, 1],0}|{res[1, 2],0}]
@@ -31,9 +31,16 @@ namespace Engine
             //MessageBox.Show($@"             [{res[0, 0],0}|{res[0, 1],0}|{res[0, 2],0}]
             //[{res[1, 0],0}|{res[1, 1],0}|{res[1, 2],0}]
             //[{res[2, 0],0}|{res[2, 1],0}|{res[2, 2],0}]");
-            MessageBox.Show($@"             [{res[0, 0],0}|{res[0, 1],0}]
-            [{res[1, 0],0}|{res[1, 1],0}]");
+            //MessageBox.Show($@"             [{res[0, 0],0}|{res[0, 1],0}]
+            //[{res[1, 0],0}|{res[1, 1],0}]");
             //MessageBox.Show($"{res[1,2]}");
+
+            Plane plane = new Plane(new Vector3(1, 3, 5), 3);
+            Plane plane2 = new Plane(new Vector3(5, 2, 4), 5);
+            if (Plane.Intersection(plane, plane2, out Straight3D s, out Plane p, out Vector3 v))
+            {
+                MessageBox.Show(s.ToString());
+            }
         }
     }
 }

@@ -269,5 +269,10 @@ namespace Engine.Core.Maths
             if (Length == 0) normalized = new float[3] { 0, 0, 0 };
             else normalized = new float[] { X1 / Length, X2 / Length, X3 / Length };
         }
+
+        public override string ToString()
+        {
+            return "(" + x1 + ", " + x2 + ", " + x3 + ")";
+        }
     }
 }

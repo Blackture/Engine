@@ -60,6 +60,7 @@ namespace Engine.Core.Maths
                 length = GetLength();
                 CalculateNormalization();
             }
+            onValueChanged = new Event();
             onValueChanged.AddListener(OnValueChanged);
         }
 
@@ -78,6 +79,7 @@ namespace Engine.Core.Maths
             }
             normalized = f;
         }
+
         private void OnValueChanged()
         {
             dimension = values.Count;
@@ -87,11 +89,7 @@ namespace Engine.Core.Maths
 
         public float GetLength()
         {
-            float res = 0;
-            foreach (float f in values)
-            {
-                res += Mathf.Pow(f, 2);
-            }
+            float res = Mathf.SigmaPow(2, values);
             res = Mathf.Sqrt(res);
             lengthSquared = Mathf.Pow(res, 2);
             return res;

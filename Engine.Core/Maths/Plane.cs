@@ -95,6 +95,14 @@ namespace Engine.Core.Maths
             return Mathf.Approximately(n.X1 * v.X1 + n.X2 * v.X2 + n.X3 * v.X3, b);
         }
 
+        public bool Contains(Vector3 v, out bool? above)
+        {
+            float res = n.X1 * v.X1 + n.X2 * v.X2 + n.X3 * v.X3;
+            above = res > b;
+            above = Mathf.Approximately(n.X1 * v.X1 + n.X2 * v.X2 + n.X3 * v.X3, b) ? null : above;
+            return above == null;
+        }
+
         public bool Contains(Straight3D s)
         {
             bool res = false;
@@ -255,6 +263,8 @@ namespace Engine.Core.Maths
             m[0, 1] = p2.N.X1;
             m[1, 1] = p2.N.X2;
             m[2, 1] = p2.N.X3;
+
+
 
             // create a augmentation with the constant terms of the system
             MatrixMxN augmentation = new MatrixMxN(3,1);

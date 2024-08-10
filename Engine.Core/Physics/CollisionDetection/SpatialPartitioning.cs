@@ -29,7 +29,7 @@ namespace Engine.Core.Physics.CollisionDetection
 
         public SpatialPartitioning()
         {
-            x1x2Plane = new Plane(new Vector3(0, 0, 1), Vector3.Zero);
+            x1x2Plane = new Plane(Vector3.Zero, new Vector3(0, 0, 1));
             grid = new Grid();
         }
 
