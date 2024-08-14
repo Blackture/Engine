@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Poimora Engine</title>
+    <meta name="description" content="An engine designed to simulate based on sciences like physics, chemistry, and mathematics.">
+    <meta name="twitter:description" content="An engine designed to simulate based on sciences like physics, chemistry, and mathematics.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://pengine.bss.design/assets/img/FavIcoRounded/android-chrome-512x512.png">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pengine.bss.design/assets/img/FavIcoRounded/android-chrome-512x512.png">
+    <meta name="twitter:title" content="Poimora Engine">
+    <meta property="og:description" content="An engine designed to simulate based on sciences like physics, chemistry, and mathematics.">
+    <script>
+        (function() {
+
+            // JavaScript snippet handling Dark/Light mode switching
+
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../assets/img/FavIcoRounded/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/FavIcoRounded/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/FavIcoRounded/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="../assets/img/FavIcoRounded/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/FavIcoRounded/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/img/FavIcoRounded/android-chrome-512x512.png">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/Articles-Badges-images.css">
+    <link rel="stylesheet" href="../assets/css/Navbar-Centered-Brand-icons.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md sticky-top bg-dark-subtle bg-gradient py-3 navbar-light">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-sm bs-icon-rounded d-flex justify-content-center align-items-center me-2 bs-icon"><img width="512" height="512" style="width: 100%;height: 100%;" src="../assets/img/FavIcoRounded/android-chrome-192x192.png"></span><span>Poimora Engine</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><span style="color: var(--bs-nav-link-hover-color);">Startseite</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Informationen</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="docs.html">Dokumentation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontakt</a></li>
+                    <li class="nav-item"></li>
+                </ul><button class="btn btn-primary ms-md-2" type="button" data-bs-target="#offcanvas-menu" data-bs-toggle="offcanvas">Mehr</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 1%;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-uppercase fw-bold text-center mb-3">Poimora ENgine<br>DokumenTation</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="margin-top: 1%;">
+        <div class="row">
+            <div class="col-md-4" style="width: 25%;">
+                <div class="card" style="position: fixed;width: 24%;">
+                    <div class="card-body">
+                        <div>
+                            <ul class="nav nav-pills flex-column d-xl-flex mb-auto">
+                                <li class="nav-item"><a class="nav-link link-body-emphasis" href="docs.html#maths"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-math me-2">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M19 5h-7l-4 14l-3 -6h-2"></path>
+                                            <path d="M14 13l6 6"></path>
+                                            <path d="M14 19l6 -6"></path>
+                                        </svg>&nbsp;Mathematik</a></li>
+                                <li class="nav-item"><a class="nav-link link-body-emphasis" href="docs.html#physics"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-atom me-2">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M12 12v.01"></path>
+                                            <path d="M19.071 4.929c-1.562 -1.562 -6 .337 -9.9 4.243c-3.905 3.905 -5.804 8.337 -4.242 9.9c1.562 1.561 6 -.338 9.9 -4.244c3.905 -3.905 5.804 -8.337 4.242 -9.9"></path>
+                                            <path d="M4.929 4.929c-1.562 1.562 .337 6 4.243 9.9c3.905 3.905 8.337 5.804 9.9 4.242c1.561 -1.562 -.338 -6 -4.244 -9.9c-3.905 -3.905 -8.337 -5.804 -9.9 -4.242"></path>
+                                        </svg> Physik</a></li>
+                                <li class="nav-item"><a class="nav-link link-body-emphasis" href="docs.html#chemistry"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-flask me-2">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M9 3l6 0"></path>
+                                            <path d="M10 9l4 0"></path>
+                                            <path d="M10 3v6l-4 11a.7 .7 0 0 0 .5 1h11a.7 .7 0 0 0 .5 -1l-4 -11v-6"></path>
+                                        </svg>&nbsp;Chemie</a></li>
+                                <li class="nav-item"><a class="nav-link link-body-emphasis" href="docs.html#code"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-code me-2">
+                                            <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"></path>
+                                        </svg> Code</a></li>
+                                <li class="nav-item"><a class="nav-link link-body-emphasis" href="docs.html#changelog"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-history me-2">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M12 8l0 4l2 2"></path>
+                                            <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"></path>
+                                        </svg> Änderungsprotokoll</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="width: 50%;">
+                <div style="margin-bottom: 2.5%;">
+                    <div class="card d-xl-flex">
+                        <div class="card-header">
+                            <h5 id="maths" class="mb-0">Mathematik</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">In der Mathematik gibt es viele varianten, wie man eine Lösung für ein bestimmtes Ziel berechnen kann. Diese Engine implementiert viele Lösungswege, um dasselbe Ziel zu erreichen. Warum verschiedene Lösungsansätze möglicherweise benötigt werden, ist per Ansatz beschrieben.</p>
+                            <div class="card" style="margin-bottom: 2.5%;">
+                                <div class="card-header">
+                                    <h5 id="rotation" class="mb-0">Rotationskonzepte</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Es gibt viele Möglichkeiten, um eine bestimmte Rotation durchzuführen. Üblicherweise berechnet man einen Winkel und verwendet diesen dann, sowie auch diese Engine. Es sind 3 Arten von Rotationen implementiert: Winkel-Rotationen, Rotationsmatrizen und Quaternionen.</p>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div>
+                                                <ul class="nav nav-tabs nav-justified" role="tablist">
+                                                    <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-1">Rotationsmatrix</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-2">Quaternionen-Rotation</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-3">Winkel-Rotation</a></li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                                        <h4 id="rm">Rotation Matrix</h4>
+                                                        <p>Poimora hat 2 Arten von Rotationmatrizen. Diese Typen sind 2x2 und 3x3 Rotationmatrizen. Es hat eine vorgefertigte 45° bzw.&nbsp;π/4 2x2&nbsp;Rotationsmatrix.<br><br>Das <strong>Problem&nbsp;</strong>des Nutzens von Rotationsmatrizen ist der Gimbal Lock. Wechsle in diesem Fall zur Quaternionen-Rotation.</p><a class="btn btn-primary" role="button" style="margin-right: 2.5%;" target="_blank" href="https://blackture.github.io/EngineDocs/engineAPI/Engine.Core.Maths.RotationMatrix2x2.html">API Referenz (2x2)</a><a class="btn btn-primary" role="button" href="https://blackture.github.io/EngineDocs/engineAPI/Engine.Core.Maths.RotationMatrix3x3.html" target="_blank">API Referenz (3x3)</a>
+                                                    </div>
+                                                    <div class="tab-pane" role="tabpanel" id="tab-2">
+                                                        <h4>Quaternion Rotation</h4>
+                                                        <p>Poimora verfügt bisher noch nicht über Quaternionen-Rotationen. (7/1/2023 - 1:47 PM (PDT))<br><br>Das <strong>Problem&nbsp;</strong>des Nutzens von Quaternionen ist, dass sie noch nicht implementiert sind.</p><a class="btn btn-primary" role="button" href="https://blackture.github.io/EngineDocs/engineAPI/Engine.Core.Maths.Quaternion.html" target="_blank">API Referenz</a>
+                                                    </div>
+                                                    <div class="tab-pane" role="tabpanel" id="tab-3">
+                                                        <h4>Winkel-Rotation</h4>
+                                                        <p>Poimora ermöglicht die Ermittlung des Winkels zwischen vielen Objekten (wie Vektoren, Ebenen, …). Das heißt, man kann einen Winkel ermitteln und ihn in vielen Szenarien auf ein anderes Objekt applizieren.<br><br>Das&nbsp;<strong>Problem&nbsp;</strong>des Nutzens von Winkeln ist, dass sie eine Menge Berechnungen benötigen, was zu schlechterer Leistung, Lags (Verzögerungen) oder Abstürzen führen kann.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 id="projection" class="mb-0">Projektionskonzepte</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">There are many rotation approaches to apply a specific rotation. Commonly, one calculates an angle and applies the angle, so does this engine too. There are three types of rotations implemented: angles, rotation matrices, and quaternions.&nbsp;</p>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div>
+                                                <ul class="nav nav-tabs nav-justified" role="tablist">
+                                                    <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="tab" href="#tab-4">Orthographische Projektion</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-5">Perspektivische Projektion</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-6">Projektion für Brillen</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="tab" href="#tab-7">Schräge Projektion</a></li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" role="tabpanel" id="tab-4">
+                                                        <p>Content for tab 4.</p>
+                                                    </div>
+                                                    <div class="tab-pane" role="tabpanel" id="tab-5">
+                                                        <p>Content for tab 5.</p>
+                                                    </div>
+                                                    <div class="tab-pane" role="tabpanel" id="tab-6">
+                                                        <p>Content for tab 6.</p>
+                                                    </div>
+                                                    <div class="tab-pane" role="tabpanel" id="tab-7">
+                                                        <p>Tab content.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 2.5%;">
+                    <div class="card d-xl-flex">
+                        <div class="card-header">
+                            <h5 id="physics" class="mb-0">Physik</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">In der Physik gibt es manchmal mehrere Möglichkeiten, um sich an denselben Wert anzunähern.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 2.5%;">
+                    <div class="card d-xl-flex">
+                        <div class="card-header">
+                            <h5 id="chemistry" class="mb-0">Chemie</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Es ist was es ist, da noch keine Chemie implementiert ist.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 2.5%;">
+                    <div class="card d-xl-flex">
+                        <div class="card-header">
+                            <h5 id="code" class="mb-0">Code</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-inline-flex">
+                                <p>Um die API-Dokumentation, die es (momentan) nur auf English gibt, zu lesen, klicken Sie&nbsp;<a href="https://blackture.github.io/EngineDocs/engineAPI/Engine.html" target="_blank" style="text-decoration:none;">hier</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-bottom: 2.5%;">
+                    <div class="card d-xl-flex">
+                        <div class="card-header">
+                            <h5 id="changelog" class="mb-0">Änderungsprotokoll</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Das Änderungsprotokoll hält den Fortschritt der Entwicklungsverlaufs fest. Man kann hier herausfinden, wie die Poimora Engine kreiert wurde.</p>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 id="clv01" class="mb-0">Version 0.1</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Das ist die erste Version der Engine.</p>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#collapse-1" role="button">Änderungen Anzeigen</a>
+                                                <div class="collapse" id="collapse-1">
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>23. November 2022</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-5" href="#collapse-5" role="button">Einblenden: Build 0.1-a.1</a>
+                                                                <div class="collapse" id="collapse-5">
+                                                                    <p>Erster Build</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>26. November&nbsp;2022</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-2" href="#collapse-2" role="button">Einblenden:&nbsp;Build 0.1-a.2</a>
+                                                                <div class="collapse" id="collapse-2">
+                                                                    <ul>
+                                                                        <li>Füge "Matrix" Klasse hinzu</li>
+                                                                        <li>Füge "AngleBetween" Methode zur "Vector" Klasse hinzu</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>9. Dezember 2022</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-3" href="#collapse-3" role="button">Einblenden:&nbsp;Build 0.1-a.3</a>
+                                                                <div class="collapse" id="collapse-3">
+                                                                    <ul>
+                                                                        <li>Füge "RenderingConstants" Klasse hinzu</li>
+                                                                        <li>Änderungen im "RenderImage" Konstruktor</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>28. Dezember 2022</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" href="#collapse-4" role="button">Einblenden: Build 0.1-a.4</a>
+                                                                <div class="collapse" id="collapse-4">
+                                                                    <ul>
+                                                                        <li>Korrekturen in der "Matrix" Klasse</li>
+                                                                        <li>Änderungen in der "Main" Klasse für Testzwecke</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>28. Januar 2023</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-6" href="#collapse-6" role="button">Einblenden: Build 0.1-a.5</a>
+                                                                <div class="collapse" id="collapse-6">
+                                                                    <ul>
+                                                                        <li>Füge "Gauss" Klasse hinzu</li>
+                                                                        <li>Füge "Approximately" Methode zur "Mathf" Klasse hinzu</li>
+                                                                        <li>Korrigiere die "Asin" Methode der "Mathf" Klasse</li>
+                                                                        <li>Korrekturen in der "Matrix" Klasse</li>
+                                                                        <li>Füge "Plane" Klasse hinzu</li>
+                                                                        <li>Füge "LineSetupType" enum zur "Straight" Klasse hinzu</li>
+                                                                        <li>Implementierung mehrerer Möglichkeiten zur Initialisierung einer Linie im "Straight"-Konstruktor</li>
+                                                                        <li>Hinzufügen der Methode "Distance" zur Klasse "Straight"</li>
+                                                                        <li>Korrektur der Eigenschaften "X1", "X2" und "X3" der Klasse "Vector"</li>
+                                                                        <li>Hinzufügen eines Indexers zur Klasse "Vector"</li>
+                                                                        <li>Korrektur der Operatoren der Klasse "Vector"</li>
+                                                                        <li>Hinzufügen einer "GetNormalVector"-Methode zur "Vector"-Klasse</li>
+                                                                        <li>Änderungen an der Klasse "Main" zu Testzwecken</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>29. Januar 2023</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" href="#collapse-7" role="button">Einblenden: Build 0.1-a.6</a>
+                                                                <div class="collapse" id="collapse-7">
+                                                                    <ul>
+                                                                        <li>Füge die "Component"&nbsp;Klasse&nbsp;hinzu</li>
+                                                                        <li>Hinzufügen des Komponenten-Namensraumes zum "Engine.Core"-Namensraum</li>
+                                                                        <li>Füge "Edge" Klasse hinzu</li>
+                                                                        <li>Füge "Face" Klasse hinzu</li>
+                                                                        <li>Füge "Mesh" Klasse hinzu</li>
+                                                                        <li>Füge "Vertex" Klasse hinzu</li>
+                                                                        <li>Hinzufügen der Methode "Add" zur Klasse "GCS"</li>
+                                                                        <li>Eigenschaften und Attribute der Klasse "LCS" ändern</li>
+                                                                        <li>Korrektur der Methode "Pow" in der Klasse "Mathf"</li>
+                                                                        <li>Korrektur der Methode "Sqrt" in der Klasse "Mathf"</li>
+                                                                        <li>Hinzufügen der Methode "Intersection" zur Klasse "Plane".</li>
+                                                                        <li>Hinzufügen der Methode "Distance" zur Klasse "Plane"</li>
+                                                                        <li>Die Klasse Straight wird zweimal um die Überladungsmethode Distance sowie um eine statische Version dieser Methoden erweitert</li>
+                                                                        <li>Hinzufügen der Methode "CalculateNormalization" im Set-Accessor der Eigenschaften "X1", "X2" und "X3" der Klasse "Vector"</li>
+                                                                        <li>Reimplementieren des Indexers der "Vector"-Klasse</li>
+                                                                        <li>Korrektur der Vektorkonstruktoren</li>
+                                                                        <li>Hinzufügen eines Skalardivision-Operators in die Klasse "Vector"</li>
+                                                                        <li>Hinzufügen einer statischen "DotProduct"-Methode zur "Vector"-Klasse</li>
+                                                                        <li>Korrektur der statischen "Normalize"-Methode in der "Vector"-Klasse</li>
+                                                                        <li>Korrektur der statischen "GetLength"-Methode in der "Vector"-Klasse</li>
+                                                                        <li>Hinzufügen der Methode "Normalize" zur Klasse "Vector"</li>
+                                                                        <li>Hinzufügen der privaten Methode "CalculateNormalization" zur Klasse "Vector"</li>
+                                                                        <li>Füge "Object3D" Klasse hinzu</li>
+                                                                        <li>Füge "Color" Klasse hinzu</li>
+                                                                        <li>Die Klasse "RenderImage" umschreiben</li>
+                                                                        <li>Hinzufügen der "RenderPoint"-Klasse</li>
+                                                                        <li>Hinzufügen des öffentlichen und statischen Attributs "Sin135" zur Klasse "RenderingConstants"</li>
+                                                                        <li>Umschreiben der Methode "Main" in der Klasse "Main" zu Testzwecken</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>30. Januar 2023</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-8" href="#collapse-8" role="button">Einblenden: Build 0.1-a.7</a>
+                                                                <div class="collapse" id="collapse-8">
+                                                                    <ul>
+                                                                        <li>Umwandlung in der Klasse "Mathf" ändern</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>19. Juni 2023</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-9" href="#collapse-9" role="button">Einblenden: Build 0.1-a.8</a>
+                                                                <div class="collapse" id="collapse-9">
+                                                                    <ul>
+                                                                        <li>Klasse "Vector" in Klasse "Vector3" umbenennen</li>
+                                                                        <li>Hinzufügen der Klasse "Vector" für Vektoren der n-ten Dimension</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>24. Juni 2023</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-10" href="#collapse-10" role="button">Einblenden: Build 0.1-a.9</a>
+                                                                <div class="collapse" id="collapse-10">
+                                                                    <ul>
+                                                                        <li>Hinzufügen der Klasse "AugmentedMatrix</li>
+                                                                        <li>Hinzufügen der "FloatEnumerator"-Klasse</li>
+                                                                        <li>Hinzufügen der "IMatrix"-Schnittstelle</li>
+                                                                        <li>Neuerstellung der Klasse "Matrix"</li>
+                                                                        <li>Hinzufügen der "Matrix3x3"-Klasse</li>
+                                                                        <li>Veraltete "Gauss" und "Matrix" Klassen in den "Engine.Core.Maths.Obsolete" Namensraum verschieben</li>
+                                                                        <li>Implementierung der Schnittstelle "IEnumerable" in die Klasse "Vector"</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>30. Juni 2023</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-11" href="#collapse-11" role="button">Einblenden: Build 0.1-a.10</a>
+                                                                <div class="collapse" id="collapse-11">
+                                                                    <ul>
+                                                                        <li>Umschreiben der Klasse "AugmentedMatrix</li>
+                                                                        <li>Hinzufügen der Datei "Enums" und Hinzufügen des Enums "MatrixOperation" zum Namensraum "Engine.Core.Maths"</li>
+                                                                        <li>Hinzufügen der neu erstellten "Gauss"-Klasse</li>
+                                                                        <li>Umschreiben der "IMatrix"-Schnittstelle</li>
+                                                                        <li>Hinzufügen eines Konstruktors zur Klasse "Matrix"</li>
+                                                                        <li>Hinzufügen der Methode "ScalarMultiplication" zur Klasse "Matrix"</li>
+                                                                        <li>Hinzufügen der Methode "RowOperation" zur Klasse "Matrix"</li>
+                                                                        <li>Korrektur der Methode "Operation" in der Klasse "Matrix"</li>
+                                                                        <li>Hinzufügen oder Korrigieren von statischen Operationsmethoden der Klasse "Matrix"</li>
+                                                                        <li>Hinzufügen eines öffentlichen und statischen Attributs "IdentityMatrix" zur Klasse "Matrix3x3"</li>
+                                                                        <li>Hinzufügen des Attributs "cols" zur Klasse "Matrix3x3"</li>
+                                                                        <li>Hinzufügen der Eigenschaften "RowCount" und "ColumnCount" zu der Klasse "Matrix3x3"</li>
+                                                                        <li>Umschreiben der Konstruktoren der "Matrix3x3"-Klasse</li>
+                                                                        <li>Hinzufügen der privaten "GetColumns", "Instantiate", "ValidateIndexes", "InsertRow" und "RemoveRow" zur Klasse "Matrix3x3"</li>
+                                                                        <li>Umschreiben der "ValidateIndex"-Methode der "Matrix3x3"-Klasse</li>
+                                                                        <li>Korrektur der "GetValue"-Methode der "Matrix3x3"-Klasse</li>
+                                                                        <li>Hinzufügen der Methoden "SetValue", "GetRow", "GetColumn", "SwapRows", "GetDeterminant" und Operation zu der Klasse "Matrix3x3"</li>
+                                                                        <li>Überladen der Operatoren der Klasse "Matrix3x3"</li>
+                                                                        <li>Markieren der alten "Matrix"- und "Gauss"-Klassen, die sich im "Engine.Core.Maths.Obsolete"-Namensraum befinden, als veraltet</li>
+                                                                        <li>Ersetzung der veralteten "Gauss"-Klassenreferenzen in der Klasse "Plane" durch Referenzen der neuen "Gauss"-Klasse</li>
+                                                                        <li>Korrektur der Methode "Normalize" in den Klassen "Vector" und "Vector3"</li>
+                                                                        <li>Korrektur der "OnValueChange"-Ereignismethode der "Vector"-Klasse</li>
+                                                                        <li>Hinzufügen der Eigenschaft "Dimension" zur Klasse "Vector3"</li>
+                                                                        <li>Hinzufügen von Operationsmethoden zu der Klasse "Vector3"</li>
+                                                                        <li>Umschreiben der Methode "Main" in der Klasse "Main" zu Testzwecken</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>30. Juni 2023</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-12" href="#collapse-12" role="button">Einblenden: Build 0.1-a.11</a>
+                                                                <div class="collapse" id="collapse-12">
+                                                                    <ul>
+                                                                        <li>Korrektur der Methode "GetInverse" in der Klasse "Gauss"</li>
+                                                                        <li>Hinzufügen der Methode "Sum" zur Klasse "Mathf".</li>
+                                                                        <li>Korrektur der Methoden "AddRow", "InsertRow" und "RemoveRow" der Klasse "Matrix"</li>
+                                                                        <li>Hinzufügen der Methoden "RemoveColumn", "Transpose", "GetSubMatrix", "Get2x2SubMatrices", "GetMinorMatrix", "GetCoFactorMatrix" und "GetAdjointMatrix" zu der Klasse "Matrix</li>
+                                                                        <li>Korrektur der "GetDeterminant"- und "IdentityMatrix"-Methode der "Matrix"-Klasse</li>
+                                                                        <li>Umschreiben der Methode "Main" in der Klasse "Main" zu Testzwecken</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>1. Juli 2023</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-13" href="#collapse-13" role="button">Einblenden: Build 0.1-a.12</a>
+                                                                <div class="collapse" id="collapse-13">
+                                                                    <ul>
+                                                                        <li>Entfernen der "GetInverse"-Methode aus der "Gauss"-Klasse</li>
+                                                                        <li>Hinzufügen der "Sinc"-Methode zur "Mathf"-Klasse</li>
+                                                                        <li>Umbenennen der Klasse "Matrix" in "MatrixMxN".</li>
+                                                                        <li>Hinzufügen der Klasse "Matrix"</li>
+                                                                        <li>Ableiten der Klassen "MatrixMxN" und "Matrix3x3" von der Klasse "Matrix"</li>
+                                                                        <li>Korrektur der "GetDeterminant"-Methode der "Matrix3x3"-Klasse</li>
+                                                                        <li>Hinzufügen der Methode "GetIdentityMatrix" zur Klasse "Matrix3x3"</li>
+                                                                        <li>Hinzufügen des impliziten Operators: "Matrix3x3" zu "MatrixMxN", zur "Matrix3x3" Klasse</li>
+                                                                        <li>Umschreiben der Methode "Main" in der Klasse "Main" zu Testzwecken</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card" style="margin-top: 2.5%;">
+                                                        <div class="card-body">
+                                                            <p>1. Juli 2023</p>
+                                                            <div><a class="btn btn-primary" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-14" href="#collapse-14" role="button">Einblenden: Build 0.1-a.13</a>
+                                                                <div class="collapse" id="collapse-14">
+                                                                    <ul>
+                                                                        <li>Hinzufügen der Klasse "AffineTransformationMatrix</li>
+                                                                        <li>Hinzufügen der Klasse "AffineTransformationMatrix4x4"</li>
+                                                                        <li>Hinzufügen der Klasse "Konstanten</li>
+                                                                        <li>Hinzufügen von "Axis", "Covention" und "RotationType" enum zum "Engine.Core.Maths" Namespace</li>
+                                                                        <li>Hinzufügen der statischen und öffentlichen Attribute "I2x2", "I3x3" und "I4x4" zu der Klasse "Matrix</li>
+                                                                        <li>Hinzufügen eines statischen Konstruktors für die Klasse "Matrix"</li>
+                                                                        <li>Umbenennung der Methode "IdentityMatrix" in "GetIdentityMatrix".</li>
+                                                                        <li>Hinzufügen des statischen und öffentlichen Attributs "I3x3" zur Klasse "Matrix3x3"</li>
+                                                                        <li>Hinzufügen eines statischen Konstruktors zur Klasse "Matrix3x3"</li>
+                                                                        <li>Korrektur der Methode "Get2x2SubMatrices" in der Klasse "MatrixMxN"</li>
+                                                                        <li>Hinzufügen einer Methode "GetIdentityMatrix" zur Klasse "MatrixMxN"</li>
+                                                                        <li>Hinzufügen der "Quaternion"-Klasse</li>
+                                                                        <li>Hinzufügen der Klasse "RotationMatrix2x2"</li>
+                                                                        <li>Hinzufügen der Klasse "RotationMatrix3x3"</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="width: 25%;">
+                <ul class="list-group">
+                    <li class="list-group-item"><a class="focus-ring" href="docs.html#maths" style="text-decoration: none;">
+                            <h4 style="text-decoration: none;"><span style="color: var(--bs-heading-color);">Mathematik</span></h4>
+                        </a>
+                        <p>Liste vieler mathematischen Lösungswege.</p>
+                        <p>Listing of different mathematical approaches.</p>
+                        <ul>
+                            <li><a class="focus-ring" href="docs.html#rotation" style="text-decoration: none;">Rotationskonzepte</a></li>
+                            <li><a href="docs.html#projection" style="text-decoration: none;">Projektionskonzepte</a></li>
+                            <li>Item 3</li>
+                            <li>Item 4</li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item"><a class="focus-ring" href="docs.html#physics" style="text-decoration: none;">
+                            <h4 style="text-decoration: none;">Physik</h4>
+                        </a>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item"><a class="focus-ring" href="docs.html#chemistry" style="text-decoration: none;">
+                            <h4 style="text-decoration: none;">Chemie</h4>
+                        </a>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item"><a class="focus-ring" href="docs.html#code" style="text-decoration: none;">
+                            <h4 style="text-decoration: none;">Code</h4>
+                        </a>
+                        <ul>
+                            <li><a class="focus-ring" href="https://blackture.github.io/EngineDocs/engineAPI/Engine.html" style="text-decoration: none;" target="_blank">API Documentation</a></li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item"><a class="focus-ring" href="docs.html#changelog" style="text-decoration: none;">
+                            <h4 style="text-decoration: none;">Änderungsprotokoll</h4>
+                        </a>
+                        <ul>
+                            <li><a class="focus-ring" href="docs.html#clv01" style="text-decoration: none;">Version 0.1</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark-subtle bg-gradient py-4">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-3">
+                <div class="col">
+                    <p class="text-body-emphasis d-xl-flex justify-content-xl-end my-2">Urheberrecht&nbsp;© 2023 Blackture</p>
+                </div>
+                <div class="col">
+                    <ul class="list-inline text-center d-xl-flex justify-content-xl-center my-2">
+                        <li class="list-inline-item me-4"><a href="https://discord.gg/5Uf6Gq7d" target="_blank">
+                                <div class="bs-icon-circle bs-icon-primary bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-discord">
+                                        <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"></path>
+                                    </svg></div>
+                            </a></li>
+                        <li class="list-inline-item me-4"><a href="https://github.com/Blackture/Engine">
+                                <div class="bs-icon-circle bs-icon-primary bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-github">
+                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"></path>
+                                    </svg></div>
+                            </a></li>
+                        <li class="list-inline-item"><a href="#">
+                                <div class="bs-icon-circle bs-icon-primary bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-file-text">
+                                        <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"></path>
+                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"></path>
+                                    </svg></div>
+                            </a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul class="list-inline my-2">
+                        <li class="list-inline-item"><a class="link-body-emphasis" href="#" style="text-decoration:none;"><span style="color: RGBA(var(--bs-emphasis-color-rgb),var(--bs-link-opacity,0.75));">Datenschutzrichtlinie</span></a></li>
+                        <li class="list-inline-item"><a class="link-body-emphasis" href="#" style="text-decoration:none;"><span style="color: RGBA(var(--bs-emphasis-color-rgb),var(--bs-link-opacity,0.75));">Nutzungsbedingungen</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="offcanvas offcanvas-end bg-body" tabindex="-1" data-bs-backdrop="false" id="offcanvas-menu">
+        <div class="offcanvas-header"><a class="link-body-emphasis d-flex align-items-center me-md-auto mb-3 mb-md-0 text-decoration-none" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-link-45deg me-3" style="font-size: 25px;">
+                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"></path>
+                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"></path>
+                </svg><span class="fs-4">Externe Links</span></a><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="offcanvas"></button></div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between pt-0">
+            <div>
+                <hr class="mt-0">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item"><a class="nav-link active link-light" href="#" aria-current="page"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-house-door me-2">
+                                <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"></path>
+                            </svg> Hauptseite</a></li>
+                    <li class="nav-item"><a class="nav-link link-body-emphasis" rel="external" href="https://blaxrew-studios.codecks.io" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-list-check me-2">
+                                <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0m0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0m0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"></path>
+                            </svg>&nbsp;Projekt Verwaltung</a></li>
+                    <li class="nav-item"><a class="nav-link link-body-emphasis" href="https://blackture.github.io/EngineDocs/engineAPI/Engine.html" target="_blank" rel="external"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-file-text me-2">
+                                <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"></path>
+                                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"></path>
+                            </svg> API-Dokumentation</a></li>
+                    <li class="nav-item"><a class="nav-link link-body-emphasis" href="https://github.com/Blackture/Engine" target="_blank" rel="external"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-github me-2">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"></path>
+                            </svg> GitHub-Repository</a></li>
+                    <li class="nav-item"><a class="nav-link link-body-emphasis" href="https://open.codecks.io/blaxrew-studios_engine" target="_blank" rel="external"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-megaphone me-2">
+                                <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0m-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9 6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065m-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z"></path>
+                            </svg>&nbsp;Kommende Korrekturen und Features</a></li>
+                    <li class="nav-item">
+                        <div class="d-flex float-start align-items-xl-center">
+                            <div class="nav-item dropdown"><button class="btn dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-language text-body-emphasis">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M4 5h7"></path>
+                                        <path d="M9 3v2c0 4.418 -2.239 8 -5 8"></path>
+                                        <path d="M5 9c0 2.144 2.952 3.908 6.7 4"></path>
+                                        <path d="M12 20l4 -9l4 9"></path>
+                                        <path d="M19.1 18h-6.2"></path>
+                                    </svg></button>
+                                <div class="dropdown-menu"><a class="dropdown-item link-body-emphasis" href="../en/docs.html">English</a><a class="dropdown-item link-body-emphasis" href="docs.html">Deutsch</a></div>
+                            </div>
+                            <p class="text-body-emphasis d-xl-flex" style="padding-top: 6px;padding-bottom: 6px;margin-top: 1px;margin-bottom: 1px;">Sprache</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <hr>
+                <div class="d-flex float-start m-auto justify-content-xl-start align-items-xl-center">
+                    <div class="theme-switcher dropdown"><button class="btn btn-link dropdown-toggle m-auto" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="color: var(--bs-body-color);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill mb-1">
+                                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                            </svg></button>
+                        <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="light"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
+                                    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                                </svg>Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
+                                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
+                                    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+                                </svg>Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
+                                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
+                                </svg>Auto</a></div>
+                    </div>
+                    <p class="d-xl-flex m-auto" style="padding-top: 6px;padding-bottom: 6px;">Thema</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="../assets/js/contact.js"></script>
+    <script src="../assets/js/setlang.js"></script>
+</body>
+
+</html>
