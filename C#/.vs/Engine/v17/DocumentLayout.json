@@ -3,31 +3,79 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\vector3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\vector3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\vector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\vector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\vector2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\vector2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\events\\eventt2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\events\\eventt2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\events\\eventt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\events\\eventt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\events\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\events\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\plane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\plane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\matrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\matrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\homogeneousobject3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\homogeneousobject3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\gcs3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\gcs3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\gauss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\gauss.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\floatenumerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\floatenumerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\imatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\imatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\affinematrix3x3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\Admin\\Desktop\\Engine\\C#\\engine.core\\maths\\affinematrix3x3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\affinematrix3x3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\Admin\\Desktop\\Engine\\C#\\engine.core\\maths\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\mathf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\Admin\\Desktop\\Engine\\C#\\engine.core\\maths\\mathf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\mathf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\limits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\Admin\\Desktop\\Engine\\C#\\engine.core\\maths\\limits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\limits.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\interval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\Admin\\Desktop\\Engine\\C#\\engine.core\\maths\\interval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\interval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|c:\\users\\admin\\desktop\\engine\\c#\\engine.core\\maths\\set.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|C:\\Users\\Admin\\Desktop\\Engine\\C#\\engine.core\\maths\\set.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5E1F9AE-7CF6-4C3B-8EC2-EFCEC92A428E}|Engine.Core\\Engine.Core.csproj|solutionrelative:engine.core\\maths\\set.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -38,24 +86,180 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Vector2.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Vector2.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Vector2.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Vector2.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Vector2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T22:00:25.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Vector3.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Vector3.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Vector3.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Vector3.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Vector3.cs",
+              "ViewState": "AgIAAPgAAAAAAAAAAAAgwAUBAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T22:00:02.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EventT2.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Events\\EventT2.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Events\\EventT2.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Events\\EventT2.cs",
+              "RelativeToolTip": "Engine.Core\\Events\\EventT2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T20:02:26.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EventT.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Events\\EventT.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Events\\EventT.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Events\\EventT.cs",
+              "RelativeToolTip": "Engine.Core\\Events\\EventT.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:45:38.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Events\\Event.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Events\\Event.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Events\\Event.cs",
+              "RelativeToolTip": "Engine.Core\\Events\\Event.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAwwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:43:18.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Vector.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Vector.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Vector.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Vector.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Vector.cs",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAqwPsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:21:36.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Plane.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Plane.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Plane.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Plane.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Plane.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:21:25.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Matrix.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Matrix.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Matrix.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Matrix.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Matrix.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:20:47.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomogeneousObject3D.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\HomogeneousObject3D.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\HomogeneousObject3D.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\HomogeneousObject3D.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\HomogeneousObject3D.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAA8wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:19:42.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GCS3.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\GCS3.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\GCS3.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\GCS3.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\GCS3.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:19:37.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Gauss.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Gauss.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\Gauss.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Gauss.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\Gauss.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:18:36.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FloatEnumerator.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\FloatEnumerator.cs",
+              "RelativeDocumentMoniker": "Engine.Core\\Maths\\FloatEnumerator.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\FloatEnumerator.cs",
+              "RelativeToolTip": "Engine.Core\\Maths\\FloatEnumerator.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwEcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:08:41.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "IMatrix.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\IMatrix.cs",
               "RelativeDocumentMoniker": "Engine.Core\\Maths\\IMatrix.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\IMatrix.cs",
               "RelativeToolTip": "Engine.Core\\Maths\\IMatrix.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-17T16:30:33.432Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 13,
               "Title": "AffineMatrix3x3.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\AffineMatrix3x3.cs",
               "RelativeDocumentMoniker": "Engine.Core\\Maths\\AffineMatrix3x3.cs",
@@ -63,12 +267,11 @@
               "RelativeToolTip": "Engine.Core\\Maths\\AffineMatrix3x3.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T16:30:28.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-17T16:30:28.85Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 18,
               "Title": "Set.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Set.cs",
               "RelativeDocumentMoniker": "Engine.Core\\Maths\\Set.cs",
@@ -76,12 +279,11 @@
               "RelativeToolTip": "Engine.Core\\Maths\\Set.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T14:37:34.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-17T14:37:34.058Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
               "Title": "Limits.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Limits.cs",
               "RelativeDocumentMoniker": "Engine.Core\\Maths\\Limits.cs",
@@ -89,12 +291,11 @@
               "RelativeToolTip": "Engine.Core\\Maths\\Limits.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T14:34:20.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-17T14:34:20.965Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 17,
               "Title": "Interval.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Interval.cs",
               "RelativeDocumentMoniker": "Engine.Core\\Maths\\Interval.cs",
@@ -102,12 +303,11 @@
               "RelativeToolTip": "Engine.Core\\Maths\\Interval.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T14:33:23.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-17T14:33:23.22Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "Enums.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Enums.cs",
               "RelativeDocumentMoniker": "Engine.Core\\Maths\\Enums.cs",
@@ -115,12 +315,11 @@
               "RelativeToolTip": "Engine.Core\\Maths\\Enums.cs",
               "ViewState": "AgIAAHMAAAAAAAAAAAAYwIMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T14:29:53.491Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-17T14:29:53.491Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 15,
               "Title": "Mathf.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Engine\\C#\\Engine.Core\\Maths\\Mathf.cs",
               "RelativeDocumentMoniker": "Engine.Core\\Maths\\Mathf.cs",
@@ -128,8 +327,7 @@
               "RelativeToolTip": "Engine.Core\\Maths\\Mathf.cs",
               "ViewState": "AgIAAKMBAAAAAAAAAAAowLkBAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T06:17:02.225Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-17T06:17:02.225Z"
             }
           ]
         }
