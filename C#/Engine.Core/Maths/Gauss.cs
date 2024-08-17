@@ -32,7 +32,7 @@ namespace Engine.Core.Maths
                     int maxIndex = i;
                     for (int j = i + 1; j < matrix.Matrix.RowCount; j++)
                     {
-                        if (Math.Abs(matrix.Matrix[j, i]) > Math.Abs(maxValue))
+                        if (Mathf.Abs(matrix.Matrix[j, i]) > Mathf.Abs(maxValue))
                         {
                             maxValue = matrix.Matrix[j, i];
                             maxIndex = j;
@@ -46,7 +46,7 @@ namespace Engine.Core.Maths
                     }
 
                     // Scale the row if necessary
-                    if (Math.Abs(maxValue) > 0)
+                    if (Mathf.Abs(maxValue) > 0)
                     {
                         float scale = 1 / maxValue;
                         matrix.RowOperation(i, -1, MatrixOperation.ScalarMultiplication, scale);
@@ -109,7 +109,7 @@ namespace Engine.Core.Maths
                     {
                         sum += matrix.Matrix[i, j] * result.Floats[j];
                     }
-                    if (Math.Abs(sum - matrix.Augmentation[i, 0]) > 0.0001)
+                    if (Mathf.Abs(sum - matrix.Augmentation[i, 0]) > 0.0001)
                     {
                         result.Floats = null;
                         return false;

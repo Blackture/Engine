@@ -10,19 +10,6 @@
 
 namespace Engine::Core::Maths
 {
-    enum class MidpointRounding
-    {
-        ToEven,
-        AwayFromZero
-    };
-
-    enum IntegrationApproximation
-    {
-        TrapezoidalRule,
-        SimpsonsRule,
-        MidpointRule
-    };
-
     class Mathf
     {
     public:
@@ -201,6 +188,8 @@ namespace Engine::Core::Maths
         static float SigmaR(std::function<float(float)> innerFunction, int limit1, int limit2, float increment = std::numeric_limits<float>::epsilon());
 
         static float Sigma(std::initializer_list<float> floats);
+
+        static float Mathf::Sigma(std::vector<float> floats);
 
         static float SigmaPow(float power, std::initializer_list<float> floats);
 

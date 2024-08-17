@@ -136,6 +136,19 @@ namespace Engine::Core::Maths
 		return res;
 	}
 
+	/// @brief Interative sum
+	/// @param floats
+	/// @return the sum
+	float Mathf::Sigma(std::vector<float> floats)
+	{
+		float res = 0.0f;
+		for (float f : floats)
+		{
+			res += f;
+		}
+		return res;
+	}
+
 	/// @brief Sigma where each element gets raised by a power.
 	/// @param power
 	/// @param floats

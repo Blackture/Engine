@@ -6,17 +6,10 @@
 #include <iostream>
 #include <cmath>
 #include <Set.h>
+#include <Enums.h>
 
 namespace Engine::Core::Maths
 {
-    enum class IntervalType
-    {
-        Open,
-        LowerHalfOpen,
-        UpperHalfOpen,
-        Closed
-    };
-
     class Interval : public Set<float>
     {
     private:
