@@ -190,7 +190,7 @@ namespace Engine.Core.Maths
 
         public static float Pi(Func<float, float> innerFunction, int limit1, int limit2)
         {
-            float res = 0.0f;
+            float res = 1.0f;
             for (float i = limit1; i < limit2; i++)
             {
                 res *= innerFunction(i);
@@ -200,7 +200,7 @@ namespace Engine.Core.Maths
 
         public static float Pi(Func<float,float> innerFunction, float limit1, float limit2, float increment)
         {
-            float res = 0.0f;
+            float res = 1.0f;
             for (float i = limit1; i < limit2; i +=  increment)
             {
                 res *= innerFunction(i);
