@@ -54,6 +54,10 @@
         "list": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "array": "cpp",
+        "string": "cpp",
+        "set": "cpp",
+        "xtree": "cpp"
     }
 }

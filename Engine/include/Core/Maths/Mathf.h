@@ -1,15 +1,26 @@
 #ifndef MATHF_H
 #define MATHF_H
+
 #include <cmath>
-#include <algorithm>
 #include <functional>
+#include <limits>
 #include <initializer_list>
+#include <vector>
+#include <Core.h>
 
 namespace Engine::Core::Maths
 {
-    enum class MidpointRounding {
+    enum class MidpointRounding
+    {
         ToEven,
         AwayFromZero
+    };
+
+    enum IntegrationApproximation
+    {
+        TrapezoidalRule,
+        SimpsonsRule,
+        MidpointRule
     };
 
     class Mathf
@@ -133,22 +144,20 @@ namespace Engine::Core::Maths
             return std::round(f);
         }
 
-        static float Round(float f, int digits) {
+        static float Round(float f, int digits)
+        {
             float scale = std::pow(10.0f, digits);
             return std::round(f * scale) / scale;
         }
 
         static float Round(float f, int digits, MidpointRounding midpointRounding);
 
-        static int RoundToInt(float f) {
+        static int RoundToInt(float f)
+        {
             return static_cast<int>(Round(f, 0, MidpointRounding::AwayFromZero));
         }
 
-        static int Sign(float f) {
-            if (f > 0) return 1;
-            if (f < 0) return -1;
-            return 0;
-        }
+        static int Sign(float f);
 
         static float Sinh(float f)
         {
@@ -195,11 +204,44 @@ namespace Engine::Core::Maths
 
         static float SigmaPow(float power, std::initializer_list<float> floats);
 
-        static float SigmaPow(float power, const std::vector<float>& floats);
+        static float SigmaPow(float Didnpower, const std::vector<float> &floats);
 
-        private:
+        static float SigmaR(std::initializer_list<float> floats);
 
-            static float SigmaHelper(std::function<float(float)> innerFunction, float currentI, int limit2, float current, float increment);
+        static float SigmaR(std::vector<float> &floats);
+
+        static float SigmaRPow(const std::vector<float> &floats, float power);
+
+        static bool Approximately(float a, float b, float tolerance);
+
+        static bool Approximately(float a, float b);
+
+        static float Deg2Rad(float deg);
+
+        static float Rad2Deg(float rad);
+
+        static float Sinc(float f, bool Pi = false);
+
+        static int Factorial(int i);
+
+        static float Gamma(float f);
+
+        static float Mathf::Integral(Limits limits, std::function<float(float)> innerFunction, IntegrationApproximation approximation, int numSteps = 100);
+
+    private:
+        static float SigmaHelper(std::function<float(float)> innerFunction, float currentI, int limit2, float current, float increment);
+
+        static float SigmaHelper(int i, float current, const std::vector<float> &floats);
+
+        static float SigmaHelperPow(int i, float current, const std::vector<float> &floats, float power);
+
+        static int FactorialHelper(int i, int current);
+
+        static float TrapezoidalRule(Limits limits, std::function<float(float)> innerFunction, int numSteps);
+
+        static float MidpointRule(Limits limits, std::function<float(float)> innerFunction, int numSteps);
+
+        static float SimpsonsRule(Limits limits, std::function<float(float)> innerFunction, int numSteps);
     };
 }
 

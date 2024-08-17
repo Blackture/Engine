@@ -329,16 +329,6 @@ namespace Engine.Core.Maths
             return SigmaHelper(0, 0, floats);
         }
 
-        public static float SigmaR_PowElements(float power, params float[] floats)
-        {
-            return SigmaHelperPow(0, 0, floats, power);
-        }
-
-        public static float SigmaR_PowElements(float power, List<float> floats)
-        {
-            return SigmaHelperPow(0, 0, floats, power);
-        }
-
         private static float SigmaHelper(int i, float current, float[] floats)
         {
             if (i < floats.Length)

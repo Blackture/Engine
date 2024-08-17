@@ -13,6 +13,8 @@ namespace Engine.Core.Maths
         private float lowerBoundary;
         private float upperBoundary;
 
+        public float UpperBoundary => upperBoundary;
+        public float LowerBoundary => lowerBoundary;
         public bool ContainsUpperBoundary => Contains(upperBoundary);
         public bool ContainsLowerBoundary => Contains(lowerBoundary);
         public bool ContainsBoundaries => Type == IntervalType.Closed;
