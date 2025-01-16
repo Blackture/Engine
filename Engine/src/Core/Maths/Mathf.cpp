@@ -8,6 +8,7 @@ namespace Engine::Core::Maths
 	const float Mathf::PiHalf = Mathf::pi / 2.0f;
 	const float Mathf::SinePiQuarter = sin(Mathf::PiQuarter);
 	const float Mathf::CosinePiQuarter = cos(Mathf::PiQuarter);
+	const float Mathf::h = std::numeric_limits<float>::epsilon();
 
 	float Mathf::Round(float f, int digits, MidpointRounding midpointRounding)
 	{
@@ -343,5 +344,77 @@ namespace Engine::Core::Maths
 		default:
 			throw NotImplementedException();
 		}
+	}
+
+    // Function to calculate the limit of innerFunction as approaches a value
+    float Mathf::Lim(std::function<float(float)> innerFunction, float& approaches, float tolerance = 1e-6, int maxIterations = 1000) {
+        // Try evaluating the function at the exact point first
+        try {
+            float exactValue = innerFunction(approaches);
+            if (std::isfinite(exactValue)) {
+                return exactValue;
+            }
+        } catch (...) {
+            // If direct evaluation fails, proceed to approximation
+        }
+
+        // Numerical approximation using limits from both sides
+        float step = tolerance;
+        float prevValueLeft = std::numeric_limits<float>::quiet_NaN();
+        float prevValueRight = std::numeric_limits<float>::quiet_NaN();
+        
+        for (int i = 0; i < maxIterations; ++i) {
+            float xLeft = approaches - step;
+            float xRight = approaches + step;
+            
+            float valueLeft = innerFunction(xLeft);
+            float valueRight = innerFunction(xRight);
+
+            // Check for infinities
+            if (std::isinf(valueLeft) && std::isinf(valueRight)) {
+                // Both sides are infinite
+                if (valueLeft > 0 && valueRight > 0) {
+                    return std::numeric_limits<float>::infinity(); // +∞
+                } else if (valueLeft < 0 && valueRight < 0) {
+                    return -std::numeric_limits<float>::infinity(); // -∞
+                }
+            } else if (std::isinf(valueLeft) || std::isinf(valueRight)) {
+                // If only one side is infinite, return infinity as well
+                if (std::isinf(valueLeft) && valueLeft > 0) return std::numeric_limits<float>::infinity();
+                if (std::isinf(valueLeft) && valueLeft < 0) return -std::numeric_limits<float>::infinity();
+                if (std::isinf(valueRight) && valueRight > 0) return std::numeric_limits<float>::infinity();
+                if (std::isinf(valueRight) && valueRight < 0) return -std::numeric_limits<float>::infinity();
+            }
+            
+            // Use Approximately to check if the values from both sides converge within the tolerance
+            if (Mathf::Approximately(valueLeft, valueRight, tolerance)) {
+                return (valueLeft + valueRight) / 2.0f; // Average the two sides for better approximation
+            }
+            
+            // Keep track of previous values for stopping criteria
+            if (Mathf::Approximately(valueLeft, prevValueLeft, tolerance) && Mathf::Approximately(valueRight, prevValueRight, tolerance)) {
+                return (valueLeft + valueRight) / 2.0f;
+            }
+            
+            prevValueLeft = valueLeft;
+            prevValueRight = valueRight;
+            
+            // Reduce the step size to get closer
+            step /= 2.0f;
+        }
+
+        return std::numeric_limits<float>::quiet_NaN(); // If no convergence, return NaN
+    }
+
+	float Mathf::ForwardDerivative(std::function<float(float)> f, float &value) {
+		return (f(value + h) - f(value)) / h;
+	}
+
+	float Mathf::CentralDerivative(std::function<float(float)> f, float &value) {
+		return (f(value + h) - f(value)) / (2 * h);
+	}
+
+	float Mathf::FivePointDerivative(std::function<float(float)> f, float &value) {
+		return (-f(value + 2*h) + 8 * f(value + h) - 8 * f(value - h) + f(value + 2 * h)) / (12 * h);
 	}
 }

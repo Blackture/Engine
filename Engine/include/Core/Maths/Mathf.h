@@ -215,9 +215,23 @@ namespace Engine::Core::Maths
 
         static float Gamma(float f);
 
-        static float Mathf::Integral(Limits limits, std::function<float(float)> innerFunction, IntegrationApproximation approximation, int numSteps = 100);
+        static float Integral(Limits limits, std::function<float(float)> innerFunction, IntegrationApproximation approximation, int numSteps = 100);
+
+        static float Lim(std::function<float(float)> innerFunction, float& approaches, float tolerance = 1e-6, int maxIterations = 1000);
+
+        static std::string DerivativeSymbolic(std::string &expression, std::vector<char> &symbols);
+
+        static float ForwardDerivative(std::function<float(float)> function, float &value);
+
+        static float CentralDerivative(std::function<float(float)> function, float &value);
+
+        static float FivePointDerivative(std::function<float(float)> function, float &value);
+
+        static float DerivativePartial(std::function<float(std::vector<float>)>, std::vector<float> &values, int &index);
 
     private:
+        static const float h;
+
         static float SigmaHelper(std::function<float(float)> innerFunction, float currentI, int limit2, float current, float increment);
 
         static float SigmaHelper(int i, float current, const std::vector<float> &floats);

@@ -1,12 +1,18 @@
 #include "Vector3.h"
 #include "Mathf.h"
+#include "Vector.h"
 
 namespace Engine::Core::Maths
 {
+    // Static constants
+    const Vector3 Vector3::Zero = Vector3(0.0f, 0.0f, 0.0f);
+    const Vector3 Vector3::One = Vector3(1.0f, 1.0f, 1.0f);
+
+
     Vector3::Vector3(float x1, float x2, float x3)
         : x1(x1), x2(x2), x3(x3), length(0), lengthSquared(0)
     {
-        CalculateNormalization();
+        calculateNormalization();
     }
 
     Vector3::Vector3(const Vector3 &vector)
@@ -16,30 +22,30 @@ namespace Engine::Core::Maths
     }
 
     // Getter methods
-    float Vector3::getX1() const { return x1; }
-    void Vector3::setX1(float value)
+    float Vector3::GetX1() const { return x1; }
+    void Vector3::SetX1(float value)
     {
         x1 = value;
-        length = GetLength();
-        CalculateNormalization();
+        length = getLength();
+        calculateNormalization();
     }
-    float Vector3::getX2() const { return x2; }
-    void Vector3::setX2(float value)
+    float Vector3::GetX2() const { return x2; }
+    void Vector3::SetX2(float value)
     {
         x2 = value;
-        length = GetLength();
-        CalculateNormalization();
+        length = getLength();
+        calculateNormalization();
     }
-    float Vector3::getX3() const { return x3; }
-    void Vector3::setX3(float value)
+    float Vector3::GetX3() const { return x3; }
+    void Vector3::SetX3(float value)
     {
         x3 = value;
-        length = GetLength();
-        CalculateNormalization();
+        length = getLength();
+        calculateNormalization();
     }
-    float Vector3::getLength() const { return length; }
-    float Vector3::getLengthSquared() const { return lengthSquared; }
-    Vector3 Vector3::getNormalized() const { return Vector3(normalized[0], normalized[1], normalized[2]); }
+    float Vector3::GetLength() const { return length; }
+    float Vector3::GetLengthSquared() const { return lengthSquared; }
+    Vector3 Vector3::GetNormalized() const { return Vector3(normalized[0], normalized[1], normalized[2]); }
     
     int Vector3::Dimension() const { return 3; }
 
@@ -110,14 +116,23 @@ namespace Engine::Core::Maths
         return v1[0] == v2[0] && v1[1] == v2[1] && v1[2] == v2[2];
     }
 
+    bool operator!=(const Vector3 &v1, const Vector3 &v2)
+    {
+        return v1[0] != v2[0] && v1[1] != v2[1] && v1[2] != v2[2];
+    }
+
+    Vector3::operator Vector() const {
+        return Vector({X1(),X2(),X3()});
+    }
+
     // Vector operations
     Vector3 Vector3::Normalize()
     {
-        CalculateNormalization();
-        return getNormalized();
+        calculateNormalization();
+        return GetNormalized();
     }
 
-    float Vector3::GetLength()
+    float Vector3::getLength()
     {
         this->lengthSquared = x1 * x1 + x2 * x2 + x3 * x3;
         this->length = Mathf::Sqrt(lengthSquared);
@@ -191,11 +206,41 @@ namespace Engine::Core::Maths
     Vector3 Vector3::Project(const Vector3 &to) const
     {
         float dotProduct = DotProduct(to);
-        float lengthSquared = to.getLength();
+        float lengthSquared = to.GetLength();
         return to * (dotProduct / lengthSquared);
     }
 
-    void Vector3::CalculateNormalization()
+    Vector3 Vector3::CrossProduct(Vector3 u, Vector3 v) {
+        return u.CrossProduct(v);
+    }
+
+    float Vector3::DotProduct(Vector3 u, Vector3 v) {
+        return u * v;
+    }
+
+    Vector3 Vector3::Normalize(Vector3 v) {
+        v.Normalize();
+        return Vector3(v.normalized[0],v.normalized[1],v.normalized[2]);
+    }
+
+    float Vector3::GetLength(Vector3 v) {
+        return v.GetLength();
+    }
+
+    float AngleBetween(Vector3 &a, Vector3 &b) {
+        if (a == Vector3::Zero && b == Vector3::Zero) return 0.0f;
+        return Mathf::Acos(a * b / (a.GetLength() * b.GetLength()) * 180 / Mathf::pi);
+    }
+
+    bool OrthogonalityCheck(Vector3 a, Vector3 b) {
+        bool res = false;
+        if (a != Vector3::Zero && b != Vector3::Zero) {
+            if (a * b == 0) res = true;
+        }
+        return res;
+    }
+
+    void Vector3::calculateNormalization()
     {
         if (length == 0)
         {

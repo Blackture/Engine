@@ -31,7 +31,7 @@ namespace Engine::Core::Maths
         Vector(const Vector &v);
         Vector();
 
-        void Instantiate(const std::vector<float> &values);
+        void Instantiate(const std::vector<float> values);
 
         Vector Normalize();
 

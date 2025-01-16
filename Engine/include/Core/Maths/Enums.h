@@ -23,6 +23,14 @@ namespace Engine::Core::Maths
         SimpsonsRule,
         MidpointRule
     };
+
+    enum MatrixOperation {
+        Addition,
+        Substraction,
+        Multiplication,
+        ScalarMultiplication,
+        ScalarDivision
+    };
 }
 
 #endif // ENUMS_H

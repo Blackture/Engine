@@ -169,7 +169,7 @@ namespace Engine::Core::Maths
             Vector3 _a(values[0], values[1], 0);
             Vector3 _b(b[0], b[1], 0);
             Vector3 c = Vector3::CrossProduct(_a, _b);
-            res = Vector(c.X3); // Only the Z-component
+            res = {c.X3()}; // Only the Z-component
             break;
         }
         case 3:
@@ -177,7 +177,7 @@ namespace Engine::Core::Maths
             Vector3 __a(values[0], values[1], values[2]);
             Vector3 __b(b[0], b[1], b[2]);
             Vector3 _c = Vector3::CrossProduct(__a, __b);
-            res = {_c.X1, _c.X2, _c.X3};
+            res = {_c.X1(), _c.X2(), _c.X3()};
             break;
         }
         default:
