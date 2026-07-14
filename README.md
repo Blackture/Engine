@@ -1,5 +1,7 @@
 # Engine
 
+Warning: Do not execute unreviewed code. Possible side effects include undefined behavior, cursed mathematics, and psychedelic blobs apparently tripping on LSD.
+
 ### Important links:
 * [Official Site](https://blackture.bss.design/projects/engine/)
 * [API Docs](https://blackture.github.io/EngineDocs)
